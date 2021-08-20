@@ -1,0 +1,27 @@
+.Padre{
+    font-family: 'Montserrat';
+    margin: auto;
+    box-shadow: 0px 6px 7px 1px rgb(0 0 0 / 20%);
+}
+.menu-Header{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.btn-Carrito{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.inicio-De-Sesion{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}

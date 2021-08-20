@@ -1,0 +1,99 @@
+.Header-Home {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    font-family: 'Montserrat';
+    box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.2);
+}
+.logo-Home,
+.UsuariosHome{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}
+.NavLinks-Home{
+    width: 50%;
+    display: flex;
+    height: inherit;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-left: 7%;
+}
+.boton-Nav-Left{
+    background-color: transparent;
+    height: 30%;
+    width: 20%;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.boton-Nav-Left:hover{
+    transition:0.3s all;
+    opacity: 1;
+    background-color: rgb(255, 188, 62);
+    font-weight: bold;
+    color: white;
+}
+.boton-Nav-Mid{
+    background-color: transparent;
+    height: 30%;
+    width: 20%;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color:black;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+.boton-Nav-Mid:hover{
+    transition:0.3s all;
+    opacity: 1;
+    background-color: rgb(255, 188, 62);
+    font-weight: bold;
+    color: white;
+}
+.boton-Nav-Right{
+    background-color: transparent;   
+    height: 30%;
+    width: 20%;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color:black;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.boton-Nav-Right:hover{
+    transition:0.3s all;
+    opacity: 1;
+    background-color: rgb(255, 188, 62);
+    font-weight: bold;
+    color: white;
+}
+.boton-Nav-Usuario{
+    width: 70%;
+    background-color: rgb(255, 188, 62);
+    height: 30%;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    color:white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+.boton-Nav-Usuario:hover{
+    font-weight: bold;
+    background-color: rgb(238, 161, 17);
+    transition: 0.3s all;
+}

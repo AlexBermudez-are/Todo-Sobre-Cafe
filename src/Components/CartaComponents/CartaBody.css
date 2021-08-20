@@ -1,0 +1,63 @@
+.Padre-P{
+    width: 100%;
+    padding-top: 5%;
+    background-color: rgb(226, 226, 226);
+    border-top: solid 10px rgba(0, 0, 0, .10);
+}
+.postres{
+    width: 90%;
+    margin: auto;
+    gap: 130px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.seleccion-P{
+    justify-content: center;
+    color: white;
+    background-color: rgb(238, 161, 17);
+    width: 25%;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0px 7px 16px 3px rgb(0 0 0 / 20%);
+    margin-bottom: 6%;
+}
+.switch-P{
+    justify-content: center;
+    margin: 0;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 7rem;
+}
+
+/**** Infusiones ********************************/
+
+.Padre-I{
+    width: 100%;
+    padding-top: 5%;
+    background-color: white;
+    border-top: solid 10px rgba(0, 0, 0, .10);
+}
+.infusiones{
+    width: 90%;
+    margin: auto;
+    gap: 130px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.seleccion-I{
+    justify-content: center;
+    color: white;
+    background-color: rgb(238, 161, 17);
+    width: 25%;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 0px 7px 16px 3px rgb(0 0 0 / 20%);
+    margin-bottom: 6%;
+}
+.switch-I{
+    justify-content: center;
+    margin: 0;
+    font-family: 'Lobster', cursive;
+    text-align: center;
+    font-size: 7rem;
+}

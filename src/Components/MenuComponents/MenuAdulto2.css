@@ -1,0 +1,56 @@
+.menu-Adulto-2{
+    visibility: hidden;
+    background-color: white;
+    display: flex;
+    padding-top: 5%;
+    width: 100%;
+    padding-bottom: 2%;
+    transform: translate(0,50%);
+    transition: visibility 1s ease, transform 1s ease;
+}
+.menu-Adulto-2.active{
+    visibility: visible;
+    transform: translate(0,0);
+}
+.platillo-2{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+}
+.info-Platillo2{
+    text-align: center;
+    width: 30%;
+    font-size: 1.5rem;
+    margin: auto;
+}
+.compra2{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    padding-top: 4%;
+    justify-content: space-between;
+}
+.btn-Agregar2{
+    width: 30%;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    color: white;
+    background-color: rgb(238, 161, 17);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-Agregar2:hover{
+    background-color: rgb(248, 181, 58);
+}
+.precio2{
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}

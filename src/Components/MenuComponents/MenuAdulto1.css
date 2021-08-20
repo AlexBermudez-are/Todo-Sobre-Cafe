@@ -1,0 +1,49 @@
+.menu-Adulto-1{
+    background-color: rgb(226, 226, 226);
+    display: flex;
+    padding-top: 5%;
+    width: 100%;
+    padding-bottom: 2%;
+}
+.platillo-1{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+}
+.info-Platillo{
+    text-align: center;
+    width: 30%;
+    font-size: 1.5rem;
+    margin: auto;
+}
+.compra{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    padding-top: 4%;
+    justify-content: space-between;
+}
+.btn-Agregar{
+    width: 30%;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    color: white;
+    background-color: rgb(238, 161, 17);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-Agregar:hover{
+    background-color: rgb(248, 181, 58);
+}
+.precio{
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
