@@ -1,33 +1,83 @@
-.Card{
+.Card {
     box-shadow: 4px 4px 7px 1px rgb(0 0 0 / 20%);
     border-radius: 20px;
     background-color: white;
-    margin-bottom: 15%;
 }
-.contenido{
+
+.contenido {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.titulo{
+
+.Marco_Titulo {
+    background-color: saddlebrown;
+    color: white;
+    width: 50%;
+    height: 111px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo {
     font-size: 1.5rem;
 }
-.img-Card{
+
+.img-Card {
     border-radius: 10px;
     box-shadow: 0px 12px 7px 1px rgb(0 0 0 / 20%);
 }
-.info-Card{
+
+.info-Card {
     padding-bottom: 6%;
     display: flex;
     justify-content: space-evenly;
     padding-top: 5%;
+    width: 100%;
 }
-.precio-Card{
+
+.precio-Card {
     font-weight: bold;
     font-size: 1.3rem;
+    width: 25%;
 }
-.btn-Card{
-    width: 37%;
+
+.seccion-Botones-C {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.agregar-Disminuir {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.agregar-C {
+    height: 40%;
+    background-color: rgb(0, 202, 44);
+    border: none;
+    cursor: pointer;
+    color: white;
+    position: relative;
+}
+
+.disminuir-C {
+    height: 40%;
+    background-color: rgb(255, 0, 85);
+    border: none;
+    cursor: pointer;
+    color: white;
+    position: relative;
+}
+
+.btn_Card {
+    width: 70%;
     justify-content: space-evenly;
     align-items: center;
     border: none;
@@ -40,6 +90,10 @@
     cursor: pointer;
     box-shadow: 4px 4px 7px 1px rgb(0 0 0 / 20%)
 }
-.btn-Card:hover{
+.btn_Card.active{
+    background-color: rgb(70, 246, 0);
+}
+
+.btn-Card:hover {
     background-color: rgb(248, 181, 58);
 }

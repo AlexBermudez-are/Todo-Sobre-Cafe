@@ -1,6 +1,6 @@
-.carrito-De-Compras{
-    width: 60%;
-    height: 17%;
+.carrito-De-Compras {
+    width: 65%;
+    height: 20%;
     background-color: rgb(255, 188, 62);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -11,11 +11,11 @@
     box-shadow: 3px 4px 7px 1px rgba(0, 0, 0, 0.2);
 }
 
-.carrito-De-Compras:hover{
+.carrito-De-Compras:hover {
     background-color: rgb(238, 161, 17);
 }
 
-.carrito-Con-Nav{
+.carrito-Con-Nav {
     text-decoration: none;
     font-size: 2rem;
     color: white;
@@ -23,7 +23,7 @@
     width: 100%;
 }
 
-.btn-Carrito-Img{
+.btn-Carrito-Img {
     width: 100%;
     height: 100%;
     display: flex;
@@ -33,23 +33,9 @@
 
 /****** Inicio De Sesión **************************************************/
 
-.btn-De-Sesion{
-    width: 100%;
-    font-size: 2rem;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-}
-
-.sesion-Con-Nav:hover{
-    background-color: rgb(238, 161, 17);
-}
-
-.sesion-Con-Nav{
-    box-shadow: -3px 4px 7px 1px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    width: 60%;
-    height: 17%;
+.UsuariosHome-G {
+    width: 65%;
+    height: 20%;
     background-color: rgb(255, 188, 62);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -57,4 +43,27 @@
     border-bottom-right-radius: 10px;
     display: flex;
     align-items: center;
+    box-shadow: 3px 4px 7px 1px rgb(0 0 0 / 20%);
+}
+
+.boton-Nav-Usuario-G {
+    text-decoration: none;
+    font-size: 2rem;
+    background-color: rgb(255, 188, 62);
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/** scroll Up Btn de Carta ***************************/
+
+.btn-Scroll-H {
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.btn-Scroll-H.active {
+    opacity: 1;
 }

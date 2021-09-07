@@ -1,27 +1,31 @@
-.Padre-P{
+.Padre-P {
     width: 100%;
     padding-top: 5%;
     background-color: rgb(226, 226, 226);
     border-top: solid 10px rgba(0, 0, 0, .10);
+    padding-bottom: 5%;
 }
-.postres{
+
+.postres {
     width: 90%;
     margin: auto;
     gap: 130px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
-.seleccion-P{
+
+.seleccion-P {
     justify-content: center;
     color: white;
     background-color: rgb(238, 161, 17);
     width: 25%;
     border-radius: 10px;
     margin: auto;
-    box-shadow: 0px 7px 16px 3px rgb(0 0 0 / 20%);
+    box-shadow: inset 0px 7px 20px 8px rgb(0 0 0 / 20%);
     margin-bottom: 6%;
 }
-.switch-P{
+
+.switch-P {
     justify-content: center;
     margin: 0;
     font-family: 'Lobster', cursive;
@@ -29,32 +33,37 @@
     font-size: 7rem;
 }
 
-/**** Infusiones ********************************/
 
-.Padre-I{
+/********************Seccion de Infusiones **************************************/
+
+.Padre-I {
     width: 100%;
     padding-top: 5%;
     background-color: white;
     border-top: solid 10px rgba(0, 0, 0, .10);
+    padding-bottom: 5%;
 }
-.infusiones{
+
+.infusiones {
     width: 90%;
     margin: auto;
     gap: 130px;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
-.seleccion-I{
+
+.seleccion-I {
     justify-content: center;
     color: white;
     background-color: rgb(238, 161, 17);
-    width: 25%;
+    width: 30%;
     border-radius: 10px;
     margin: auto;
-    box-shadow: 0px 7px 16px 3px rgb(0 0 0 / 20%);
+    box-shadow: inset 0px 7px 16px 3px rgb(0 0 0 / 20%);
     margin-bottom: 6%;
 }
-.switch-I{
+
+.switch-I {
     justify-content: center;
     margin: 0;
     font-family: 'Lobster', cursive;

@@ -1,0 +1,82 @@
+.input-C-Usuario-Padre {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 755px;
+    background-color: rgba(87, 87, 87, 0.472);
+    position: absolute;
+}
+
+.input-C-Usuario-Contenedor {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 60%;
+    height: 60%;
+    margin: 10% auto;
+    border-radius: 10px;
+}
+
+.btn-C-Usuario-X {
+    border: none;
+    background-color: red;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    height: 58%;
+    margin-top: 15px;
+}
+
+.crear-C-Inputs {
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+
+.inputs-C-Sesion {
+    width: 47%;
+    padding-top: 3%;
+}
+
+.inputs-C-Sesion p {
+    margin: 0px;
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+
+.inputs-C-Sesion input {
+    font-size: 1.2rem;
+    width: 90%;
+    margin-bottom: 4%;
+}
+.inputs-C-Sesion input:focus{
+    outline: none;
+}
+
+.inputs-C-Sesion-A {
+    margin-left: 4%;
+    font-weight: 100;
+    margin-top: 2%;
+    width: 70%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.crear-Usuario {
+    margin-top: 2%;
+    width: 25%;
+    font-size: 1.3rem;
+    background-color: red;
+    border: none;
+    color: white;
+    height: 35px;
+    border-radius: 5px;
+    margin-left: 5%;
+    cursor: pointer;
+}

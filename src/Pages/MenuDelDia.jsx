@@ -6,9 +6,9 @@ import MenuHeader from '../Components/MenuComponents/MenuHeader'
 const MenuDelDia = () => {
     return (
         <div>
-            <MenuHeader/>
-            <MenuBody/>
-            <BodyFooter/>
+            <MenuHeader />
+            <MenuBody />
+            <BodyFooter />
         </div>
     )
 }

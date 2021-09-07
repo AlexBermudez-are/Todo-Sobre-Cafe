@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Terraza from "../../assets/Terraza-Cafetería.mp4";
 import Logo from "../../assets/todo-sobre-café.png";
 import BodyCarruselCafe from "./BodyCarruselCafe";
@@ -6,16 +6,24 @@ import BodyCarruselPostre from "./BodyCarruselPostre";
 import "./BodyHome.css";
 
 const BodyHome = () => {
-  const [scroll, setscroll] = useState(null);
+  const [scroll, setscroll] = useState(false);
+  const [manejador, setManejador] = useState(false)
 
   const w = window;
 
   w.addEventListener("scroll", (e) => {
     const scrollB = w.pageYOffset;
-    if (scrollB > 500) {
+    if (scrollB > 500 && manejador === true) {
       setscroll("active");
     }
   });
+  
+  useEffect(() => {
+    setManejador(true)
+    return () => {
+      setManejador(false)
+    }
+  }, [])
 
   return (
     <>
@@ -37,7 +45,7 @@ const BodyHome = () => {
           />
         </section>
         <section className="body-Cafe">
-          <div className="cafe">infusiones</div>
+          <div className="cafe">Infusiones</div>
         </section>
       </div>
 

@@ -1,20 +1,22 @@
-.div-Footer{
+.div-Footer {
     width: 100%;
     background-color: rgb(136, 88, 48);
     padding-bottom: 2%;
 }
-.nav-Footer{
-    font-size: 1.2rem;
+
+.nav-Footer {
+    font-size: 1.1rem;
     padding-top: 1%;
     display: flex;
     justify-content: center;
     color: white;
 }
-.p-Footer{
+
+.p-Footer {
     text-align: center;
     padding-top: 1%;
     width: 40%;
     margin: auto;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
 }

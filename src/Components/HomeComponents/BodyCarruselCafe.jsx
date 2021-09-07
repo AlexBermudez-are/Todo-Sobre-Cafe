@@ -5,8 +5,8 @@ import capuccinoCasero from "../../assets/Cafe-Capuchino-Casero.jpg";
 import "./Body-C-Postre.css";
 
 const Estilos = {
-  width: "400px",
-  height: "300px",
+  width: "92%",
+  height: "260px",
   borderTopLeftRadius: "5%",
   borderTopRightRadius: "5%",
   borderBottomLeftRadius: "5%",
@@ -15,25 +15,23 @@ const Estilos = {
 
 const BodyCarruselCafe = ({ claseActiva }) => {
   const [Carrusel, setCarrusel] = useState([frapuccino]);
-  
+
   useEffect(() => {
     const arregloImg = [capuccino, capuccinoCasero, frapuccino];
     let i = 0;
 
     let contador = setInterval(() => {
-      if (arregloImg.length - 1 >= i) {
+      if (arregloImg.length - 1 > i) {
+        setCarrusel(arregloImg[i]);
         i++;
+      } else {
         setCarrusel(arregloImg[i]);
-        //console.log(i);
-      }
-      if (i > arregloImg.length - 1) {
         i = 0;
-        setCarrusel(arregloImg[i]);
       }
-    }, 5000);
+    }, 4000);
 
     return () => {
-        return clearInterval(contador)
+      return clearInterval(contador)
     };
   }, [claseActiva]);
 
@@ -43,7 +41,7 @@ const BodyCarruselCafe = ({ claseActiva }) => {
         className="img-Cafes"
         style={Estilos}
         src={Carrusel}
-        alt="Torta de Limón"
+        alt={"nada"}
       />
     </div>
   );

@@ -1,0 +1,110 @@
+.input-Usuario-Padre {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 755px;
+    background-color: rgba(87, 87, 87, 0.472);
+    position: fixed;
+}
+
+.input-Usuario-Contenedor {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 30%;
+    height: 58%;
+    margin: 10% auto;
+    border-radius: 10px;
+}
+
+.titulo-Sesion {
+    display: flex;
+    justify-content: space-between;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding-left: 3%;
+    padding-right: 5%;
+    background-color: red;
+    font-size: 16px;
+    color: white;
+}
+
+.btn-Usuario-X {
+    border: none;
+    background-color: red;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    height: 58%;
+    margin-top: 3%;
+}
+
+.inputs-Sesion p {
+    font-size: 1.2rem;
+    font-weight: 100;
+    padding-left: 5%;
+    padding-top: 5%;
+    margin: 10px 0;
+}
+
+.input-Email, 
+.input-Contraseña {
+    width: 88%;
+    margin-left: 5%;
+    font-size: 1.3rem;
+}
+
+.sesion-Fallida-E, 
+.sesion-Fallida-P {
+    display: none;
+}
+
+.sesion-Fallida-E.active, 
+.sesion-Fallida-P.active {
+    display: block;
+}
+
+.input-Email, .input-Contraseña:focus {
+    outline: none;
+    color: #495057;
+}
+
+.inputs-Sesion-A {
+    font-weight: 100;
+    margin-top: 5%;
+    width: 70%;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ingresar-Login-Usuario {
+    margin-top: 3%;
+    width: 25%;
+    font-size: 1.3rem;
+    background-color: red;
+    border: none;
+    color: white;
+    height: 35px;
+    border-radius: 5px;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+.extra-Login {
+    width: 80%;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7%;
+}
+
+.btn-Extra {
+    color: rgb(0, 89, 255);
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}

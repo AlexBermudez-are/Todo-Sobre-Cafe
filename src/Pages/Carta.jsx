@@ -6,9 +6,9 @@ import BodyFooter from '../Components/HomeComponents/BodyFooter'
 const Carta = () => {
     return (
         <div>
-            <CartaHeader/>
-            <CartaBody/>
-            <BodyFooter/>
+            <CartaHeader />
+            <CartaBody />
+            <BodyFooter />
         </div>
     )
 }

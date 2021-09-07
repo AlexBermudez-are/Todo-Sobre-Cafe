@@ -1,6 +1,6 @@
 import React from "react";
 import CarritoDeCompras from "../CarritoDeCompras";
-import InicioDeSesion from "../InicioDeSesion";
+import InicioDeSesionHome from "../InicioDeSesion";
 import LogoConNav from "../LogoConNav";
 import "./MenuHeader.css";
 
@@ -15,7 +15,7 @@ const MenuHeader = () => {
           <LogoConNav />
         </section>
         <section className="inicio-De-Sesion">
-          <InicioDeSesion />
+          <InicioDeSesionHome />
         </section>
       </section>
     </div>

@@ -1,0 +1,90 @@
+.Padre-Carrito-Lista {
+    display: flex;
+    width: 60%;
+    margin: auto;
+    margin-top: 3%;
+    box-shadow: -13px 13px 7px 1px rgb(0 0 0 / 20%);
+}
+
+.info-P {
+    display: flex;
+    width: 50%;
+}
+
+.info-P h2 {
+    width: 50%;
+    text-align: center;
+    margin: 0;
+}
+
+.precio-P {
+    width: 15%;
+    text-align: center;
+}
+
+.ordenar-Pedido {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.ordenar-Pedido-Container {
+    display: flex;
+    width: 50%;
+}
+
+.ordenar-Pedido-Container button {
+    width: 35%;
+    height: 20%;
+    border: none;
+    background-color: #b9b9b9;
+    color: rgb(58, 58, 58);
+    cursor: pointer;
+    border-top: solid 1px #b9b9b9;
+    border-bottom: solid 1px #b9b9b9;
+}
+
+.ordenar-Pedido-Container h2 {
+    width: 30%;
+    text-align: center;
+    font-size: 15px;
+    border-top: solid 1px #b9b9b9;
+    border-bottom: solid 1px #b9b9b9;
+}
+
+.precio-Total-Carrito {
+    width: 60%;
+    margin: auto;
+}
+
+.contenedor-Finalizar-Pedido {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.opciones-Pedido {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 20%;
+    background-color: #b9b9b9;
+    font-weight: bold;
+}
+
+.boton-Finalizar-Compra {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 3%;
+}
+
+.button-Carrito-F {
+    width: 23%;
+    height: 50px;
+    border: none;
+    background-color: #ffb71b;
+    font-size: 1.2rem;
+    border-radius: 22px;
+    cursor: pointer;
+}

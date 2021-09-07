@@ -2,12 +2,17 @@
   text-align: center;
   font-family: "Lobster", cursive;
   font-size: 1.7rem;
+  background-color: rgb(226, 226, 226);
+  margin: 0;
+  padding-top: 3%;
+  padding-bottom: 4%;
 }
 .formContacto {
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: rgb(226, 226, 226);
+  box-shadow: inset 0px 0px 20px 2px rgb(0 0 0 / 20%);
 }
 .contenedorContacto {
   width: 90%;
@@ -18,7 +23,7 @@
   justify-content: space-around;
 }
 label {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   width: 20%;
   font-weight: bold;
   font-family: sans-serif;
@@ -55,4 +60,27 @@ label {
   font-size: 1.3rem;
   color: red;
   display: block;
+}
+.ubicacion-C{
+  width: 100%;
+  display: flex;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+.mapa-C{
+  width: 50%;
+  border: 10px solid rgb(253, 64, 64);
+}
+.contacto-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 49%;
+}
+.redes-Sociales{
+  padding-top: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
 }
