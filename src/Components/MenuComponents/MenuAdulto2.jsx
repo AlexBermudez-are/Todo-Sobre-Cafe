@@ -53,7 +53,7 @@ const MenuAdulto2 = ({ Menu }) => {
       <div className="platillo-2">
         <img
           src={Menu ? Menu.img : "cargando"}
-          style={{ height: "415px", boxShadow: "-5px 5px 7px 1px rgb(0 0 0 / 20%)" }}
+          style={{ height: "350px", boxShadow: "-5px 5px 7px 1px rgb(0 0 0 / 20%)" }}
           alt=""
         />
         <section className="compra2">

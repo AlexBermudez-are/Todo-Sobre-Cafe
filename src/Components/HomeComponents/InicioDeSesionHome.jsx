@@ -1,18 +1,23 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useContext } from 'react'
 import axios from "axios";
 import './InicioDeSesion.css'
+import SesionContext from '../../Context/SesionContext';
 
 let initialState = {
     email: "",
     contraseña: "",
 }
 
-const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta }) => {
+const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlvidada }) => {
+
+    const { usuarioLogueado } = useContext(SesionContext)
     const [checked, setchecked] = useState(false)
     const [valueForm, setvalueForm] = useState(initialState)
     const [validadorUsuario, setvalidadorUsuario] = useState([])
-    const logFailEmail = useRef(),
-        logFailPassword = useRef()
+
+    const logFail = useRef(),
+        failLogueo = useRef()
+
     let url = 'http://localhost:3005/usuarios'
 
     useEffect(() => {
@@ -20,34 +25,31 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta }) => {
             const datosUsuarios = await axios.get(url),
                 usuariosData = await datosUsuarios.data
             setvalidadorUsuario(usuariosData)
-            console.log(validadorUsuario);
         }
         Usuarios()
-        return () => {
-        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [url])
 
     const validarusuario = (e) => {
         e.preventDefault();
-        const validarDatosU = validadorUsuario.filter(el=>{
-            if(el.email === valueForm.email){
-                logFailEmail.current.className = "sesion-Fallida-E"
-                console.log("si");
-            }else{
-                logFailEmail.current.className = "sesion-Fallida-E active"
-                console.log("no");
+
+        if (validadorUsuario.length === 0) {
+            logFail.current.className = 'sesion-Fallida-E active'
+            failLogueo.current.className = 'input-Usuario-Contenedor active'
+        } else {
+            for (let i = 0; i < validadorUsuario.length; i++) {
+                const element = validadorUsuario[i];
+                if (element.email === valueForm.email && element.contraseña === valueForm.contraseña) {
+                    setloginUsuario(false)
+                    localStorage.setItem('Usuario', true)
+                    return usuarioLogueado()
+                } else {
+                    logFail.current.className = 'sesion-Fallida-E active'
+                    failLogueo.current.className = 'input-Usuario-Contenedor active'
+                }
             }
-            if(el.contraseña === valueForm.contraseña){
-                logFailPassword.current.className = "sesion-Fallida-E"
-                console.log("si");
-            }else{
-                logFailPassword.current.className = "sesion-Fallida-E active"
-                console.log("no");
-            }
-            return true
-        })
-        console.log(validarDatosU);
+        }
+
     }
 
     const actualizarDatos = (e) => {
@@ -63,6 +65,10 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta }) => {
         setloginUsuario(false)
         setcrearCuenta(true)
     }
+    const olvideContraseña = () => {
+        setloginUsuario(false)
+        setcontraseñaOlvidada(true)
+    }
 
     const cerrar = (e) => {
         setloginUsuario(false)
@@ -71,10 +77,11 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta }) => {
     return (
         <div className="input-Usuario-Padre" onClick={cerrar}>
             <form className="input-Usuario-Contenedor"
+                ref={failLogueo}
                 onClick={e => { e.stopPropagation() }}
                 onSubmit={validarusuario}>
                 <div className="titulo-Sesion">
-                    <h1 style={{ fontWeight: "100" }}>Inicia Sesión</h1>
+                    <h1 style={{ fontWeight: "100", fontSize:"2rem", margin:"0", padding:".5rem" }}>Inicia Sesión</h1>
                     <button
                         className="btn-Usuario-X"
                         onClick={cerrar}
@@ -93,7 +100,6 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta }) => {
                             pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
                             required
                         />
-                        <span className="sesion-Fallida-E" ref={logFailEmail}>El email no coincide con ninguna cuenta</span>
                     </label>
                     <label htmlFor="contraseña">
                         <p>Contraseña:</p>
@@ -106,8 +112,8 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta }) => {
                             value={valueForm.contraseña}
                             required
                         />
-                        <span className="sesion-Fallida-P" ref={logFailPassword}>La contraseña es incorrecta</span>
                     </label>
+                    <span className="sesion-Fallida-E" ref={logFail}>El correo o la contraseña ingreasada no son correctos, verifica los datos</span>
                 </div>
                 <label htmlFor="autorizar" className="inputs-Sesion-A">
                     <input
@@ -121,8 +127,8 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta }) => {
                 </label>
                 <button type="submit" className="ingresar-Login-Usuario">Ingresar</button>
                 <div className="extra-Login">
-                    <button className="btn-Extra" onClick={crearCuenta}>Crear Cuenta</button>
-                    <button className="btn-Extra">¿Olvidaste tu contraseña? </button>
+                    <button className="btn-Extra" type="button" onClick={crearCuenta}>Crear Cuenta</button>
+                    <button className="btn-Extra" type="button" onClick={olvideContraseña}>¿Olvidaste tu contraseña? </button>
                 </div>
             </form>
         </div>

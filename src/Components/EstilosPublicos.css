@@ -57,6 +57,59 @@
     cursor: pointer;
 }
 
+.sesion-Iniciada {
+    width: 7%;
+    transform: translate(0px, -100%);
+    height: 145px;
+    background-color: rgb(238, 161, 17);
+    padding: 3rem;
+    position: absolute;
+    top: 0px;
+}
+
+.sesion-Iniciada.active {
+    transform: translate(0px, 0px);
+    transition: transform .5s ease-in;
+}
+
+.contenedor-Bandera {
+    display: -webkit-box;
+    position: absolute;
+    transform: translate(0px, -300%);
+}
+
+.contenedor-Bandera.active {
+    display: -webkit-box;
+    position: absolute;
+    transform: translate(0px, 0px);
+    transition: transform .5s ease-in;
+}
+
+.izquierda, .derecha {
+    border-top: 75px solid rgb(238, 161, 17);
+    border-bottom: 50px solid transparent;
+    height: 0px;
+    width: 0px;
+}
+
+.izquierda {
+    border-left: 100px solid rgb(238, 161, 17);
+}
+
+.derecha {
+    border-right: 96px solid rgb(238, 161, 17);
+}
+
+.circulo-Blanco-Sesion {
+    width: 50%;
+    background-color: white;
+    height: 120px;
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    border-radius: 10px;
+}
+
 /** scroll Up Btn de Carta ***************************/
 
 .btn-Scroll-H {

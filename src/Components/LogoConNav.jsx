@@ -6,7 +6,7 @@ const LogoConNav = () => {
   return (
     <div>
       <NavLink exact to="/">
-        <img style={{width:"350px", height:"350px"}} src={logo} alt="todo-sobre-cafe.png" />
+        <img style={{width:"300px", height:"300px"}} src={logo} alt="todo-sobre-cafe.png" />
       </NavLink>
     </div>
   );

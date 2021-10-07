@@ -3,7 +3,7 @@
     display: flex;
     padding-top: 5%;
     width: 100%;
-    box-shadow: inset 0px 0px 15px 0px;
+    box-shadow: inset 0px 0px 15px 0px rgb(0 0 0 / 20%);
     padding-bottom: 10%;
 }
 

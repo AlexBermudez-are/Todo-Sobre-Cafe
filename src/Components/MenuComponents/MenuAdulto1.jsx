@@ -31,7 +31,7 @@ const MenuAdulto1 = ({ Menu }) => {
     <section className="menu-Adulto-1">
       <div className="platillo-1">
         <img
-          style={{ boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)" }}
+          style={{ boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)", height:"350px" }}
           src={Menu ? Menu.img : "cargando"}
           alt=""
         />

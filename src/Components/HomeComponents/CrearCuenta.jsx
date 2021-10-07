@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { helpHttp } from '../../Helpers/helpHttp'
 import FormEnviado from '../ContactoComponents/FormEnviado'
@@ -13,12 +14,14 @@ const CrearCuenta = ({ setcrearCuenta }) => {
         telefono: "",
         apellido: "",
         direccion: "",
-        id:""
+        id: ""
     }
 
     const [formOK, setformOK] = useState(false);
     const [checked, setchecked] = useState(false)
     const [valueForm, setvalueForm] = useState(initialState)
+    const [datos, setdatos] = useState([])
+    const ref = useRef()
 
     const url = 'http://localhost:3005/usuarios'
     const help = helpHttp()
@@ -32,20 +35,48 @@ const CrearCuenta = ({ setcrearCuenta }) => {
             }, 4000);
         }
 
+        const datos = async () => {
+            const datos = await axios.get(url),
+                datosResultados = await datos.data
+            setdatos(datosResultados)
+            console.log(datos);
+        }
+        datos()
+
         return () => {
             clearTimeout(contador)
         }
-    }, [formOK,setcrearCuenta])
+    }, [formOK, setcrearCuenta])
 
     const validarusuario = async (e) => {
         e.preventDefault();
-        help.post(url, {
-            body: valueForm,
-            headers: { "content-type": "application/json" },
-        })
-        setTimeout(() => {
-            setformOK(true)
-        }, 1000)
+        console.log(datos);
+        if (datos.length === 0) {
+            help.post(url, {
+                body: valueForm,
+                headers: { "content-type": "application/json" },
+            })
+            let contadorif = setTimeout(() => {
+                setformOK(true)
+            }, 1000)
+            clearTimeout(contadorif)
+        } else {
+            for (let i = 0; i < datos.length; i++) {
+                const element = datos[i];
+                if (element.email === valueForm.email) {
+                    return ref.current.className = 'span-Error-Crear-C active'
+                } else {
+                    help.post(url, {
+                        body: valueForm,
+                        headers: { "content-type": "application/json" },
+                    })
+                    setTimeout(() => {
+                        setformOK(true)
+                    }, 1000)
+                }
+            }
+        }
+
     }
 
     const actualizarDatos = (e) => {
@@ -68,7 +99,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                         : false
                 }
                 <div className="titulo-Sesion">
-                    <h1 style={{ fontWeight: "100" }}>Crear Cuenta</h1>
+                    <h1 style={{ fontWeight: "100", margin:"0", fontSize:"2rem", padding:".5rem" }}>Crear Cuenta</h1>
                     <button
                         className="btn-C-Usuario-X"
                         onClick={e => { setcrearCuenta(false) }}
@@ -162,6 +193,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                         </label>
                     </div>
                 </section>
+                <span ref={ref} className="span-Error-Crear-C">El email ya se encuentra usado por otra cuenta</span>
                 <label htmlFor="autorizar" className="inputs-C-Sesion-A">
                     <input
                         type="checkbox"

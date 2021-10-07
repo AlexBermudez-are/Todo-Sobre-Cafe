@@ -49,7 +49,7 @@ const MenuInfantil = ({ Menu }) => {
       <div className="platillo">
         <img
           src={Menu ? Menu.img : "cargando"}
-          style={{ height: "415px", boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)" }}
+          style={{ height: "350px", boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)" }}
           alt=""
         />
         <section className="compra-Infantil">

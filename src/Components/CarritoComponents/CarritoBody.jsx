@@ -4,7 +4,14 @@ import CarritoContext from '../../Context/CarritoContext'
 
 const CarritoBody = () => {
 
-    const { arregloUnico, precioTotal, precioFinal } = useContext(CarritoContext);
+    const {
+        arregloUnico,
+        precioTotal,
+        precioFinal,
+        eliminarPedido,
+        eliminarUnidad,
+        añadirUnidad
+    } = useContext(CarritoContext);
     const arregloV = [];
 
     const listaProductos = arregloUnico;
@@ -33,13 +40,26 @@ const CarritoBody = () => {
             </section>
             <section style={{ paddingBottom: "5%" }}>
                 {
-                    arregloV ?
-                        arregloV.map((el, index) => {
+                    (arregloV.length > 0)
+                        ? arregloV.map((el, index) => {
                             return <CarritoProductos
                                 el={el} key={index}
                                 precioTotal={precioTotal}
+                                eliminarPedido={eliminarPedido}
+                                precioFinal={precioFinal}
+                                eliminarUnidad={eliminarUnidad}
+                                añadirUnidad={añadirUnidad}
                             />
-                        }) : false
+                        })
+                        : <div style={{
+                            width: "100%",
+                            textAlign: "center",
+                            paddingTop: "5%",
+                            color: "#5d5d5d",
+                            fontSize: "1.5rem"
+                        }}>
+                            <p>Aún no haz agregador productos al carrito</p>
+                        </div>
                 }
             </section>
             <section className="precio-Total-Carrito">
@@ -55,7 +75,7 @@ const CarritoBody = () => {
                     <button className="button-Carrito-F">Finalizar Compra</button>
                 </div>
             </section>
-            <div style={{ borderTop: "1px solid red", width: "80%", margin: "auto", marginTop:"5%" }}></div>
+            <div style={{ borderTop: "1px solid red", width: "80%", margin: "auto", marginTop: "5%" }}></div>
         </div>
     )
 }

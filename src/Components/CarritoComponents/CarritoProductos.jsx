@@ -2,17 +2,28 @@ import React, { useEffect, useState } from 'react'
 import iconoB from '../../assets/basura.png'
 import './CarritoProductos.css'
 
-const CarritoProductos = ({ el, precioTotal }) => {
+const CarritoProductos = ({ el, precioTotal, eliminarPedido, eliminarUnidad, añadirUnidad }) => {
 
-    const restar = () => {
-        if (state > 1) setstate(state - 1)
+    const [state, setstate] = useState();
+
+    const restar = (el) => {
+        if (state > 1) {
+            setstate(state - 1)
+            eliminarUnidad(el)
+        }
+
     }
 
     const sumar = () => {
-        if (state < 5) setstate(state + 1)
+        if (state < 5) {
+            setstate(state + 1)
+            añadirUnidad(el)
+        }
+    }
+    const eliminar = (el) => {
+        eliminarPedido(el,state)
     }
 
-    const [state, setstate] = useState();
 
     useEffect(() => {
         let precioF = 0
@@ -22,7 +33,7 @@ const CarritoProductos = ({ el, precioTotal }) => {
         for (let index = 0; index < cantidad; index++) {
             precioF += precio
         }
-        
+
         precioTotal(precioF)
         setstate(cantidad)
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -39,7 +50,7 @@ const CarritoProductos = ({ el, precioTotal }) => {
             </section>
             <section className="ordenar-Pedido">
                 <div className="ordenar-Pedido-Container">
-                    <button className="restar" onClick={restar}>
+                    <button className="restar" onClick={() => { restar(el) }}>
                         <h1 style={{ margin: "0" }}>-</h1>
                     </button>
                     <h2 style={{ margin: "0" }}>{state}</h2>
@@ -49,7 +60,9 @@ const CarritoProductos = ({ el, precioTotal }) => {
                 </div>
             </section>
             <section style={{ width: "10%" }}>
-                <button style={{ backgroundColor: "white", border: "none", cursor: "pointer" }}>
+                <button onClick={() => {
+                    eliminar(el)
+                }} style={{ backgroundColor: "white", border: "none", cursor: "pointer" }}>
                     <img src={iconoB} alt="Icono Basura" width="30px" height="30px" />
                 </button>
             </section>

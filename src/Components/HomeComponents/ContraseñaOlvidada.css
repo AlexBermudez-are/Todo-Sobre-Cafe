@@ -1,0 +1,79 @@
+.padre-Contraseña {
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 755px;
+    background-color: rgba(87, 87, 87, 0.472);
+    position: fixed;
+}
+
+.contraseña-Div-Padre {
+    width: 45%;
+    position: absolute;
+    top: 32%;
+    left: 28%;
+    height: 30%;
+    z-index: 999;
+}
+
+.seccion-Olvidaste-Contraseña {
+    width: 100%;
+    background-color: red;
+    padding: .5rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hijo-div-Contraseña {
+    width: 100%;
+    padding: .5rem;
+    background-color: white;
+    padding-bottom: 3%;
+}
+
+.input-olvidaste-Contraseña {
+    margin-top: 3%;
+    width: 70%;
+    margin-left: 2%;
+    outline: none;
+    font-size: 1.2rem;
+}
+
+.btn-Olvidaste-Contraseña {
+    width: 10%;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.enviar-Contraseña-O {
+    background-color: white;
+    padding-left: 3.5%;
+    padding-bottom: 3%;
+    width: 99%;
+}
+.label-Contraseña-Olvidada{
+    background-color: white;
+    width: 100%;
+    padding-left: 2.5%;
+    color: red;
+    display: none;
+}
+.label-Contraseña-Olvidada.active{
+    display: block;
+}
+.submit-Contraseña-O {
+    width: 30%;
+    border: none;
+    height: 35px;
+    background-color: red;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
