@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 const CartaInfusiones = ({ Infusiones, setalmacen }) => {
 
   const refListo = useRef()
-  const [Add_Food, setAdd_Food] = useState(1);
+  const [Add_Food, setAdd_Food] = useState(0);
 
   let DatosInfusiones = []
   let Producto = {

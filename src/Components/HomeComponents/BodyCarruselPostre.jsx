@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import torta_De_Limon from '../../assets/torta de llimon.jpg'
 import piononos from '../../assets/piononos.jpg'
 import alfajores from '../../assets/alfajores.jpg'
@@ -14,6 +14,9 @@ const Estilos = {
 }
 
 const BodyCarruselPostre = ({ claseActiva }) => {
+
+    const imagenRef = useRef()
+    const ref = useRef()
     const [Carrusel, setCarrusel] = useState([torta_De_Limon])
 
     useEffect(() => {
@@ -22,13 +25,23 @@ const BodyCarruselPostre = ({ claseActiva }) => {
 
         let contador = setInterval(() => {
             if (arregloImg.length - 1 > i) {
+                imagenRef.current.className = 'claseActivaP'
+                setTimeout(() => {
+                    imagenRef.current.className = 'claseActivaP active'
+                    setCarrusel(arregloImg[i]);
+                }, 1000);
                 setCarrusel(arregloImg[i]);
                 i++;
             } else {
-                setCarrusel(arregloImg[i]);
+                imagenRef.current.className = 'claseActivaP'
+                setTimeout(() => {
+                    imagenRef.current.className = 'claseActivaP active'
+                    setCarrusel(arregloImg[i]);
+                }, 1000);
                 i = 0;
             }
         }, 4000);
+        ref.current.className = 'claseActivaP active'
 
         return () => {
             return clearInterval(contador)
@@ -36,8 +49,13 @@ const BodyCarruselPostre = ({ claseActiva }) => {
     }, [claseActiva]);
 
     return (
-        <div className={`claseActivaP ${claseActiva}`} style={{ paddingLeft: "6%" }}>
-            <img style={Estilos} src={Carrusel} alt="Torta de Limón" />
+        <div className={`claseActivaP`} ref={ref} style={{ paddingLeft: "6%" }}>
+            <img
+                ref={imagenRef}
+                style={Estilos}
+                src={Carrusel}
+                alt="Torta de Limón"
+            />
         </div>
     )
 }
