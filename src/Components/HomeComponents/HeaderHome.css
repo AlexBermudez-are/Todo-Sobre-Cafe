@@ -195,6 +195,8 @@
     }
     .NavLinks-Home {
         width: 60%;
+        margin-left: 0;
+        justify-content: space-between;
     }
     .UsuariosHome {
         width: 30%;

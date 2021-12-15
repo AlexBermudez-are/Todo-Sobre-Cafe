@@ -1,6 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext } from 'react'
 import CarritoProductos from './CarritoProductos'
 import CarritoContext from '../../Context/CarritoContext'
+import { useEffect } from 'react';
+import { useState } from 'react';
+
 
 const CarritoBody = () => {
 
@@ -12,14 +16,18 @@ const CarritoBody = () => {
         eliminarUnidad,
         añadirUnidad
     } = useContext(CarritoContext);
-    const arregloV = [];
 
+    const [arregloV, setArregloV] = useState([])
     const listaProductos = arregloUnico;
-    if (listaProductos) {
-        for (const key in listaProductos) {
-            arregloV.push(listaProductos[key])
+    const [update, setUpdate] = useState(true)
+    
+    useEffect(() => {
+        const arr = [];
+        for (let index = 0; index < listaProductos.length; index++) {
+            arr.push(listaProductos[index])
         }
-    }
+        setArregloV(arr)
+    }, [update, arregloUnico])
 
     return (
         <div style={{ paddingBottom: "5%" }}>
@@ -49,6 +57,7 @@ const CarritoBody = () => {
                                 precioFinal={precioFinal}
                                 eliminarUnidad={eliminarUnidad}
                                 añadirUnidad={añadirUnidad}
+                                update={update} setUpdate={setUpdate}
                             />
                         })
                         : <div style={{

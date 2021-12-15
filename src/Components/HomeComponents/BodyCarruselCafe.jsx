@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import frapuccino from "../../assets/frapuccino.png";
 import capuccino from "../../assets/capuccino-foto-principal.jpg";
 import capuccinoCasero from "../../assets/Cafe-Capuchino-Casero.jpg";
@@ -14,7 +14,10 @@ const Estilos = {
 };
 
 const BodyCarruselCafe = ({ claseActiva }) => {
+
   const [Carrusel, setCarrusel] = useState([frapuccino]);
+  const imagenRef = useRef()
+  const ref = useRef()
 
   useEffect(() => {
     const arregloImg = [capuccino, capuccinoCasero, frapuccino];
@@ -22,23 +25,33 @@ const BodyCarruselCafe = ({ claseActiva }) => {
 
     let contador = setInterval(() => {
       if (arregloImg.length - 1 > i) {
-        setCarrusel(arregloImg[i]);
+        imagenRef.current.className = 'claseActivaC'
+        setTimeout(() => {
+          imagenRef.current.className = 'claseActivaC active'
+          setCarrusel(arregloImg[i]);
+        }, 1000);
         i++;
       } else {
-        setCarrusel(arregloImg[i]);
+        imagenRef.current.className = 'claseActivaC'
+        setTimeout(() => {
+          imagenRef.current.className = 'claseActivaC active'
+          setCarrusel(arregloImg[i]);
+        }, 1000);
         i = 0;
       }
     }, 4000);
+    
+    ref.current.className = 'claseActivaC active'
 
     return () => {
       return clearInterval(contador)
     };
   }, [claseActiva]);
-
+  
   return (
-    <div className={`claseActivaC ${claseActiva}`} style={{ paddingLeft: "9%" }}>
+    <div className={`claseActivaC`} ref={ref} style={{ paddingLeft: "9%" }}>
       <img
-        className="img-Cafes"
+        ref={imagenRef}
         style={Estilos}
         src={Carrusel}
         alt={"nada"}

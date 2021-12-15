@@ -152,13 +152,5 @@
       }
     ]
   },
-  "contacto": [
-    {
-      "nombre": "asdasdasdasdasdasdasdasdasdasd",
-      "numero": "4646523517",
-      "email": "asdasda@gmail.com",
-      "datos": "asdasdasdasdasdasdasdasdasdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
-      "id": 1
-    }
-  ]
+  "contacto": []
 }

@@ -3,7 +3,7 @@ import React, { useRef, useState } from 'react'
 const CartaInfusiones = ({ Infusiones, setalmacen }) => {
 
   const refListo = useRef()
-  const [Add_Food, setAdd_Food] = useState(1);
+  const [Add_Food, setAdd_Food] = useState(0);
 
   let DatosInfusiones = []
   let Producto = {
@@ -63,10 +63,22 @@ const CartaInfusiones = ({ Infusiones, setalmacen }) => {
         <div className="seccion-Botones-C">
           <section className="agregar-Disminuir">
             <button className="agregar-C" onClick={agregar}>
-              <p style={{ margin: "0", position: "absolute", fontSize: "2rem", marginTop: "-33%", marginLeft: "20%" }}>+</p>
+              <p style={{
+                margin: "0",
+                position: "absolute",
+                fontSize: "2rem",
+                marginTop: "-33%",
+                marginLeft: "20%"
+              }}>+</p>
             </button>
             <button className="disminuir-C" onClick={disminuir}>
-              <p style={{ margin: "0", position: "absolute", fontSize: "2rem", marginTop: "-40%", marginLeft: "27%" }}>-</p>
+              <p style={{
+                margin: "0",
+                position: "absolute",
+                fontSize: "2rem",
+                marginTop: "-40%",
+                marginLeft: "27%"
+              }}>-</p>
             </button>
           </section>
           <button className="btn_Card" ref={refListo} onClick={validarDatos}>

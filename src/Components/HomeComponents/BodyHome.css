@@ -25,7 +25,8 @@
 /**************************************/
 
 .body-Postres {
-    width: 20%;
+    width: 100%;
+    padding-left: 14%;
     height: 25%;
     padding-top: 16%;
     padding-right: 2%;
@@ -58,11 +59,10 @@
 
 .body-Cafe {
     padding-top: 16%;
-    width: 20%;
+    width: 100%;
     height: 25%;
     display: flex;
-    justify-content: flex-end;
-    padding-left: 2%;
+    padding-left: 16%;
 }
 
 .cafe {
@@ -133,7 +133,16 @@
         width: 95%;
         margin-right: 11%;
     }
-    .body-Texto{
+    .body-Texto {
         font-size: 1.8rem;
+    }
+}
+
+@media(max-width:425px) {
+    .body-Video {
+        display: none;
+    }
+    .body-Contenido{
+        display: none;
     }
 }

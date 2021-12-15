@@ -1,33 +1,26 @@
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line no-unused-vars
 import { createContext, useState } from "react";
 
 let arrC = []
 const CarritoContext = createContext();
-
 const CarritoProvider = ({ children }) => {
-    // eslint-disable-next-line no-unused-vars
-    const [arregloUnico, setarregloUnico] = useState({})
+
+    //PrecioFinal es la suma del total de la compra
+
+    const [arregloUnico, setarregloUnico] = useState([])
     const [precioFinal, setprecioFinal] = useState(0)
     const [contadorProductos, setcontadorProductos] = useState(0)
 
     let precioContext = 0
 
     const enviandoPedido = (pedido) => {
-
         const listaPedido = pedido
         if (listaPedido.length > 0) {
             const arrCL = listaPedido[0]
             arrC.push(arrCL)
-            setarregloUnico({ ...arregloUnico, ...arrC })
+            setarregloUnico(arrC)
             setcontadorProductos(contadorProductos + 1)
-        }
-
-        if (arregloUnico) {
-            for (const arr in arregloUnico) {
-                if (arregloUnico[arr] === undefined) {
-                    delete arregloUnico[arr]
-                    setarregloUnico({ ...arregloUnico, ...arregloUnico[arr] })
-                }
-            }
         }
     }
 
@@ -38,52 +31,59 @@ const CarritoProvider = ({ children }) => {
     }
 
     const eliminarPedido = (el, state) => {
+
         arrC = []
-        if (state > 1) {
-            let cantidad = state || 1,
-                precio = el.precio,
-                precioTotal = precioFinal,
-                precioResultado = cantidad * precio
 
-            precioTotal -= precioResultado
-            console.log(precioResultado, cantidad);
-            setprecioFinal(precioTotal)
-            for (const key in arregloUnico) {
-                if (arregloUnico[key].nombre === el.nombre) {
-                    delete arregloUnico[key]
-                    setarregloUnico({ ...arregloUnico, ...arregloUnico[key] })
-                }
-            }
-        }
-        if (state === 1) {
-            let cantidad = state,
-                precio = el.precio,
-                precioTotal = precioFinal,
-                precioResultado = cantidad * precio
-            console.log(precioResultado, cantidad);
+        let cantidad = state || 1,
+            precio = el.precio,
+            precioTotal = precioFinal,
+            precioResultado = cantidad * precio
+        precioTotal -= precioResultado
 
-            precioTotal -= precioResultado
 
-            setprecioFinal(precioTotal)
-            for (const key in arregloUnico) {
-                if (arregloUnico[key].nombre === el.nombre) {
-                    delete arregloUnico[key]
-                    setarregloUnico({ ...arregloUnico, ...arregloUnico[key] })
-                }
-            }
-        }
-        setcontadorProductos(contadorProductos - 1)
+        setprecioFinal(precioTotal) // Actualiza el precio total
+        const eliminarPedidoCompleto = arregloUnico.filter(nuevoArr => nuevoArr.cantidad !== el.cantidad)// Elimina el producto de arr principal
+        setarregloUnico(eliminarPedidoCompleto) // Devuelve el arreglo con el producto eliminado
+        setcontadorProductos(contadorProductos - 1) //Muestra el numero total de productos en el carrito
     }
 
-    const eliminarUnidad = (precio) => {
+    const eliminarUnidad = (el, state) => {
+        const producto = {
+            nombre: el.nombre,
+            id: el.id,
+            img: el.img,
+            precio: el.precio,
+            cantidad: state,
+            carta: el.carta
+        }
+        producto.cantidad--
+        for (let index = 0; index < arregloUnico.length; index++) {
+            if (arregloUnico[index].id === el.id) {
+                let arrCambiado = arregloUnico.splice(index, 1, producto) // Actualiza la cantidad del producto
+            }
+        }
         let precioCarrito = precioFinal
-        let precioProducto = precioCarrito -= precio.precio
+        let precioProducto = precioCarrito -= el.precio
         setprecioFinal(precioProducto)
     }
 
-    const añadirUnidad = (precio) => {
+    const añadirUnidad = (el, state) => {
+        const producto = {
+            nombre: el.nombre,
+            id: el.id,
+            img: el.img,
+            precio: el.precio,
+            cantidad: state,
+            carta: el.carta
+        }
+        producto.cantidad++
+        for (let index = 0; index < arregloUnico.length; index++) {
+            if (arregloUnico[index].id === el.id) {
+                let arrCambiado = arregloUnico.splice(index, 1, producto)// Actualiza la cantidad del producto
+            }
+        }
         let precioCarrito = precioFinal
-        let precioProducto = precioCarrito += precio.precio
+        let precioProducto = precioCarrito += el.precio
         setprecioFinal(precioProducto)
     }
 

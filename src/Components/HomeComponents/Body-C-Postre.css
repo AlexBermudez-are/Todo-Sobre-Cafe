@@ -1,18 +1,21 @@
-.claseActivaP{
+.claseActivaP {
     opacity: 0;
-    transform: translate(-100%,0);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translate(-100%, 0);
+    transition: opacity 2s ease, transform 1s ease;
 }
-.claseActivaP.active{
+
+.claseActivaP.active {
     opacity: 1;
-    transform: translate(0,0);
+    transform: translate(0, 0);
 }
-.claseActivaC{
+
+.claseActivaC {
     opacity: 0;
-    transform: translate(100%,0);
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translate(100%, 0);
+    transition: opacity 2s ease, transform 1s ease;
 }
-.claseActivaC.active{
+
+.claseActivaC.active {
     opacity: 1;
-    transform: translate(0,0);
+    transform: translate(0, 0);
 }
