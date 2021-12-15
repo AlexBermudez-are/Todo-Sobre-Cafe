@@ -62,7 +62,8 @@ const MenuInfantil = ({ Menu }) => {
       </div>
       <div className="info-Platillo-I">
         <h1 style={{ color: "rgb(0, 162, 255)" }}>{Menu ? Menu.nombre : "cargando"}</h1>
-        <p>{Menu ? Menu.descripcion : "cargando"}</p>
+        <p className="borde-divisor-azul"></p>
+        <p style={{color:"#494949"}}>{Menu ? Menu.descripcion : "cargando"}</p>
       </div>
     </section>
   );

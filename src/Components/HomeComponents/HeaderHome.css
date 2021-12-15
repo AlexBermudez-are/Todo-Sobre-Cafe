@@ -190,14 +190,19 @@
     .hamburger {
         display: none;
     }
-    .boton-Nav-Left, .boton-Nav-Mid, .boton-Nav-Right {
+
+    .boton-Nav-Left, 
+    .boton-Nav-Mid, 
+    .boton-Nav-Right {
         width: 30%;
     }
+
     .NavLinks-Home {
         width: 60%;
         margin-left: 0;
         justify-content: space-between;
     }
+
     .UsuariosHome {
         width: 30%;
     }
@@ -209,10 +214,12 @@
         position: absolute;
         top: 2%;
     }
+
     .imagen-Logo-Home {
         width: 200px;
         height: 200px;
     }
+
     .boton-Nav-Left {
         display: flex;
         justify-content: center;
@@ -220,18 +227,21 @@
         width: 30%;
         font-size: 1rem;
     }
+
     .boton-Nav-Right {
         width: 30%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .boton-Nav-Mid {
         width: 32%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .boton-Nav-Usuario {
         width: 75%;
         font-size: 1rem;
@@ -242,6 +252,7 @@
     .Header-Home {
         flex-direction: column;
     }
+
     .hamburger {
         display: block;
         position: absolute;
@@ -249,9 +260,11 @@
         top: 5%;
         z-index: 999;
     }
+
     .hamburger.active {
         left: 80%;
     }
+
     .contenedor-Hamburguesa {
         display: flex;
         top: 0;
@@ -264,9 +277,11 @@
         visibility: hidden;
         background-color: #232323a6;
     }
+
     .contenedor-Hamburguesa.active {
         visibility: visible;
     }
+
     .NavLinks-Home {
         width: 100%;
         margin-left: 0;
@@ -281,13 +296,16 @@
         position: absolute;
         top: 30%;
     }
+
     .NavLinks-Home.active {
         transform: translate(0, 0);
         transition: all .5s ease;
     }
+
     .logo-Home {
         width: 100%;
     }
+
     .UsuariosHome {
         width: 100%;
         height: 30%;
@@ -296,23 +314,42 @@
         position: absolute;
         top: 0;
     }
+
     .UsuariosHome.active {
         transform: translate(0, 0);
         transition: all .5s ease;
     }
+
     .boton-Nav-Left {
         margin-top: 10%;
     }
-    .boton-Nav-Right, .boton-Nav-Left, .boton-Nav-Mid {
+
+    .boton-Nav-Right, 
+    .boton-Nav-Left, 
+    .boton-Nav-Mid {
         width: 45%;
         height: 10%;
         background-color: white;
+        height: 50px;
+        border-radius: 5px;
     }
+
     .boton-Nav-Usuario {
         margin-top: 33%;
+        border-radius: 5px;
     }
+
     .imagen-Logo-Home {
         width: 250px;
         height: 250px;
+    }
+
+    .hamburger.is-active 
+    .hamburger-inner, 
+    .hamburger.is-active 
+    .hamburger-inner:after, 
+    .hamburger.is-active 
+    .hamburger-inner:before {
+        background-color: white;
     }
 }

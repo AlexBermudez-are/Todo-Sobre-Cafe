@@ -48,7 +48,8 @@ const MenuAdulto2 = ({ Menu }) => {
     <section className={`menu-Adulto-2`} ref={menuVisible} >
       <div className="info-Platillo2">
         <h1 style={{ color: "rgb(0, 179, 0)" }}>{Menu ? Menu.nombre : "cargando"}</h1>
-        <p>{Menu ? Menu.descripcion : "cargando"}</p>
+        <p className="borde-divisor-verde"></p>
+        <p style={{color:"#494949"}}>{Menu ? Menu.descripcion : "cargando"}</p>
       </div>
       <div className="platillo-2">
         <img

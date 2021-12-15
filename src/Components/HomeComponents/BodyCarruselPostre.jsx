@@ -41,7 +41,7 @@ const BodyCarruselPostre = ({ claseActiva }) => {
                 i = 0;
             }
         }, 4000);
-        ref.current.className = 'claseActivaP active'
+        ref.current.className = 'claseActivaP div'
 
         return () => {
             return clearInterval(contador)
@@ -49,7 +49,7 @@ const BodyCarruselPostre = ({ claseActiva }) => {
     }, [claseActiva]);
 
     return (
-        <div className={`claseActivaP`} ref={ref} style={{ paddingLeft: "6%" }}>
+        <div className={`claseActivaP`} ref={ref}>
             <img
                 ref={imagenRef}
                 style={Estilos}

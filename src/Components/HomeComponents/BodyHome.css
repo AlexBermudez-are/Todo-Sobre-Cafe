@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 15%;
+    padding-bottom: 10%;
 }
 
 /******************************************/
@@ -82,7 +82,7 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    align-items: center;
+    align-items: flex-end;
     overflow: hidden;
     padding-bottom: 5%;
 }
@@ -96,6 +96,19 @@
     text-align: center;
     font-size: 2rem;
     font-family: 'Lobster', cursive;
+    background-color: antiquewhite;
+    color: #535353;
+    border-radius: 10px;
+}
+
+.texto-body-info {
+    padding: 2rem;
+    margin: 0;
+}
+
+.corazon-purpura {
+    margin: 0;
+    padding-bottom: 2%;
 }
 
 .carrusel-Cafe {
@@ -106,6 +119,7 @@
     .body-Cafe {
         padding-top: 26%;
     }
+
     .body-Postres {
         padding-top: 26%;
     }
@@ -115,26 +129,55 @@
     .body-Contenido {
         width: 100%;
     }
+
+    .carrusel-Div {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .body-Cafe {
-        padding-top: 32%;
+        padding-top: 20%;
+        width: 80%;
     }
+
     .body-Postres {
-        padding-top: 32%;
+        padding-top: 0;
+        width: 80%;
+        padding-left: 0;
     }
+
     .icono-Postre {
         display: flex;
         justify-content: center;
         width: 95%;
-        margin-left: 6%;
+        margin-left: 12%;
     }
+
     .cafe {
         display: flex;
         justify-content: center;
         width: 95%;
         margin-right: 11%;
     }
+
     .body-Texto {
         font-size: 1.8rem;
+    }
+
+    .carrusel-Postres,
+    .carrusel-Cafe {
+        width: 60%;
+    }
+
+    .body-Texto {
+        width: 70%;
+        background-color: antiquewhite;
+        color: #535353;
+        border-radius: 10px;
+    }
+
+    .carrusel-Postres {
+        padding-bottom: 7%;
     }
 }
 
@@ -142,7 +185,39 @@
     .body-Video {
         display: none;
     }
-    .body-Contenido{
+
+    .body-Contenido {
         display: none;
+    }
+
+    .carrusel-Div {
+        flex-direction: column;
+        padding-bottom: 10%;
+    }
+
+    .carrusel-Postres,
+    .carrusel-Cafe,
+    .body-Texto {
+        width: 90%;
+    }
+
+    .carrusel-Postres {
+        width: 90%;
+        padding-top: 20%;
+        padding-bottom: 20%;
+
+    }
+
+    .icono-Postre {
+        margin-left: 6%;
+        width: 90%;
+    }
+
+    .body-Postres {
+        padding-left: 8%;
+    }
+    .corazon-purpura {
+        margin: 0;
+        padding-bottom: 10%;
     }
 }
