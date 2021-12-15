@@ -43,7 +43,7 @@
     border-bottom-right-radius: 10px;
 }
 
-.btn-Agregar {
+.btn-Agregar-Infantil {
     width: 30%;
     justify-content: space-evenly;
     align-items: center;
@@ -69,4 +69,54 @@
     border-bottom: 3px solid;
     width: 85%;
     margin-left: 15%;
+}
+
+@media(max-width:1024px) {
+    .btn-Agregar-Infantil {
+        width: 50%;
+    }
+
+    .compra-Infantil {
+        width: 86%;
+    }
+}
+
+@media(max-width:768px) {
+    .compra-Infantil {
+        width: 81%;
+    }
+
+    .btn-Compra3 {
+        font-size: 20px;
+        margin: 10%;
+    }
+}
+
+@media(max-width:425px) {
+    .menu-Infantil {
+        flex-direction: column;
+        padding-top: 20%;
+    }
+    .platillo{
+        width: 80%;
+    }
+    .info-Platillo-I{
+        width: 80%;
+        text-align: center;
+    }
+    .borde-divisor-azul{
+        margin-left: 9%;
+    }
+}
+@media(max-width:320px){
+    .compra-Infantil{
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-Agregar-Infantil{
+        width: 70%;
+    }
+    .precio{
+        padding-top: 5%;
+    }
 }

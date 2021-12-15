@@ -31,6 +31,39 @@
     align-items: center;
 }
 
+.navLink-Carrito {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-Carrito-Header {
+    background-color: rgb(97 97 97 / 50%);
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 16%;
+    border-radius: 50%;
+}
+
+.btn-Carrito-Header p {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+    margin-top: -9%;
+    padding-left: 29%;
+
+}
+
+.btn-Carrito-Header h2 {
+    font-size: 2rem;
+    padding-bottom: 2%;
+    margin: 0;
+}
+
 /****** Inicio De Sesión **************************************************/
 
 .UsuariosHome-G {
@@ -119,4 +152,48 @@
 
 .btn-Scroll-H.active {
     opacity: 1;
+}
+
+@media(max-width:1024px) {
+
+    .UsuariosHome-G,
+    .carrito-De-Compras {
+        width: 90%;
+    }
+}
+
+@media(max-width:768px) {
+
+    .UsuariosHome-G,
+    .carrito-De-Compras {
+        width: 100%;
+    }
+
+    .boton-Nav-Usuario-G {
+        font-size: 1.5rem;
+    }
+
+    .btn-Carrito-Header {
+        left: 19.6%;
+    }
+}
+
+@media(max-width:425px) {
+    .btn-Carrito-Header {
+        left: 12.5%;
+    }
+
+    .boton-Nav-Usuario-G {
+        border-radius: 10px;
+    }
+
+    .navLink-Carrito h2 {
+        display: none;
+    }
+}
+
+@media(max-width:320px) {
+    .boton-Nav-Usuario-G {
+        font-size: 1rem;
+    }
 }

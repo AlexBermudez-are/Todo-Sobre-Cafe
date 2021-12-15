@@ -33,7 +33,7 @@ const MenuInfantil = ({ Menu }) => {
   w.addEventListener("scroll", e => {
     const scroll = w.pageYOffset
     if (scroll > 900 && scroll < 1100 && Scroll === false) {
-      setScroll(true)
+      return Scroll ? false : setScroll(true)
     }
   })
 
@@ -53,8 +53,8 @@ const MenuInfantil = ({ Menu }) => {
           alt=""
         />
         <section className="compra-Infantil">
-          <button className="btn-Agregar" onClick={agregarCarrito} ref={menuRef}>
-            <p style={{ margin: "10%" }}>Agregar</p>
+          <button className="btn-Agregar-Infantil" onClick={agregarCarrito} ref={menuRef}>
+            <p className=".btn-Compra3">Agregar</p>
             <p style={{ margin: "0", fontSize: "2rem" }}>+</p>
           </button>
           <div className="precio">${Menu ? Menu.precio : "cargando"}.00</div>

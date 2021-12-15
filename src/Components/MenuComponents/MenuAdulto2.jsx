@@ -8,7 +8,7 @@ const MenuAdulto2 = ({ Menu }) => {
   const menuRef = useRef();
   const { enviandoPedido } = useContext(CarritoContext);
   const [Scroll, setScroll] = useState(false);
-  const w = window, d = document
+  const w = window;
 
   const arregloC = [];
   let menu = {
@@ -30,10 +30,10 @@ const MenuAdulto2 = ({ Menu }) => {
     }, 500);
   }
 
-  d.addEventListener("scroll", e => {
+  w.addEventListener("scroll", e => {
     const scroll = w.pageYOffset
     if (scroll > 400 && scroll < 700 && Scroll === false) {
-      setScroll(true)
+      return Scroll ? false : setScroll(true)
     }
   })
 
@@ -59,7 +59,7 @@ const MenuAdulto2 = ({ Menu }) => {
         />
         <section className="compra2">
           <button className="btn-Agregar2" onClick={agregarCarrito} ref={menuRef}>
-            <p style={{ margin: "10%" }}>Agregar</p>
+            <p className="btn-Compra2">Agregar</p>
             <p style={{ margin: "0", fontSize: "2rem" }}>+</p>
           </button>
           <div className="precio2">${Menu ? Menu.precio : "cargando"}.00</div>

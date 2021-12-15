@@ -37,7 +37,7 @@ const MenuAdulto1 = ({ Menu }) => {
         />
         <section className="compra">
           <button className="btn-Agregar" onClick={agregarCarrito} ref={menuRef}>
-            <p style={{ margin: "10%" }}>Agregar</p>
+            <p className="btn-Compra1">Agregar</p>
             <p style={{ margin: "0", fontSize: "2rem" }}>+</p>
           </button>
           <div className="precio">${Menu ? Menu.precio : "cargando"}.00</div>
