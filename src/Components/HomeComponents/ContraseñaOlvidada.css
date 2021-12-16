@@ -58,16 +58,19 @@
     padding-bottom: 3%;
     width: 99%;
 }
-.label-Contraseña-Olvidada{
+
+.label-Contraseña-Olvidada {
     background-color: white;
     width: 100%;
     padding-left: 2.5%;
     color: red;
     display: none;
 }
-.label-Contraseña-Olvidada.active{
+
+.label-Contraseña-Olvidada.active {
     display: block;
 }
+
 .submit-Contraseña-O {
     width: 30%;
     border: none;
@@ -76,4 +79,51 @@
     color: white;
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+@media(max-width:1024px) {
+    .contraseña-Div-Padre {
+        width: 60%;
+        left: 20%;
+    }
+}
+
+@media(max-width:768px) {
+    .enviar-Contraseña-O {
+        width: 99.8%;
+    }
+}
+
+@media (max-width: 425px) {
+    .enviar-Contraseña-O {
+        width: 100%;
+        padding-left: 4.8%;
+    }
+
+    .contraseña-Div-Padre {
+        width: 80%;
+        left: 9%;
+    }
+}
+
+@media (max-width: 375px) {
+    .enviar-Contraseña-O {
+        padding-left: 5.5%;
+    }
+
+    .input-olvidaste-Contraseña {
+        width: 80%;
+    }
+}
+
+@media(max-width:320px) {
+    .hijo-div-Contraseña p {
+        font-size: 15px;
+    }
+
+    .enviar-Contraseña-O {
+        padding-left: 6%;
+        padding-top: 5%;
+        padding-bottom: 5%;
+    }
 }

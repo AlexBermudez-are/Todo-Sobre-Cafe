@@ -10,6 +10,13 @@
     position: fixed;
 }
 
+.inicia-Sesion-Home {
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 0;
+    padding: .5rem;
+}
+
 .input-Usuario-Contenedor {
     display: flex;
     flex-direction: column;
@@ -119,4 +126,65 @@
     border: none;
     background-color: white;
     cursor: pointer;
+}
+
+@media(max-width:1024px) {
+    .input-Usuario-Contenedor {
+        width: 50%;
+    }
+
+    .inputs-Sesion-A {
+        width: 50%;
+        margin-left: 3%;
+    }
+
+    .ingresar-Login-Usuario {
+        margin-top: 0;
+    }
+}
+
+@media(max-width:768px) {
+    .inputs-Sesion-A {
+        width: 65%;
+    }
+
+    .input-Usuario-Contenedor {
+        height: 52%;
+    }
+}
+
+@media(max-width:425px) {
+    .input-Usuario-Contenedor {
+        margin: 30% auto;
+        width: 80%;
+        height: 52%;
+    }
+
+    .inputs-Sesion-A {
+        width: 75%;
+        padding-bottom: 0%;
+    }
+
+    .ingresar-Login-Usuario {
+        width: 30%;
+    }
+}
+
+@media(max-width:375px){
+    .inputs-Sesion-A {
+        width: 85%;
+    }
+}
+@media(max-width:320px) {
+    .input-Usuario-Contenedor {
+        width: 80%;
+        height: 52%;
+    }
+
+    .ingresar-Login-Usuario {
+        width: 35%;
+    }
+    .inicia-Sesion-Home{
+        font-size: 1.6rem;
+    }
 }

@@ -70,7 +70,7 @@ const CarritoProductos = ({
                     </button>
                 </div>
             </section>
-            <section style={{ width: "10%" }}>
+            <section className='vector-Borrar-Producto'>
                 <button onClick={eliminar} style={{ backgroundColor: "white", border: "none", cursor: "pointer" }}>
                     <img src={iconoB} alt="Icono Basura" width="30px" height="30px" />
                 </button>

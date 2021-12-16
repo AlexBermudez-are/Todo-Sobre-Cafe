@@ -1,0 +1,57 @@
+.cabecera-Carrito {
+    background-color: rgb(207, 199, 199);
+    display: flex;
+    font-size: 1.4rem;
+    width: 60%;
+    margin: auto;
+    margin-top: 4%;
+    height: 50px;
+    align-items: center;
+}
+
+.borde-Carrito-Top {
+    border-top: 1px solid red;
+    width: 80%;
+    margin: auto;
+}
+
+.pedido-Carrito {
+    width: 40%;
+    padding-left: 5%;
+}
+
+.precio-Carrito {
+    width: 25%;
+    text-align: center;
+}
+
+.cantidad-Carrito {
+    width: 15%;
+    text-align: center;
+}
+
+@media(max-width:1024px){
+    .cabecera-Carrito{
+        width: 80%;
+    }
+}
+
+@media(max-width:768px){
+    .cabecera-Carrito{
+        width: 80%;
+    }
+}
+
+@media(max-width:425px) {
+    .cabecera-Carrito {
+        width: 90%;
+    }
+
+    .precio-Carrito{
+        width: 25%;
+    }
+    .cantidad-Carrito,
+    .pedido-Carrito {
+        width: 30%;
+    }
+}

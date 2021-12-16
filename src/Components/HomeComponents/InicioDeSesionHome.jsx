@@ -81,7 +81,7 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                 onClick={e => { e.stopPropagation() }}
                 onSubmit={validarusuario}>
                 <div className="titulo-Sesion">
-                    <h1 style={{ fontWeight: "100", fontSize:"2rem", margin:"0", padding:".5rem" }}>Inicia Sesión</h1>
+                    <h1 className='inicia-Sesion-Home'>Inicia Sesión</h1>
                     <button
                         className="btn-Usuario-X"
                         onClick={cerrar}

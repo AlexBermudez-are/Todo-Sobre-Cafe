@@ -4,6 +4,7 @@ import CarritoProductos from './CarritoProductos'
 import CarritoContext from '../../Context/CarritoContext'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import './CarritoBody.css'
 
 
 const CarritoBody = () => {
@@ -31,20 +32,11 @@ const CarritoBody = () => {
 
     return (
         <div style={{ paddingBottom: "5%" }}>
-            <div style={{ borderTop: "1px solid red", width: "80%", margin: "auto" }}></div>
-            <section style={{
-                backgroundColor: "rgb(207, 199, 199)",
-                display: "flex",
-                fontSize: "1.4rem",
-                width: "60%",
-                margin: "auto",
-                marginTop: "4%",
-                height: "50px",
-                alignItems: "center"
-            }}>
-                <div style={{ width: "40%", paddingLeft: "5%" }}>Pedido</div>
-                <div style={{ width: "25%", textAlign: "center" }}>Precio</div>
-                <div style={{ width: "15%", textAlign: "center" }}>Cantidad</div>
+            <div className='borde-Carrito-Top'></div>
+            <section className='cabecera-Carrito'>
+                <div className='pedido-Carrito'>Pedido</div>
+                <div className='precio-Carrito'>Precio</div>
+                <div className='cantidad-Carrito'>Cantidad</div>
             </section>
             <section style={{ paddingBottom: "5%" }}>
                 {

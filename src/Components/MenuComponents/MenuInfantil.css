@@ -117,9 +117,6 @@
         width: 80%;
         text-align: center;
     }
-    .borde-divisor-azul{
-        margin-left: 9%;
-    }
 }
 @media(max-width:320px){
     .compra-Infantil{

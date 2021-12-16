@@ -99,7 +99,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                         : false
                 }
                 <div className="titulo-Sesion">
-                    <h1 style={{ fontWeight: "100", margin:"0", fontSize:"2rem", padding:".5rem" }}>Crear Cuenta</h1>
+                    <h1 className='crear-Cuenta-Home'>Crear Cuenta</h1>
                     <button
                         className="btn-C-Usuario-X"
                         onClick={e => { setcrearCuenta(false) }}
@@ -134,7 +134,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                             />
                         </label>
                         <label htmlFor="telefono">
-                            <p style={{ margin: "0", color: "#495057" }}>Teléfono:</p>
+                            <p className='input-Telefono' style={{ margin: "0", color: "#495057" }}>Teléfono:</p>
                             <input
                                 placeholder="Teléfono..."
                                 type="tel"

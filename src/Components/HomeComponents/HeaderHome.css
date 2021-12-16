@@ -287,8 +287,8 @@
         margin-left: 0;
         display: flex;
         flex-direction: column;
-        height: 70%;
-        justify-content: space-evenly;
+        height: 40%;
+        justify-content: space-between;
         align-items: center;
         z-index: 998;
         transform: translate(-100%, 0px);
