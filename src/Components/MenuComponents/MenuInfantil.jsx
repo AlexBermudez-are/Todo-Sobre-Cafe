@@ -49,12 +49,12 @@ const MenuInfantil = ({ Menu }) => {
       <div className="platillo">
         <img
           src={Menu ? Menu.img : "cargando"}
-          style={{ height: "350px", boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)" }}
+          style={{ boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)" }}
           alt=""
         />
         <section className="compra-Infantil">
           <button className="btn-Agregar-Infantil" onClick={agregarCarrito} ref={menuRef}>
-            <p className=".btn-Compra3">Agregar</p>
+            <p className="btn-CompraI">Agregar</p>
             <p style={{ margin: "0", fontSize: "2rem" }}>+</p>
           </button>
           <div className="precio">${Menu ? Menu.precio : "cargando"}.00</div>

@@ -92,6 +92,16 @@
         font-size: 20px;
         margin: 10%;
     }
+    .platillo-1 img{
+        height: 250px;
+    }
+    .info-Platillo-Adulto1{
+        width: 40%;
+    }
+    .menu-Adulto-1{
+        padding-top: 10%;
+        padding-bottom: 10%;
+    }
 }
 
 @media(max-width:425px) {

@@ -50,6 +50,11 @@
     justify-content: space-between;
 }
 
+.img-Card {
+    width: 300px;
+    height: 300px;
+}
+
 .agregar-Disminuir {
     width: 25%;
     height: 100%;
@@ -67,6 +72,14 @@
     position: relative;
 }
 
+.p-agregar-C {
+    margin: 0;
+    position: absolute;
+    font-size: 2rem;
+    margin-top: -33%;
+    margin-left: 20%;
+}
+
 .disminuir-C {
     height: 40%;
     background-color: rgb(255, 0, 85);
@@ -74,6 +87,14 @@
     cursor: pointer;
     color: white;
     position: relative;
+}
+
+.p-disminuir-C {
+    margin: 0;
+    position: absolute;
+    font-size: 2rem;
+    margin-top: -40%;
+    margin-left: 27%;
 }
 
 .btn_Card {
@@ -90,10 +111,133 @@
     cursor: pointer;
     box-shadow: 4px 4px 7px 1px rgb(0 0 0 / 20%)
 }
-.btn_Card.active{
+
+.btn_Card.active {
     background-color: rgb(70, 246, 0);
 }
 
 .btn-Card:hover {
     background-color: rgb(248, 181, 58);
+}
+
+@media(max-width:1024px) {
+    .img-Card {
+        width: 250px;
+        height: 250px;
+    }
+
+    .p-agregar-C {
+        margin: -45% 0px 0px 10%;
+    }
+
+    .p-disminuir-C {
+        margin: 0;
+        position: absolute;
+        font-size: 2rem;
+        margin-top: -50%;
+        margin-left: 20%;
+    }
+
+    .btn_Card {
+        font-size: 1.2rem;
+    }
+
+    .precio-Card {
+        font-size: 1.2rem;
+    }
+
+    .seccion-Botones-C {
+        justify-content: space-around;
+    }
+
+    .titulo {
+        font-size: 1.2rem;
+    }
+}
+
+@media(max-width:768px) {
+    .titulo {
+        font-size: 1.5rem;
+    }
+
+    .p-agregar-C {
+        margin: -40% 0px 0px 16%;
+    }
+
+    .p-disminuir-C {
+        margin-top: -43%;
+        margin-left: 26%;
+    }
+
+    .info-Card {
+        padding-bottom: 8%;
+        padding-top: 10%;
+    }
+}
+
+@media(max-width:425px) {
+    .img-Card {
+        width: 300px;
+        height: 200px;
+    }
+
+    .disminuir-C,
+    .agregar-C {
+        height: 45%;
+    }
+
+    .precio-Card {
+        font-size: 1.5rem;
+    }
+
+    .p-agregar-C {
+        margin: -30% 0px 0px 23%;
+    }
+
+    .p-disminuir-C {
+        margin-top: -34%;
+        margin-left: 30%;
+    }
+
+    .btn_Card {
+        font-size: 1.5rem;
+    }
+
+    .Marco_Titulo {
+        height: 80px;
+    }
+}
+
+@media(max-width:375px) {
+    .precio-Card {
+        font-size: 1.3rem;
+    }
+
+    .p-agregar-C {
+        margin: -34% 0px 0px 19%;
+    }
+
+    .p-disminuir-C {
+        margin-top: -39%;
+        margin-left: 28%;
+    }
+}
+@media(max-width:320px){
+    .img-Card {
+        width: 260px;
+    }
+    .p-agregar-C {
+        margin: -40% 0px 0px 15%;
+    }
+    .p-disminuir-C {
+        margin-top: -44%;
+        margin-left: 25%;
+    }
+    .btn_Card{
+        font-size: 1.2rem;
+        width: 60%;
+    }
+    .seccion-Botones-C{
+        justify-content: space-evenly;
+    }
 }

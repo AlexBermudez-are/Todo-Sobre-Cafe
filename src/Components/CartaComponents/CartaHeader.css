@@ -1,5 +1,6 @@
 .PadreCarta {
-    width: 100%;
+    margin: auto;
+    box-shadow: 0px 6px 7px 1px rgb(0 0 0 / 20%);
 }
 
 .menu-Header-C {
@@ -14,11 +15,16 @@
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    padding-bottom: 4rem;
+    padding-bottom: 5%;
 }
 
 .logoC {
     width: 50%;
     display: flex;
     justify-content: center;
+}
+@media(max-width:768px){
+    .logoC{
+        width: 40%;
+    }
 }

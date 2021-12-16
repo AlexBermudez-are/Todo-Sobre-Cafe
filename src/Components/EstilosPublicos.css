@@ -45,7 +45,7 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    left: 16%;
+    left: 15.5%;
     border-radius: 50%;
 }
 
@@ -160,6 +160,9 @@
     .carrito-De-Compras {
         width: 90%;
     }
+    .btn-Carrito-Header{
+        left: 16.5%;
+    }
 }
 
 @media(max-width:768px) {
@@ -180,15 +183,21 @@
 
 @media(max-width:425px) {
     .btn-Carrito-Header {
-        left: 12.5%;
+        left: 12%;
     }
 
     .boton-Nav-Usuario-G {
         border-radius: 10px;
+        font-size: 1rem;
     }
 
     .navLink-Carrito h2 {
         display: none;
+    }
+    .btn-Scroll-H img{
+        right: 10px;
+        bottom: 10px;
+        width: 80px;
     }
 }
 

@@ -49,9 +49,9 @@
     align-items: center;
     border: none;
     font-weight: bold;
-    font-size: 1.5rem;
     display: flex;
     color: white;
+    font-size: 1.5rem;
     background-color: rgb(238, 161, 17);
     border-radius: 10px;
 }
@@ -85,10 +85,23 @@
     .compra-Infantil {
         width: 81%;
     }
-
-    .btn-Compra3 {
+    .btn-CompraI {
         font-size: 20px;
         margin: 10%;
+    }
+    .platillo img{
+        height: 250px;
+    }
+    .borde-divisor-azul{
+        margin-left: 0;
+        width: 100%;
+    }
+    .menu-Infantil{
+        padding-bottom: 10%;
+        padding-top: 10%;
+    }
+    .info-Platillo-I{
+        width: 40%;
     }
 }
 

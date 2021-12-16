@@ -136,12 +136,7 @@ const ContactoGeolocalizacion = () => {
         <textarea
           onChange={formulario}
           value={form.datos}
-          style={{
-            resize: "none",
-            width: "60%",
-            margin: "auto",
-            fontSize: "1.3rem",
-          }}
+          className="text-Area-Contacto"
           name="datos"
           cols="30"
           rows="10"

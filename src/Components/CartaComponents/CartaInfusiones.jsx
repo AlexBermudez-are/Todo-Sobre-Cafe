@@ -53,7 +53,6 @@ const CartaInfusiones = ({ Infusiones, setalmacen }) => {
         </div>
         <img
           className="img-Card"
-          style={{ width: "300px", height: "300px" }}
           src={Infusiones ? Infusiones.img : "cargando"}
           alt={Infusiones ? Infusiones.nombre : "cargando"}
         />
@@ -63,22 +62,10 @@ const CartaInfusiones = ({ Infusiones, setalmacen }) => {
         <div className="seccion-Botones-C">
           <section className="agregar-Disminuir">
             <button className="agregar-C" onClick={agregar}>
-              <p style={{
-                margin: "0",
-                position: "absolute",
-                fontSize: "2rem",
-                marginTop: "-33%",
-                marginLeft: "20%"
-              }}>+</p>
+              <p className="p-agregar-C">+</p>
             </button>
             <button className="disminuir-C" onClick={disminuir}>
-              <p style={{
-                margin: "0",
-                position: "absolute",
-                fontSize: "2rem",
-                marginTop: "-40%",
-                marginLeft: "27%"
-              }}>-</p>
+              <p className="p-disminuir-C">-</p>
             </button>
           </section>
           <button className="btn_Card" ref={refListo} onClick={validarDatos}>
