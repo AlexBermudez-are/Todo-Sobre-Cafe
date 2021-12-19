@@ -1,5 +1,42 @@
 {
-  "usuarios": [],
+  "usuarios": [
+    {
+      "nombre": "Guishe Chupa Pija",
+      "contraseña": "1234567uU",
+      "email": "asdasda@gmail.com",
+      "telefono": "2235780162",
+      "apellido": "Bermúdez Bermúdez",
+      "direccion": "4007 Jorde Maldonado",
+      "id": 1
+    },
+    {
+      "nombre": "Edwin Alexis",
+      "contraseña": "RyM15714",
+      "email": "kronosdeadman@gmail.com",
+      "telefono": "9878789774",
+      "apellido": "Bermúdez Bermúdez",
+      "direccion": "4007 Jorde Maldonado",
+      "id": 2
+    },
+    {
+      "nombre": "asdasdAasd",
+      "contraseña": "RyM15714",
+      "email": "edbwinn@gmail.com",
+      "telefono": "2235780162",
+      "apellido": "asdsaasdasd",
+      "direccion": "4007 Jorde Maldonado",
+      "id": 3
+    },
+    {
+      "nombre": "asdasdAasd",
+      "contraseña": "RyM15714",
+      "email": "edbwinn@gmail.com",
+      "telefono": "2235780162",
+      "apellido": "asdsaasdasd",
+      "direccion": "4007 Jorde Maldonado",
+      "id": 4
+    }
+  ],
   "carrito_de_compras": {},
   "menu_Del_Dia": {
     "menu_adulto": {

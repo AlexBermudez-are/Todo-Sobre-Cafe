@@ -42,7 +42,7 @@ const CarritoProvider = ({ children }) => {
 
 
         setprecioFinal(precioTotal) // Actualiza el precio total
-        const eliminarPedidoCompleto = arregloUnico.filter(nuevoArr => nuevoArr.cantidad !== el.cantidad)// Elimina el producto de arr principal
+        const eliminarPedidoCompleto = arregloUnico.filter(nuevoArr => nuevoArr.id !== el.id)// Elimina el producto de arr principal
         setarregloUnico(eliminarPedidoCompleto) // Devuelve el arreglo con el producto eliminado
         setcontadorProductos(contadorProductos - 1) //Muestra el numero total de productos en el carrito
     }

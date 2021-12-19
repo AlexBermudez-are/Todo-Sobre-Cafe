@@ -143,6 +143,15 @@
     border-radius: 10px;
 }
 
+.sesion-Iniciada.active img {
+    position: absolute;
+    top: 49%;
+}
+
+.section {
+    width: 55%;
+}
+
 /** scroll Up Btn de Carta ***************************/
 
 .btn-Scroll-H {
@@ -154,14 +163,45 @@
     opacity: 1;
 }
 
+.btn-Scroll-H.active img {
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding-right: 2%;
+    padding-bottom: 2%;
+}
+
 @media(max-width:1024px) {
 
     .UsuariosHome-G,
     .carrito-De-Compras {
         width: 90%;
     }
-    .btn-Carrito-Header{
+
+    .btn-Carrito-Header {
         left: 16.5%;
+    }
+
+    .circulo-Blanco-Sesion {
+        width: 60%;
+        left: 21%;
+    }
+
+    .sesion-Iniciada.active img {
+        left: 21%;
+    }
+
+    .contenedor-Bandera.active {
+        top: 30%;
+    }
+
+    .izquierda {
+        border-left: 80px solid rgb(238, 161, 17);
+    }
+
+    .derecha {
+        border-right: 86px solid rgb(238, 161, 17);
     }
 }
 
@@ -179,6 +219,23 @@
     .btn-Carrito-Header {
         left: 19.6%;
     }
+
+    .circulo-Blanco-Sesion {
+        width: 70%;
+        left: 16%;
+    }
+
+    .sesion-Iniciada.active img {
+        left: 19%;
+    }
+
+    .izquierda {
+        border-left: 75px solid rgb(238, 161, 17);
+    }
+
+    .derecha {
+        border-right: 75px solid rgb(238, 161, 17);
+    }
 }
 
 @media(max-width:425px) {
@@ -194,15 +251,70 @@
     .navLink-Carrito h2 {
         display: none;
     }
-    .btn-Scroll-H img{
+
+    .btn-Scroll-H img {
         right: 10px;
         bottom: 10px;
         width: 80px;
+    }
+
+    .contenedor-Bandera.active {
+        display: none;
+    }
+
+    .sesion-Iniciada.active {
+        visibility: hidden;
+        width: 0px;
+    }
+
+    .circulo-Blanco-Sesion {
+        visibility: visible;
+        box-shadow: 0px 3px 4px 4px rgb(0 0 0 / 20%);
+        left: -3%;
+        top: 85%;
+        height: 85px;
+        width: 88%;
+    }
+
+    .sesion-Iniciada.active img {
+        top: 86%;
+        visibility: visible;
+        width: 80px;
+        left: 1%;
+    }
+
+}
+
+@media(max-width:375px) {
+    .section {
+        width: 100%;
+    }
+
+    .sesion-Iniciada.active {
+        left: 73%;
     }
 }
 
 @media(max-width:320px) {
     .boton-Nav-Usuario-G {
         font-size: 1rem;
+    }
+
+    .sesion-Iniciada.active {
+        width: 27%;
+        padding: 0px;
+    }
+
+    .circulo-Blanco-Sesion {
+        left: -3%;
+        top: 146%;
+        height: 75px;
+        width: 88%;
+    }
+
+    .sesion-Iniciada.active img {
+        top: 145%;
+        width: 80px;
+        left: -3%;
     }
 }

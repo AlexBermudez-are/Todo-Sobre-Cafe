@@ -27,10 +27,10 @@ const InicioDeSesion = () => {
     <>
       {
         SesionI || SesionIniciadaLocalStorage
-          ? <section style={{ width: "55%" }}>
+          ? <section className="section">
             <div className="sesion-Iniciada" ref={ref}>
               <div className="circulo-Blanco-Sesion"></div>
-              <img style={{ position: "absolute", top: "49%" }} src={SesionIniciada} width="100px" alt="icono-inicio-sesion" />
+              <img src={SesionIniciada} width="100px" alt="icono-inicio-sesion" />
             </div>
             <div className="contenedor-Bandera" ref={bandera}>
               <div className="izquierda"></div>

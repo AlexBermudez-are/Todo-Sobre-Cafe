@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Terraza from "../../assets/Terraza-Cafetería.mp4";
 import Logo from "../../assets/todo-sobre-café.png";
 import BodyCarruselCafe from "./BodyCarruselCafe";
@@ -8,7 +8,16 @@ import "./BodyHome.css";
 
 const BodyHome = () => {
 
-  const [state, setstate] = useState(true)
+  const [state, setstate] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setstate(true)
+    }, 1000);
+    return()=>{
+      setstate(false)
+    }
+  }, [])
 
   return (
     <>

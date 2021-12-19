@@ -22,14 +22,7 @@ const BtnScrollUp = ({btn}) => {
 
     return (
         <button className="btn-Scroll-H" onClick={btnA} ref={refA}>
-            <img src={up} alt="flecha Up" width="100px" style={{
-                cursor:"pointer",
-                position: "fixed",
-                right: "0",
-                bottom: "0",
-                paddingRight: "2%",
-                paddingBottom: "2%"
-            }} />
+            <img src={up} alt="flecha Up" width="100px" />
         </button>
     )
 }

@@ -76,7 +76,7 @@ const HeaderHome = () => {
                                 <section style={{ width: "55%" }}>
                                     <div className="sesion-Iniciada-Home" ref={ref}>
                                         <div className="circulo-Blanco-Sesion-Home"></div>
-                                        <img style={{ position: "absolute", top: "31%" }} src={SesionIniciada} width="100px" alt="icono-inicio-sesion" />
+                                        <img src={SesionIniciada} width="100px" alt="icono-inicio-sesion" />
                                     </div>
                                     <div className="contenedor-Bandera-Home" ref={bandera}>
                                         <div className="izquierda-Home"></div>
