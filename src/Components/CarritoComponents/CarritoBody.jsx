@@ -20,15 +20,14 @@ const CarritoBody = () => {
 
     const [arregloV, setArregloV] = useState([])
     const listaProductos = arregloUnico;
-    const [update, setUpdate] = useState(true)
-    
+
     useEffect(() => {
         const arr = [];
         for (let index = 0; index < listaProductos.length; index++) {
             arr.push(listaProductos[index])
         }
         setArregloV(arr)
-    }, [update, arregloUnico])
+    }, [precioFinal, arregloUnico])
 
     return (
         <div style={{ paddingBottom: "5%" }}>
@@ -49,7 +48,6 @@ const CarritoBody = () => {
                                 precioFinal={precioFinal}
                                 eliminarUnidad={eliminarUnidad}
                                 añadirUnidad={añadirUnidad}
-                                update={update} setUpdate={setUpdate}
                             />
                         })
                         : <div style={{
@@ -66,10 +64,12 @@ const CarritoBody = () => {
             <section className="precio-Total-Carrito">
                 <div className="contenedor-Finalizar-Pedido">
                     <section className="opciones-Pedido">
-                        <div>
-                            <p>Total:</p>
+                        <div className='total-Precio'>
+                            <p style={{ margin: "0" }}>Total:</p>
                         </div>
-                        <div className="precio-Carrito-F">${precioFinal}</div>
+                        <div className="precio-Carrito-F">
+                            <p style={{ margin: "0" }}>${precioFinal}</p>
+                        </div>
                     </section>
                 </div>
                 <div className="boton-Finalizar-Compra">

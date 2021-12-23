@@ -29,15 +29,15 @@ const ContraseñaOlvidada = ({ setcontraseñaOlvidada }) => {
     const enviar = (e) => {
         e.preventDefault();
         if (datosUsuarios.length === 0) {
-            contraseña.current.className='label-Contraseña-Olvidada active'
+            contraseña.current.className = 'label-Contraseña-Olvidada active'
         } else {
             for (let index = 0; index < datosUsuarios.length; index++) {
                 const element = datosUsuarios[index];
                 if (element.email === datosUsuarios.email) {
-                    contraseña.current.className='label-Contraseña-Olvidada active'
+
                     return
                 } else {
-                    console.log(element);
+                    contraseña.current.className = 'label-Contraseña-Olvidada active'
                 }
             }
         }
@@ -70,16 +70,16 @@ const ContraseñaOlvidada = ({ setcontraseñaOlvidada }) => {
                         placeholder="Ejemplo@gmail.com"
                         required
                     />
-                </section>
-                <section className='label-Contraseña-Olvidada' ref={contraseña}>
-                    <p style={{
-                        margin: "0",
-                        paddingLeft: "1%",
-                        paddingBottom: "3%"
-                    }}>El email ingresado no coincide con ninguna cuenta registrada</p>
-                </section>
-                <section className="enviar-Contraseña-O">
-                    <button className="submit-Contraseña-O">Enviar</button>
+                    <section className='label-Contraseña-Olvidada' ref={contraseña}>
+                        <p style={{
+                            margin: "0",
+                            paddingLeft: "1%",
+                            paddingBottom: "3%"
+                        }}>El email ingresado no coincide con ninguna cuenta registrada</p>
+                    </section>
+                    <section className="enviar-Contraseña-O">
+                        <button className="submit-Contraseña-O">Enviar</button>
+                    </section>
                 </section>
             </form>
         </div>

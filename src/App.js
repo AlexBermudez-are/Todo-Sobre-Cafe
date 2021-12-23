@@ -8,6 +8,7 @@ import Carrito from './Pages/Carrito';
 import Carta from './Pages/Carta';
 import Home from './Pages/Home'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Aqui van las rutas a las paginas Principales
 

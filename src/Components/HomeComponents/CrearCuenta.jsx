@@ -22,6 +22,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
     const [valueForm, setvalueForm] = useState(initialState)
     const [datos, setdatos] = useState([])
     const ref = useRef()
+    const refFormWrong = useRef();
 
     const url = 'http://localhost:3005/usuarios'
     const help = helpHttp()
@@ -50,29 +51,31 @@ const CrearCuenta = ({ setcrearCuenta }) => {
 
     const validarusuario = async (e) => {
         e.preventDefault();
-        console.log(datos);
         if (datos.length === 0) {
             help.post(url, {
                 body: valueForm,
                 headers: { "content-type": "application/json" },
             })
-            let contadorif = setTimeout(() => {
+            setTimeout(() => {
                 setformOK(true)
             }, 1000)
-            clearTimeout(contadorif)
         } else {
             for (let i = 0; i < datos.length; i++) {
                 const element = datos[i];
                 if (element.email === valueForm.email) {
+                    refFormWrong.current.className = 'input-C-Usuario-Contenedor active'
                     return ref.current.className = 'span-Error-Crear-C active'
                 } else {
                     help.post(url, {
                         body: valueForm,
                         headers: { "content-type": "application/json" },
-                    })
-                    setTimeout(() => {
-                        setformOK(true)
-                    }, 1000)
+                    }).then(res => {
+                        setTimeout(() => {
+                            setformOK(true)
+                        }, 1000)
+                        console.log(res)
+                    }
+                    )
                 }
             }
         }
@@ -92,7 +95,9 @@ const CrearCuenta = ({ setcrearCuenta }) => {
         <div className="input-C-Usuario-Padre" onClick={e => { setcrearCuenta(false) }}>
             <form className="input-C-Usuario-Contenedor"
                 onClick={e => { e.stopPropagation() }}
-                onSubmit={validarusuario}>
+                onSubmit={validarusuario}
+                ref={refFormWrong}
+            >
                 {
                     formOK
                         ? <FormEnviado />
@@ -193,7 +198,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                         </label>
                     </div>
                 </section>
-                <span ref={ref} className="span-Error-Crear-C">El email ya se encuentra usado por otra cuenta</span>
+                <span ref={ref} className="span-Error-Crear-C">El email ingresado ya esta en uso</span>
                 <label htmlFor="autorizar" className="inputs-C-Sesion-A">
                     <input
                         type="checkbox"

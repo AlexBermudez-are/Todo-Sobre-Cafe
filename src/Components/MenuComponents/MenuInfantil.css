@@ -31,7 +31,7 @@
 
 .compra-Infantil {
     display: flex;
-    width: 90%;
+    width: 100%;
     margin: auto;
     height: 100%;
     padding-top: 4%;
@@ -71,37 +71,42 @@
     margin-left: 15%;
 }
 
+.btn-CompraI {
+    margin: 0;
+}
+
 @media(max-width:1024px) {
     .btn-Agregar-Infantil {
-        width: 50%;
-    }
-
-    .compra-Infantil {
-        width: 86%;
+        width: 45%;
     }
 }
 
 @media(max-width:768px) {
-    .compra-Infantil {
-        width: 81%;
+    .platillo img {
+        height: 250px;
     }
+
+    .borde-divisor-azul {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu-Infantil {
+        padding-bottom: 10%;
+        padding-top: 10%;
+    }
+
+    .compra-Infantil {
+        padding: 1.5rem;
+    }
+
     .btn-CompraI {
         font-size: 20px;
         margin: 10%;
     }
-    .platillo img{
-        height: 250px;
-    }
-    .borde-divisor-azul{
-        margin-left: 0;
-        width: 100%;
-    }
-    .menu-Infantil{
-        padding-bottom: 10%;
-        padding-top: 10%;
-    }
-    .info-Platillo-I{
-        width: 40%;
+
+    .btn-Agregar-Infantil {
+        width: 50%;
     }
 }
 
@@ -110,23 +115,29 @@
         flex-direction: column;
         padding-top: 20%;
     }
-    .platillo{
+
+    .platillo {
         width: 80%;
     }
-    .info-Platillo-I{
+
+    .info-Platillo-I {
         width: 80%;
         text-align: center;
+        margin-top: 10%;
     }
 }
-@media(max-width:320px){
-    .compra-Infantil{
+
+@media(max-width:320px) {
+    .compra-Infantil {
         flex-direction: column;
         align-items: center;
     }
-    .btn-Agregar-Infantil{
+
+    .btn-Agregar-Infantil {
         width: 70%;
     }
-    .precio{
+
+    .precio {
         padding-top: 5%;
     }
 }

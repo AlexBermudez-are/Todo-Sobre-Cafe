@@ -1,13 +1,17 @@
-import React, { useRef, useState } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext, useRef, useState } from "react";
+import CarritoContext from "../../Context/CarritoContext";
 import './CartaPostres.css'
 
 //Este componente es cada tarjeta usada en la Carta, aqui se manda la cantidad de 
 //productos que quieran al carrito
 
-const CartaPostres = ({ Postres, setalmacen }) => {
+const CartaPostres = ({ Postres }) => {
 
+  const { enviandoPedido, precioTotal, precioFinal } = useContext(CarritoContext);
   const refListo = useRef();
   const [Add_Food, setAdd_Food] = useState(0);
+  let idDate
 
   let DatosPostres = []
   let Producto = {
@@ -16,16 +20,25 @@ const CartaPostres = ({ Postres, setalmacen }) => {
     id: Postres.id,
     img: Postres.img,
     precio: Postres.precio,
-    cantidad: Add_Food
+    cantidad: Add_Food,
+    idUnica: idDate = Math.random() * (1000 - 1) + 1
   }
 
 
   const validarDatos = () => {
     if (Add_Food > 0) {
       DatosPostres.push(Producto)
-      setalmacen(DatosPostres)
-    }
-    if (Add_Food >= 1) {
+      enviandoPedido(DatosPostres) // Envia el pedido al carrito
+
+      let precioF = precioFinal,
+        precio = Postres.precio;
+
+      for (let index = 0; index < Producto.cantidad; index++) {
+        precioF += precio // Actualiza el precio total del carrito
+      }
+
+      precioTotal(precioF) //Suma el monto del producto a al monto del precio total
+
       setTimeout(() => {
         refListo.current.className = "btn_Card active"
         setTimeout(() => {
@@ -33,7 +46,7 @@ const CartaPostres = ({ Postres, setalmacen }) => {
           setAdd_Food(0)
         }, 500);
       }, 500);
-    } return
+    }
   };
 
   const agregar = () => {

@@ -5,12 +5,9 @@ import './CarritoProductos.css'
 
 const CarritoProductos = ({
     el,
-    precioTotal,
     eliminarPedido,
     eliminarUnidad,
-    añadirUnidad, 
-    update,
-    setUpdate
+    añadirUnidad
 }) => {
 
     const [state, setstate] = useState(0);
@@ -18,37 +15,26 @@ const CarritoProductos = ({
     const restar = () => {
         if (state > 1) {
             setstate(state - 1)
-            eliminarUnidad(el, state)
-            setUpdate(!update)
+            eliminarUnidad(el)
         }
     }
 
     const sumar = () => {
         if (state < 5) {
             setstate(state + 1)
-            añadirUnidad(el, state)
-            setUpdate(!update)
+            añadirUnidad(el)
         }
     }
     const eliminar = () => {
-        eliminarPedido(el, state)
-        setUpdate(!update)
-        console.log(el);
+        eliminarPedido(el)
     }
 
 
     useEffect(() => {
-        let precioF = 0
-        const cantidad = el.cantidad || 1,
-            precio = el.precio;
-
-        for (let index = 0; index < cantidad; index++) {
-            precioF += precio
-        }
-
-        precioTotal(precioF) //Suma el monto del producto a al monto del precio total
+        const cantidad = el.cantidad
         setstate(cantidad)
-    }, [])
+        console.log(cantidad);
+    }, [el])
 
     return (
         <div className="Padre-Carrito-Lista">
@@ -57,7 +43,7 @@ const CarritoProductos = ({
                 <h2>{el.nombre}</h2>
             </section>
             <section className="precio-P">
-                {el.precio}
+                <h4>{el.precio}</h4>
             </section>
             <section className="ordenar-Pedido">
                 <div className="ordenar-Pedido-Container">
@@ -72,7 +58,7 @@ const CarritoProductos = ({
             </section>
             <section className='vector-Borrar-Producto'>
                 <button onClick={eliminar} style={{ backgroundColor: "white", border: "none", cursor: "pointer" }}>
-                    <img src={iconoB} alt="Icono Basura" width="30px" height="30px" />
+                    <img src={iconoB} alt="Icono Basura" />
                 </button>
             </section>
         </div>

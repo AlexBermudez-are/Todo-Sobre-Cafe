@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from 'react'
 import torta_De_Limon from '../../assets/torta de llimon.jpg'
 import piononos from '../../assets/piononos.jpg'
@@ -13,17 +14,18 @@ const Estilos = {
     borderBottomRightRadius: "5%",
 }
 
-const BodyCarruselPostre = ({ claseActiva }) => {
+const BodyCarruselPostre = () => {
 
     const imagenRef = useRef()
     const ref = useRef()
     const [Carrusel, setCarrusel] = useState([torta_De_Limon])
+    let contador
 
-    useEffect(() => {
+    const temporizador = () => {
         const arregloImg = [alfajores, piononos, torta_De_Limon];
         let i = 0;
 
-        let contador = setInterval(() => {
+        contador = setInterval(() => {
             if (arregloImg.length - 1 > i) {
                 imagenRef.current.className = 'claseActivaP'
                 setTimeout(() => {
@@ -42,11 +44,14 @@ const BodyCarruselPostre = ({ claseActiva }) => {
             }
         }, 4000);
         ref.current.className = 'claseActivaP div'
+    }
 
+    useEffect(() => {
+        temporizador()
         return () => {
             return clearInterval(contador)
         };
-    }, [claseActiva]);
+    }, []);
 
     return (
         <div className={`claseActivaP`} ref={ref}>

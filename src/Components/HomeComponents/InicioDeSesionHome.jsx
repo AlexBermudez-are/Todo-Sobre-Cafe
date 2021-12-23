@@ -36,6 +36,10 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
         if (validadorUsuario.length === 0) {
             logFail.current.className = 'sesion-Fallida-E active'
             failLogueo.current.className = 'input-Usuario-Contenedor active'
+            setTimeout(() => {
+                logFail.current.className = 'sesion-Fallida-E'
+                failLogueo.current.className = 'input-Usuario-Contenedor'
+            }, 5000);
         } else {
             for (let i = 0; i < validadorUsuario.length; i++) {
                 const element = validadorUsuario[i];
@@ -46,6 +50,10 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                 } else {
                     logFail.current.className = 'sesion-Fallida-E active'
                     failLogueo.current.className = 'input-Usuario-Contenedor active'
+                    setTimeout(() => {
+                        logFail.current.className = 'sesion-Fallida-E'
+                        failLogueo.current.className = 'input-Usuario-Contenedor'
+                    }, 5000);
                 }
             }
         }
@@ -85,7 +93,9 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                     <button
                         className="btn-Usuario-X"
                         onClick={cerrar}
-                    >x</button>
+                    >
+                        <p className='btn-x-Close'>x</p>
+                    </button>
                 </div>
                 <div className="inputs-Sesion">
                     <label htmlFor="email">
@@ -113,7 +123,7 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                             required
                         />
                     </label>
-                    <span className="sesion-Fallida-E" ref={logFail}>El correo o la contraseña ingreasada no son correctos, verifica los datos</span>
+                    <span className="sesion-Fallida-E" ref={logFail}>El correo o la contraseña son incorrectos</span>
                 </div>
                 <label htmlFor="autorizar" className="inputs-Sesion-A">
                     <input

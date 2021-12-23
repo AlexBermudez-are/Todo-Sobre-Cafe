@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useContext, useRef, useState } from "react";
+import CarritoContext from "../../Context/CarritoContext";
 
-const CartaInfusiones = ({ Infusiones, setalmacen }) => {
+const CartaInfusiones = ({ Infusiones }) => {
 
+  const { enviandoPedido, precioTotal, precioFinal } = useContext(CarritoContext);
   const refListo = useRef()
   const [Add_Food, setAdd_Food] = useState(0);
+  let idDate
 
   let DatosInfusiones = []
   let Producto = {
@@ -12,15 +16,26 @@ const CartaInfusiones = ({ Infusiones, setalmacen }) => {
     img: Infusiones.img,
     precio: Infusiones.precio,
     carta: "Infusion",
-    cantidad: Add_Food
+    cantidad: Add_Food,
+    idUnica: idDate = Math.random() * (1000 - 1) + 1
   }
 
 
   const validarDatos = () => {
     if (Add_Food > 0) {
       DatosInfusiones.push(Producto)
-      setalmacen(DatosInfusiones)
+      enviandoPedido(DatosInfusiones) // Envia el pedido al carrito
     }
+
+    let precioF = precioFinal,
+        precio = Infusiones.precio;
+
+      for (let index = 0; index < Producto.cantidad; index++) {
+        precioF += precio // Actualiza el precio total del carrito
+      }
+
+      precioTotal(precioF) //Suma el monto del producto a al monto del precio total
+
     setTimeout(() => {
       refListo.current.className = "btn_Card active"
       setTimeout(() => {

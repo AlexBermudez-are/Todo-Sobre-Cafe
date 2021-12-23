@@ -112,7 +112,7 @@
 }
 
 .boton-Nav-Usuario {
-    width: 70%;
+    width: 80%;
     background-color: rgb(255, 188, 62);
     height: 55px;
     border-radius: 5%;
@@ -150,6 +150,8 @@
 .sesion-Iniciada-Home.active {
     transform: translate(0px, 0px);
     transition: transform .5s ease-in;
+    width: 13.5%;
+    height: 180px;
 }
 
 .circulo-Blanco-Sesion-Home {
@@ -188,7 +190,7 @@
 }
 
 .derecha-Home {
-    border-right: 96px solid rgb(238, 161, 17);
+    border-right: 92px solid rgb(238, 161, 17);
 }
 
 @media(max-width:1024px) {
@@ -211,23 +213,30 @@
     .UsuariosHome {
         width: 30%;
     }
-    .sesion-Iniciada-Home.active{
-        height: 75px;
+
+    .sesion-Iniciada-Home.active {
+        height: 175px;
+        width: 16.5%;
     }
-    .izquierda-Home{
+
+    .izquierda-Home {
         border-left: 83px solid rgb(238, 161, 17);
     }
+
     .derecha-Home {
         border-right: 85px solid rgb(238, 161, 17);
     }
-    .contenedor-Bandera-Home.active{
+
+    .contenedor-Bandera-Home.active {
         margin-top: 5%;
     }
-    .circulo-Blanco-Sesion-Home{
+
+    .circulo-Blanco-Sesion-Home {
         width: 65%;
         left: 19%;
     }
-    .sesion-Iniciada-Home img{
+
+    .sesion-Iniciada-Home img {
         left: 22%;
     }
 }
@@ -270,17 +279,25 @@
         width: 75%;
         font-size: 1rem;
     }
-    .izquierda-Home{
+
+    .izquierda-Home {
         border-left: 74px solid rgb(238, 161, 17);
     }
-    .derecha-Home{
+
+    .derecha-Home {
         border-right: 75px solid rgb(238, 161, 17);
     }
+
     .contenedor-Bandera-Home.active {
         margin-top: 6%;
     }
+
     .sesion-Iniciada-Home img {
         left: 19%;
+    }
+
+    .sesion-Iniciada-Home.active {
+        width: 19.4%;
     }
 }
 
@@ -323,7 +340,7 @@
         margin-left: 0;
         display: flex;
         flex-direction: column;
-        height: 50%;
+        height: 40%;
         justify-content: space-between;
         align-items: center;
         z-index: 998;
@@ -344,7 +361,7 @@
 
     .UsuariosHome {
         width: 100%;
-        height: 30%;
+        height: 40%;
         transform: translate(-100%, 0px);
         transition: all .5s ease;
         position: absolute;
@@ -407,9 +424,9 @@
         opacity: 1;
         transform: translate(0px, 0px);
         transition: transform opacity .5s ease-in;
-        width: 23%;
+        width: 45%;
         left: 27%;
-        height: 60px;
+        height: 165px;
         top: 45%;
     }
 
@@ -427,6 +444,7 @@
 
     .sesion-Iniciada-Home.active {
         left: 25%;
+        width: 48%;
     }
 }
 
@@ -438,10 +456,14 @@
 
     .sesion-Iniciada-Home.active {
         left: 23%;
+        width: 52%;
     }
 
     .hamburger.active {
         left: 75%;
         top: 3%;
+    }
+    .boton-Nav-Right, .boton-Nav-Left, .boton-Nav-Mid {
+        width: 60%;
     }
 }

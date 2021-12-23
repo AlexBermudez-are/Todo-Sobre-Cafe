@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from "react";
 import frapuccino from "../../assets/frapuccino.png";
 import capuccino from "../../assets/capuccino-foto-principal.jpg";
@@ -13,17 +14,18 @@ const Estilos = {
   borderBottomRightRadius: "5%",
 };
 
-const BodyCarruselCafe = ({ claseActiva }) => {
+const BodyCarruselCafe = () => {
 
   const [Carrusel, setCarrusel] = useState([frapuccino]);
   const imagenRef = useRef()
   const ref = useRef()
+  let contador
 
-  useEffect(() => {
+  const temporizador = () => {
     const arregloImg = [capuccino, capuccinoCasero, frapuccino];
     let i = 0;
 
-    let contador = setInterval(() => {
+    contador = setInterval(() => {
       if (arregloImg.length - 1 > i) {
         imagenRef.current.className = 'claseActivaC'
         setTimeout(() => {
@@ -40,14 +42,17 @@ const BodyCarruselCafe = ({ claseActiva }) => {
         i = 0;
       }
     }, 4000);
-    
-    ref.current.className = 'claseActivaC div'
 
+    ref.current.className = 'claseActivaC div'
+  }
+
+  useEffect(() => {
+    temporizador()
     return () => {
       return clearInterval(contador)
     };
-  }, [claseActiva]);
-  
+  }, []);
+
   return (
     <div className={`claseActivaC`} ref={ref}>
       <img

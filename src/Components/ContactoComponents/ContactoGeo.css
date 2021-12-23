@@ -27,7 +27,7 @@
 
 label {
   font-size: 1.5rem;
-  width: 20%;
+  width: 30%;
   font-weight: bold;
   font-family: sans-serif;
 }
@@ -120,7 +120,7 @@ label {
   }
 
   .inputContacto {
-    width: 85%;
+    width: 100%;
   }
 
   .text-Area-Contacto {

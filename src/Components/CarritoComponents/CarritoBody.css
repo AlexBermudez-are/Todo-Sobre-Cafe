@@ -30,6 +30,14 @@
     text-align: center;
 }
 
+.total-Precio{
+    font-size: 1.5rem;
+}
+
+.precio-Carrito-F{
+    font-size: 1.5rem;
+}
+
 @media(max-width:1024px){
     .cabecera-Carrito{
         width: 80%;
@@ -53,5 +61,18 @@
     .cantidad-Carrito,
     .pedido-Carrito {
         width: 30%;
+    }
+}
+
+@media(max-width:375px){
+    .total-Precio,
+    .precio-Carrito-F {
+        font-size: 1.2rem;
+    }
+}
+@media(max-width:320px){
+    .total-Precio,
+    .precio-Carrito-F {
+        font-size: 1.1rem;
     }
 }
