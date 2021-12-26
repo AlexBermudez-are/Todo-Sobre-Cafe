@@ -162,5 +162,13 @@
       }
     ]
   },
-  "contacto": []
+  "contacto": [
+    {
+      "nombre": "Edwin Alexis",
+      "numero": "4646523517",
+      "email": "challenge@alkemy.org",
+      "datos": "son unos viejos putos",
+      "id": 1
+    }
+  ]
 }

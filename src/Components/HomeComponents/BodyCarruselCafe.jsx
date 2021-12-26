@@ -4,6 +4,7 @@ import frapuccino from "../../assets/frapuccino.png";
 import capuccino from "../../assets/capuccino-foto-principal.jpg";
 import capuccinoCasero from "../../assets/Cafe-Capuchino-Casero.jpg";
 import "./Body-C-Postre.css";
+import { Spinner } from "react-bootstrap";
 
 const Estilos = {
   width: "92%",
@@ -17,8 +18,9 @@ const Estilos = {
 const BodyCarruselCafe = () => {
 
   const [Carrusel, setCarrusel] = useState([frapuccino]);
-  const imagenRef = useRef()
-  const ref = useRef()
+  const [state, setstate] = useState(false);
+  const imagenRef = useRef();
+  const ref = useRef();
   let contador
 
   const temporizador = () => {
@@ -47,21 +49,29 @@ const BodyCarruselCafe = () => {
   }
 
   useEffect(() => {
-    temporizador()
+    if (state) temporizador()
+    setstate(true)
     return () => {
       return clearInterval(contador)
     };
-  }, []);
+  }, [state]);
 
   return (
-    <div className={`claseActivaC`} ref={ref}>
-      <img
-        ref={imagenRef}
-        style={Estilos}
-        src={Carrusel}
-        alt={"nada"}
-      />
-    </div>
+    <>
+      {
+        state
+          ? <div className={`claseActivaC`} ref={ref}>
+            <img
+              ref={imagenRef}
+              style={Estilos}
+              src={Carrusel}
+              alt={"nada"}
+            />
+          </div>
+          : <Spinner animation="border" variant="warning"
+            style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} />
+      }
+    </>
   );
 };
 

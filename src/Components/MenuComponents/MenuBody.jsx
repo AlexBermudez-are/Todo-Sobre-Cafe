@@ -68,7 +68,9 @@ const MenuBody = () => {
                 : "cargando"
             }
           </div>
-          : <Spinner animation="border" variant="warning" style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} />
+          : <div style={{paddingBottom:"4rem", paddingTop:"10rem"}}>
+            <Spinner animation="border" variant="warning" style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} />
+          </div>
       }
     </div>
   );
