@@ -2,7 +2,7 @@ import React from "react";
 import CarritoDeCompras from "../CarritoDeCompras";
 import InicioDeSesion from "../InicioDeSesion";
 import LogoConNav from "../LogoConNav";
-import './CartaHeader.css'
+import './PostresHeader.css'
 const CartaHeader = () => {
   return (
     <div className="PadreCarta">

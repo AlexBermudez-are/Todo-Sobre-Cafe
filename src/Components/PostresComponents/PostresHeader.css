@@ -28,3 +28,14 @@
         width: 40%;
     }
 }
+@media(max-width:425px){
+    .btn-Carrito-C{
+        z-index: 999;
+    }
+    .logoC{
+        z-index: 998;
+    }
+    .inicio-De-Sesion-C{
+        z-index: 999;
+    }
+}

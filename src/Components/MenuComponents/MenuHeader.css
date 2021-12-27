@@ -31,3 +31,15 @@
         width: 40%;
     }
 }
+
+@media(max-width:425px){
+    .btn-Carrito{
+        z-index: 999;
+    }
+    .logo{
+        z-index: 998;
+    }
+    .inicio-De-Sesion{
+        z-index: 999;
+    }
+}

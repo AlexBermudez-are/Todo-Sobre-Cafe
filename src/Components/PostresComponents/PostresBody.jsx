@@ -1,17 +1,15 @@
 import React, {  useEffect, useState } from "react";
-import CartaInfusiones from "./CartaInfusiones";
 import CartaPostres from "./CartaPostres";
 import BtnScrollUp from "../BtnScrollUp";
 import axios from "axios";
-import "./CartaBody.css";
+import "./PostresBody.css";
 import { Spinner } from "react-bootstrap";
 
-const CartaBody = () => {
-  const url = "http://localhost:3005/carta",
+const PostresBody = () => {
+  const url = "https://democomida.herokuapp.com/",
     w = window;
 
   const [Postres, setPostres] = useState([]);
-  const [Infusiones, setInfusiones] = useState([]);
   const [Scroll, setScroll] = useState(false)
   const [btn, setbtn] = useState()
 
@@ -19,10 +17,9 @@ const CartaBody = () => {
   useEffect(() => {
     const obtenerDatos = async () => {
       const datos = await axios.get(url),
-        res = await datos.data,
-        { postres, infusiones } = await res;
-      setInfusiones(infusiones);
-      setPostres(postres);
+        res = await datos.data.carta,
+          { postres } = await res;
+        setPostres(postres);
     };
     obtenerDatos();
     setScroll(true)
@@ -44,7 +41,7 @@ const CartaBody = () => {
   return (
     <>
       {
-        Postres.length > 0 && Infusiones.length > 0
+        Postres.length > 0
           ? <div>
             <section className="Padre-P">
               <section className="seleccion-P">
@@ -54,17 +51,6 @@ const CartaBody = () => {
                 {
                   Postres.map((el) => {
                     return <CartaPostres Postres={el} key={el.id} />;
-                  })}
-              </div>
-            </section>
-            <section className="Padre-I">
-              <section className="seleccion-I">
-                <h1 className="switch-I">Bebidas</h1>
-              </section>
-              <div className="infusiones">
-                {
-                  Infusiones.map((el) => {
-                    return <CartaInfusiones Infusiones={el} key={el.id}/>;
                   })}
               </div>
             </section>
@@ -78,4 +64,4 @@ const CartaBody = () => {
   );
 };
 
-export default CartaBody;
+export default PostresBody;

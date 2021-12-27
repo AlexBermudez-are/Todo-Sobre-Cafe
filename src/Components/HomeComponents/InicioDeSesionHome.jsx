@@ -18,13 +18,14 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
     const logFail = useRef(),
         failLogueo = useRef()
 
-    let url = 'http://localhost:3005/usuarios'
+    let url = 'https://democomida.herokuapp.com/'
 
     useEffect(() => {
         const Usuarios = async () => {
             const datosUsuarios = await axios.get(url),
-                usuariosData = await datosUsuarios.data
-            setvalidadorUsuario(usuariosData)
+                usuariosData = await datosUsuarios.data.usuarios
+                setvalidadorUsuario(usuariosData)
+                console.log(usuariosData);
         }
         Usuarios()
         // eslint-disable-next-line react-hooks/exhaustive-deps

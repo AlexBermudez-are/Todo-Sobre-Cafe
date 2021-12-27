@@ -24,7 +24,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
     const ref = useRef()
     const refFormWrong = useRef();
 
-    const url = 'http://localhost:3005/usuarios'
+    const url = 'https://democomida.herokuapp.com/'
     const help = helpHttp()
 
     useEffect(() => {
@@ -38,7 +38,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
 
         const datos = async () => {
             const datos = await axios.get(url),
-                datosResultados = await datos.data
+                datosResultados = await datos.data.usuarios
             setdatos(datosResultados)
             console.log(datos);
         }

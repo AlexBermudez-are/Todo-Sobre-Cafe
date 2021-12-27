@@ -22,6 +22,7 @@ const BodyCarruselCafe = () => {
   const imagenRef = useRef();
   const ref = useRef();
   let contador
+  let ClearTimer
 
   const temporizador = () => {
     const arregloImg = [capuccino, capuccinoCasero, frapuccino];
@@ -30,14 +31,14 @@ const BodyCarruselCafe = () => {
     contador = setInterval(() => {
       if (arregloImg.length - 1 > i) {
         imagenRef.current.className = 'claseActivaC'
-        setTimeout(() => {
+        ClearTimer = setTimeout(() => {
           imagenRef.current.className = 'claseActivaC active'
           setCarrusel(arregloImg[i]);
         }, 1000);
         i++;
       } else {
         imagenRef.current.className = 'claseActivaC'
-        setTimeout(() => {
+        ClearTimer = setTimeout(() => {
           imagenRef.current.className = 'claseActivaC active'
           setCarrusel(arregloImg[i]);
         }, 1000);
@@ -52,7 +53,7 @@ const BodyCarruselCafe = () => {
     if (state) temporizador()
     setstate(true)
     return () => {
-      return clearInterval(contador)
+      return [clearInterval(contador), clearTimeout(ClearTimer)]
     };
   }, [state]);
 
