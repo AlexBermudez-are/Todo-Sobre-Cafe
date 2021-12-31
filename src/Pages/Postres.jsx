@@ -1,12 +1,12 @@
 import React from 'react'
 import PostresBody from '../Components/PostresComponents/PostresBody'
-import PostresHeader from '../Components/PostresComponents/PostresHeader'
 import BodyFooter from '../Components/HomeComponents/BodyFooter'
+import HeaderYCarrito from '../Components/Header/HeaderYCarrito'
 
 const Carta = () => {
     return (
         <div>
-            <PostresHeader />
+            <HeaderYCarrito/>
             <PostresBody />
             <BodyFooter />
         </div>

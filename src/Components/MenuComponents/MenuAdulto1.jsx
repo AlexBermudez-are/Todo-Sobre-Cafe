@@ -44,27 +44,34 @@ const MenuAdulto1 = ({ Menu }) => {
   }
 
   return (
-    <section className="menu-Adulto-1">
-      <div className="platillo-1">
-        <img
-          style={{ boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)" }}
-          src={Menu ? Menu.img : "cargando"}
-          alt=""
-        />
-        <section className="compra">
-          <button className="btn-Agregar" onClick={agregarCarrito} ref={menuRef}>
-            <p className="btn-Compra1">Agregar</p>
-            <p style={{ margin: "0", fontSize: "2rem" }}>+</p>
-          </button>
-          <div className="precio">${Menu ? Menu.precio : "cargando"}.00</div>
-        </section>
-      </div>
-      <div className="info-Platillo-Adulto1">
-        <h1 style={{ color: "rgb(255, 123, 0)" }}>{Menu ? Menu.nombre : "cargando"}</h1>
-        <p className="borde-divisor-naranja"></p>
-        <p style={{ color: "#494949" }}>{Menu ? Menu.descripcion : "cargando"}</p>
-      </div>
-    </section>
+    <>
+      <section className="titulo_Menu">
+        <div className="menuContainer">
+          <h1 className="switch-D">Menú del Día</h1>
+        </div>
+      </section>
+      <section className="menu-Adulto-1">
+        <div className="platillo-1">
+          <img
+            style={{ boxShadow: "5px 1px 7px 1px rgb(0 0 0 / 20%)" }}
+            src={Menu ? Menu.img : "cargando"}
+            alt=""
+          />
+          <section className="compra">
+            <button className="btn-Agregar" onClick={agregarCarrito} ref={menuRef}>
+              <p className="btn-Compra1">Agregar</p>
+              <p style={{ margin: "0", fontSize: "2rem" }}>+</p>
+            </button>
+            <div className="precio">${Menu ? Menu.precio : "cargando"}.00</div>
+          </section>
+        </div>
+        <div className="info-Platillo-Adulto1">
+          <h1 style={{ color: "rgb(255, 123, 0)" }}>{Menu ? Menu.nombre : "cargando"}</h1>
+          <p className="borde-divisor-naranja"></p>
+          <p style={{ color: "#494949" }}>{Menu ? Menu.descripcion : "cargando"}</p>
+        </div>
+      </section>
+    </>
   );
 };
 

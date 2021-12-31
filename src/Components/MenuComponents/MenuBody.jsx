@@ -19,27 +19,25 @@ const MenuBody = () => {
 
   w.addEventListener("scroll", e => {
     const scroll = w.pageYOffset
-    if (scroll > 200 && scroll < 500 && scrollMenu2 === false) {
+    if (scroll > 300 && scroll < 500 && scrollMenu2 === false) {
       return scrollMenu2 ? '' : setscrollMenu2(true)
     }
-    if (scroll > 900 && scroll < 1100 && scrollMenuI === false) {
+    if (scroll > 850 && scroll < 1100 && scrollMenuI === false) {
       return scrollMenuI ? '' : setscrollMenuI(true)
     }
-    console.log(scroll);
   })
 
   useEffect(() => {
     const obtenerDatos = async () => {
       const datos = await axios.get(url),
         res = await datos.data.menu_Del_Dia,
-          { menu_adulto } = await res,
-          { menu_infantil } = await res,
-          { menu_1, menu_2 } = await menu_adulto;
-        
-        setMenu_Infantil(menu_infantil);
-        setMenu_1(menu_1);
-        setMenu_2(menu_2);
-        console.log(res);
+        { menu_adulto } = await res,
+        { menu_infantil } = await res,
+        { menu_1, menu_2 } = await menu_adulto;
+
+      setMenu_Infantil(menu_infantil);
+      setMenu_1(menu_1);
+      setMenu_2(menu_2);
     };
     obtenerDatos();
     return () => {
@@ -56,20 +54,23 @@ const MenuBody = () => {
             {
               Menu_1
                 ? <MenuAdulto1 Menu={Menu_1} />
-                : "cargando"
+                : <Spinner animation="border" variant="warning"
+                  style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} />
             }
             {
               Menu_2 && scrollMenu2
                 ? <MenuAdulto2 Menu={Menu_2} scrollMenu2={scrollMenu2} setscrollMenu2={setscrollMenu2} />
-                : "cargando"
+                : <Spinner animation="border" variant="warning"
+                  style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} />
             }
             {
               Menu_Infantil && scrollMenuI
                 ? <MenuInfantil Menu={Menu_Infantil} scrollMenuI={scrollMenuI} setscrollMenuI={setscrollMenuI} />
-                : "cargando"
+                : <Spinner animation="border" variant="warning"
+                  style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} />
             }
           </div>
-          : <div style={{paddingBottom:"4rem", paddingTop:"10rem"}}>
+          : <div style={{ paddingBottom: "4rem", paddingTop: "10rem" }}>
             <Spinner animation="border" variant="warning" style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} />
           </div>
       }

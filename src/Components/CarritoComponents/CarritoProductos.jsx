@@ -33,7 +33,6 @@ const CarritoProductos = ({
     useEffect(() => {
         const cantidad = el.cantidad
         setstate(cantidad)
-        console.log(cantidad);
     }, [el])
 
     return (

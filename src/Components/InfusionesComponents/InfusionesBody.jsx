@@ -20,7 +20,6 @@ const InfusionesBody = () => {
                 res = await datos.data.carta,
                 { infusiones } = await res;
                 setInfusiones(infusiones);
-                console.log(res);
         };
         obtenerDatos();
         setScroll(true)

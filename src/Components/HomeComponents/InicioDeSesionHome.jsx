@@ -18,14 +18,13 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
     const logFail = useRef(),
         failLogueo = useRef()
 
-    let url = 'https://democomida.herokuapp.com/'
+    let url = 'http://localhost:3005/usuarios'
 
     useEffect(() => {
         const Usuarios = async () => {
             const datosUsuarios = await axios.get(url),
-                usuariosData = await datosUsuarios.data.usuarios
-                setvalidadorUsuario(usuariosData)
-                console.log(usuariosData);
+                usuariosData = await datosUsuarios.data
+            setvalidadorUsuario(usuariosData)
         }
         Usuarios()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,7 +46,7 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                 if (element.email === valueForm.email && element.contraseña === valueForm.contraseña) {
                     setloginUsuario(false)
                     localStorage.setItem('Usuario', true)
-                    return usuarioLogueado()
+                    return usuarioLogueado(true)
                 } else {
                     logFail.current.className = 'sesion-Fallida-E active'
                     failLogueo.current.className = 'input-Usuario-Contenedor active'
@@ -102,6 +101,7 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                     <label htmlFor="email">
                         <p>Email:</p>
                         <input
+                            autoComplete='off'
                             placeholder="Ejemplo@gmail.com..."
                             type="email"
                             name="email"

@@ -1,5 +1,14 @@
 {
   "usuarios": [
+    {
+      "nombre": "Victor Manuel",
+      "contraseña": "RyM15714",
+      "email": "emailfalso@gmail.com",
+      "telefono": "2234567890",
+      "apellido": "Vicente Torres",
+      "direccion": "Calle Falsa 223",
+      "id": 1
+    }
   ],
   "carrito_de_compras": {},
   "menu_Del_Dia": {
@@ -153,20 +162,5 @@
       }
     ]
   },
-  "contacto": [
-    {
-      "nombre": "Edwin Alexis",
-      "numero": "4646523517",
-      "email": "challenge@alkemy.org",
-      "datos": "son unos viejos putos",
-      "id": 1
-    },
-    {
-      "nombre": "Edwin Alexis",
-      "numero": "4646523517",
-      "email": "edbwinn@gmail.com",
-      "datos": "simon mijo",
-      "id": 2
-    }
-  ]
+  "contacto": []
 }

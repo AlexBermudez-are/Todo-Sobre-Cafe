@@ -243,7 +243,7 @@
     }
 
     .UsuariosHome {
-        width: 30%;
+        width: 25%;
     }
 
     .sesion-Iniciada-Home.active {
@@ -270,6 +270,9 @@
 
     .sesion-Iniciada-Home img {
         left: 22%;
+    }
+    .boton-Nav-Usuario{
+        font-size: 1.3rem;
     }
 }
 
@@ -401,6 +404,7 @@
     .NavLinks-Home.active {
         transform: translate(0, 0);
         transition: all .5s ease;
+        top: 35%;
     }
 
     .logo-Home {

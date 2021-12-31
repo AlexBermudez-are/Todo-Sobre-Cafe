@@ -12,7 +12,6 @@ const HeaderHome = () => {
 
     const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
     const { SesionI } = useContext(SesionContext)
-    
     const [contraseñaOlvidada, setcontraseñaOlvidada] = useState(false)
     const [crearCuenta, setcrearCuenta] = useState(false)
     const [loginUsuario, setloginUsuario] = useState(false)
