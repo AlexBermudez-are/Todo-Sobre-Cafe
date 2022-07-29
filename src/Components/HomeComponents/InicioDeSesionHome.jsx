@@ -46,7 +46,7 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                 if (element.email === valueForm.email && element.contraseña === valueForm.contraseña) {
                     setloginUsuario(false)
                     localStorage.setItem('Usuario', true)
-                    return usuarioLogueado()
+                    return usuarioLogueado(true)
                 } else {
                     logFail.current.className = 'sesion-Fallida-E active'
                     failLogueo.current.className = 'input-Usuario-Contenedor active'
@@ -101,6 +101,7 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                     <label htmlFor="email">
                         <p>Email:</p>
                         <input
+                            autoComplete='off'
                             placeholder="Ejemplo@gmail.com..."
                             type="email"
                             name="email"

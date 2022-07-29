@@ -207,13 +207,13 @@
     .input-Usuario-Contenedor {
         margin: 30% auto;
         width: 80%;
-        height: 60%;
+        height: 460px;
     }
 
     .input-Usuario-Contenedor.active {
         margin: 30% auto;
         width: 80%;
-        height: 70%;
+        height: 520px;
     }
 
     .inputs-Sesion label {
@@ -246,6 +246,9 @@
 }
 
 @media(max-width:375px) {
+    .input-Usuario-Contenedor{
+        height: 450px;
+    }
     .inputs-Sesion-A {
         width: 85%;
     }
@@ -265,7 +268,6 @@
     }
 
     .input-Usuario-Contenedor.active {
-        height: 71%;
         width: 90%;
     }
 

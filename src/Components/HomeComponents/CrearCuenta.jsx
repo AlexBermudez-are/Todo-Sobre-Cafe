@@ -40,7 +40,6 @@ const CrearCuenta = ({ setcrearCuenta }) => {
             const datos = await axios.get(url),
                 datosResultados = await datos.data
             setdatos(datosResultados)
-            console.log(datos);
         }
         datos()
 
@@ -73,7 +72,6 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                         setTimeout(() => {
                             setformOK(true)
                         }, 1000)
-                        console.log(res)
                     }
                     )
                 }

@@ -1,13 +1,13 @@
 import React from 'react'
-import CartaBody from '../Components/CartaComponents/CartaBody'
-import CartaHeader from '../Components/CartaComponents/CartaHeader'
+import PostresBody from '../Components/PostresComponents/PostresBody'
 import BodyFooter from '../Components/HomeComponents/BodyFooter'
+import HeaderYCarrito from '../Components/Header/HeaderYCarrito'
 
 const Carta = () => {
     return (
         <div>
-            <CartaHeader />
-            <CartaBody />
+            <HeaderYCarrito/>
+            <PostresBody />
             <BodyFooter />
         </div>
     )

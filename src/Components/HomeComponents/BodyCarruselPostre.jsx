@@ -20,6 +20,7 @@ const BodyCarruselPostre = () => {
     const ref = useRef()
     const [Carrusel, setCarrusel] = useState([torta_De_Limon])
     let contador
+    let ClearTimer
 
     const temporizador = () => {
         const arregloImg = [alfajores, piononos, torta_De_Limon];
@@ -28,7 +29,7 @@ const BodyCarruselPostre = () => {
         contador = setInterval(() => {
             if (arregloImg.length - 1 > i) {
                 imagenRef.current.className = 'claseActivaP'
-                setTimeout(() => {
+                ClearTimer = setTimeout(() => {
                     imagenRef.current.className = 'claseActivaP active'
                     setCarrusel(arregloImg[i]);
                 }, 1000);
@@ -36,7 +37,7 @@ const BodyCarruselPostre = () => {
                 i++;
             } else {
                 imagenRef.current.className = 'claseActivaP'
-                setTimeout(() => {
+                ClearTimer = setTimeout(() => {
                     imagenRef.current.className = 'claseActivaP active'
                     setCarrusel(arregloImg[i]);
                 }, 1000);
@@ -49,7 +50,7 @@ const BodyCarruselPostre = () => {
     useEffect(() => {
         temporizador()
         return () => {
-            return clearInterval(contador)
+            return [clearInterval(contador),clearTimeout(ClearTimer)]
         };
     }, []);
 

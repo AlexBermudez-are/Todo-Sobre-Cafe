@@ -1,0 +1,284 @@
+.contenedor-Hamburguesa-2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.NavLinks-Home-2 {
+    margin-left: 5%;
+    width: 60%;
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btns-Navs {
+    background-color: transparent;
+    height: 23%;
+    width: 22%;
+    border: none;
+    border-radius: 5%;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btns-Navs:hover {
+    transition: 0.3s all;
+    opacity: 1;
+    background-color: rgb(255, 188, 62);
+    font-weight: bold;
+    color: white;
+}
+
+.btns-Navs.active {
+    background-color: rgb(255, 188, 62);
+    font-weight: bold;
+    color: white;
+}
+
+.bandera-Login {
+    width: 90%;
+}
+
+.sesion-Iniciada-Header {
+    width: 7%;
+    transform: translate(0px, -100%);
+    height: 144px;
+    background-color: rgb(238, 161, 17);
+    padding: 3rem;
+    position: absolute;
+    top: 0;
+}
+
+.sesion-Iniciada-Header.active {
+    transform: translate(0px, 0px);
+    transition: transform .5s ease-in;
+    width: 13.3%;
+    height: 209px;
+    z-index: 999;
+}
+
+.contenedor-Bandera-Header {
+    display: -webkit-box;
+    position: absolute;
+    transform: translate(0px, -300%);
+}
+
+.contenedor-Bandera-Header.active {
+    padding-top: 6%;
+    display: -webkit-box;
+    position: absolute;
+    transform: translate(0px, 0px);
+    transition: transform .5s ease-in;
+    z-index: 998;
+}
+
+.izquierda-Header, .derecha-Header {
+    border-top: 75px solid rgb(238, 161, 17);
+    border-bottom: 50px solid transparent;
+    height: 0px;
+    width: 0px;
+}
+
+.izquierda-Header {
+    border-left: 100px solid rgb(238, 161, 17);
+}
+
+.derecha-Header {
+    border-right: 92px solid rgb(238, 161, 17);
+}
+
+.vector-Usuario {
+    left: 25%;
+    width: 100px;
+    position: absolute;
+    top: 30%;
+}
+
+.NavLinks-Home-1 {
+    margin-left: 5%;
+    width: 60%;
+    display: flex;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-Log-Out{
+    border: none;
+    cursor: pointer;
+}
+
+@media(max-width:1024px) {
+    .sesion-Iniciada-Header.active {
+        width: 16.5%;
+    }
+
+    .vector-Usuario {
+        left: 22%;
+    }
+
+    .derecha-Header {
+        border-right: 85px solid rgb(238, 161, 17);
+    }
+
+    .izquierda-Header {
+        border-left: 85px solid rgb(238, 161, 17);
+    }
+}
+
+@media(max-width:768px) {
+    .NavLinks-Home-2 {
+        width: 70%;
+        display: flex;
+        height: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .btns-Navs {
+        font-size: 1rem;
+    }
+
+    .bandera-Login {
+        width: 100%;
+    }
+
+    .sesion-Iniciada-Header.active {
+        width: 18%;
+        height: 190px;
+    }
+
+    .izquierda-Header {
+        border-left: 69px solid rgb(238, 161, 17);
+    }
+
+    .derecha-Header {
+        border-right: 70px solid rgb(238, 161, 17);
+    }
+
+    .vector-Usuario {
+        left: 16%;
+    }
+    .NavLinks-Home-1 {
+        width: 70%;
+        display: flex;
+        height: 100%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 0;
+    }
+}
+
+@media(max-width:425px) {
+    .contenedor-Hamburguesa-2 {
+        visibility: hidden;
+    }
+
+    .btns-Navs {
+        background-color: white;
+        width: 50%;
+        font-size: 1.5rem;
+        height: 17%;
+    }
+
+    .NavLinks-Home-2 {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        height: 45%;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 998;
+        opacity: 0;
+        transform: translate(-100%, 0px);
+        transition: all .5s ease;
+    }
+
+    .NavLinks-Home-2.active {
+        opacity: 1;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, 0);
+        transition: all .5s ease;
+        height: 40%;
+        top: 55%;
+    }
+
+    .NavLinks-Home-1 {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+        height: 45%;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 998;
+        opacity: 0;
+        transform: translate(-100%, 0px);
+        transition: all .5s ease;
+    }
+
+    .NavLinks-Home-1.active {
+        opacity: 1;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, 0);
+        transition: all .5s ease;
+        height: 40%;
+        top: 50%;
+    }
+
+    .sesion-Iniciada-Header.active {
+        opacity: 1;
+        transform: translate(0px, 0px);
+        transition: transform opacity .5s ease-in;
+        width: 45%;
+        left: 27%;
+        height: 165px;
+        top: 45%;
+    }
+
+    .contenedor-Bandera-Header, .contenedor-Bandera-Header.active {
+        display: none;
+    }
+
+    .sesion-Iniciada-Header.active img {
+        margin-left: 10%;
+        top: 18%;
+    }
+}
+
+@media(max-width:375px) {
+    .btns-Navs {
+        width: 50%;
+    }
+
+    .sesion-Iniciada-Header.active img {
+        margin-left: 7%;
+    }
+}
+
+@media(max-width:320px) {
+    .btns-Navs {
+        width: 60%;
+    }
+
+    .sesion-Iniciada-Header.active img {
+        margin-left: 2%;
+    }
+}

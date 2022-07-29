@@ -6,8 +6,8 @@ const SesionProvider = ({ children }) => {
 
     const [SesionI, setSesionI] = useState(false)
 
-    const usuarioLogueado = () => {
-        setSesionI(true)
+    const usuarioLogueado = (state) => {
+        setSesionI(state)
     }
 
     const data = {

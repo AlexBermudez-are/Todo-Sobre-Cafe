@@ -1,12 +1,12 @@
 import React from 'react'
+import HeaderYCarrito from '../Components/Header/HeaderYCarrito'
 import BodyFooter from '../Components/HomeComponents/BodyFooter'
 import MenuBody from '../Components/MenuComponents/MenuBody'
-import MenuHeader from '../Components/MenuComponents/MenuHeader'
 
 const MenuDelDia = () => {
     return (
         <div>
-            <MenuHeader />
+            <HeaderYCarrito/>
             <MenuBody />
             <BodyFooter />
         </div>

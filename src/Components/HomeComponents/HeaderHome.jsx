@@ -12,7 +12,6 @@ const HeaderHome = () => {
 
     const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
     const { SesionI } = useContext(SesionContext)
-    
     const [contraseñaOlvidada, setcontraseñaOlvidada] = useState(false)
     const [crearCuenta, setcrearCuenta] = useState(false)
     const [loginUsuario, setloginUsuario] = useState(false)
@@ -64,7 +63,8 @@ const HeaderHome = () => {
                 <div className="contenedor-Hamburguesa" ref={menuH}>
                     <section className="NavLinks-Home" ref={nav}>
                         <NavLink className="boton-Nav-Left" exact to={"/menu"}><p style={{ margin: "0" }}>Menú del Día</p></NavLink>
-                        <NavLink className="boton-Nav-Right" exact to={"/carta"}><p style={{ margin: "0" }}>Carta</p></NavLink>
+                        <NavLink className="boton-Nav-Right" exact to={"/postres"}><p style={{ margin: "0" }}>Postres</p></NavLink>
+                        <NavLink className="boton-Nav-Infusion" exact to={"/Infusiones"}><p style={{ margin: "0" }}>Infusiones</p></NavLink>
                         <NavLink className="boton-Nav-Mid" exact to={"/contacto"}><p style={{ margin: "0" }}>Contactanos</p></NavLink>
                     </section>
                     <section className="UsuariosHome" ref={navUsuario}>

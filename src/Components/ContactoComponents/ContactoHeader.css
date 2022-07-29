@@ -3,56 +3,12 @@
     position: relative;
     height: 700px;
     width: 100%;
+    z-index: 997;
 }
 
-.background-Logo {
-    width: 185px;
-    height: 185px;
-    position: absolute;
-    background-color: white;
-    border-radius: 50%;
-    top: 41px;
-    left: 56px;
-    z-index: 998;
-}
-
-.img-Contacto-Logo {
-    width: 300px;
-    height: 300px;
-}
-
-.contenedor-Logo-Contacto {
-    position: absolute;
-    top: 0;
-    z-index: 999;
-}
-
-@media(max-width:768px) {
-    .background-Logo {
-        width: 150px;
-        height: 150px;
-        top: 39px;
-        left: 52px;
-    }
-
-    .img-Contacto-Logo {
-        width: 250px;
-        height: 250px;
-    }
-}
 
 @media(max-width:425px) {
     .img-Contacto-Header {
         display: none;
-    }
-
-    .background-Logo {
-        display: none;
-    }
-
-    .contenedor-Logo-Contacto {
-        position: relative;
-        display: flex;
-        justify-content: center;
     }
 }
