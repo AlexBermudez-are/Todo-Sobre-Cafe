@@ -58,7 +58,7 @@ export const typesSchemaPassword = Type.String({
     maxLength: 16,
     errorMessage: {
         type: "The password is wrong, try again",
-        format:"Error, the id is wrong, it must be a 'String'",
+        format:"The format of the password must contain an uppercase, a lowercase and a number",
         minLength: 'The name must have a minimun of 8 characters.',
         maxLength: 'The name must have a maximum of 16 characters.',
     },
