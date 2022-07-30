@@ -1,12 +1,12 @@
-import './config/env.js'
-import { createServerHttp } from './config/Http';
-import { connectMongoose } from './config/mongoose';
+import '#Config/env.js';
+import { connectMongoose } from '#Config/mongoose.js';
+import { createServerHttp } from '#Config/Http.js';
 
 const init = async () => {
 
-    await connectMongoose(process.env.MONGODB_URL)
+    await connectMongoose(process.env.MONGODB_URL);
 
-    createServerHttp.listen(process.env.PORT, () => { console.log("init") })
+    createServerHttp.listen(3000, () => { console.log(process.env.PORT, process.env.MONGODB_URL) })
 }
 
 init()
