@@ -11,7 +11,7 @@ const schemaObjectMongoose = new Schema({
     cp: { type: Number, min: 5, max: 5, required: true },
     tel: { type: Number, min: 10, max: 10, required: true },
     name: { type: String, minLenght: 5, maxLength: 20, required: true },
-    email: { type: String, minLenght: 5, maxLength: 20, required: true },
+    email: { type: String, minLenght: 5, maxLength: 25, required: true },
     surname: { type: String, minLenght: 5, maxLength: 20, required: true },
     password: { type: String, minLength: 8, maxLength: 16, required: true },
 })
