@@ -55,35 +55,31 @@ export const typesSchemaPassword = Type.String({
 
     format: "password",
 
-    minLength: 8,
-    maxLength: 16,
     errorMessage: {
         type: "Error, the password is wrong, it must be a 'String'",
         format: "The format of the password must contain an uppercase, a lowercase and a number",
-        minLength: 'The name must have a minimum of 8 characters',
-        maxLength: 'The name must have a maximum of 16 characters',
     },
 
 })
 
-export const typesSchemaCP = Type.Integer({
-    minimum: 5,
-    maximum: 5,
+export const typesSchemaCP = Type.String({
+    minLength: 5,
+    maxLength: 5,
     errorMessage: {
-        minimum: 'Error, the zip code must have a minimum of 5 characters',
-        maximum: 'Error, the zip code must have a maximum of 5 characters',
-        type: "Error, zip code number must be a Number",
+        minLength: 'Error, the zip code must have a minimum of 5 characters',
+        maxLength: 'Error, the zip code must have a maximum of 5 characters',
+        type: "Error, zip code number must be a String",
         format: "Error, the postal code only admits numbers"
     },
 })
 
-export const typesSchemaTel = Type.Integer({
-    minimum: 10,
-    maximum: 10,
+export const typesSchemaTel = Type.String({
+    minLength: 10,
+    maxLength: 10,
     errorMessage: {
-        maximum: 'The number of telephone must have a maximum of 10 characters',
-        minimum: 'The number of telephone must have a minimum of 10 characters',
-        type: "Error, the phone number must be a Number",
-        format: "Error, the phone number is incorrect, make sure you enter only numbers"
+        maxLength: 'The number of telephone must have a maximum of 10 characters',
+        minLength: 'The number of telephone must have a minimum of 10 characters',
+        type: "Error, the phone number must be a String",
+        format: "Error, the telephone number only admits numbers"
     },
 })
