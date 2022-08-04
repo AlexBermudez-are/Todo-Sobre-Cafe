@@ -1,8 +1,16 @@
-import { typesSchemaEmail, typesSchemaPassword, typesSchemaCP, typesSchemaName, typesSchemaSurname, typesSchemaTel, typesSchemaId } from "../schemas/Typebox.Schemas.js";
+import {
+    typesSchemaEmail,
+    typesSchemaPassword,
+    typesSchemaCP,
+    typesSchemaName,
+    typesSchemaSurname,
+    typesSchemaTel,
+    typesSchemaId
+} from "../schemas/Typebox.Schemas.js";
 import { Type } from "@sinclair/typebox";
-import Ajv from 'ajv';
 import addFormats from 'ajv-formats'
 import addErrors from 'ajv-errors'
+import Ajv from 'ajv';
 
 let errorsARR = []
 
@@ -46,7 +54,25 @@ const User_Register_DTO = (req, res, next) => {
 
     const { cp, tel, name, surname } = req.body,
         telParsed = Number(tel),
-        cpParsed = Number(cp)
+        cpParsed = Number(cp);
+
+    let nameParsed,
+        surnameParsed
+
+    function filterNameSurname() {
+
+        var regex = /(\d+)/g;
+
+        nameParsed = name.match(regex)
+        surnameParsed = surname.match(regex);
+
+        return {
+            nameParsed,
+            surnameParsed
+        }
+    }
+
+    filterNameSurname()
 
 
     if (!telParsed || !cpParsed) {
@@ -60,19 +86,31 @@ const User_Register_DTO = (req, res, next) => {
             error: 'Error, the zip code must be a Number'
         })
 
-        if (!compiler_Ajv_Data_Register) {
-            return res.status(400).send({
-                errors: compilerRegisterAJV.errors.map((error) => error.message),
-            })
-        }
 
-        if (errorsARR.length > 0) {
+    }
 
-            res.status(400).send({
-                errors: errorsARR.map(el => el.error)
-            })
-            return errorsARR = []
-        }
+    if (nameParsed || surnameParsed) {
+        if (nameParsed) errorsARR.push({
+            nameError: 'name',
+            error: 'Error, the name must not contain numbers'
+        })
+        if (surnameParsed) errorsARR.push({
+            surnameError: 'surname',
+            error: 'Error,the surname must not contain numbers'
+        })
+    }
+
+    if (!compiler_Ajv_Data_Register) {
+        return res.status(400).send({
+            errors: compilerRegisterAJV.errors.map((error) => error.message),
+        })
+    }
+
+    if (errorsARR.length) {
+        res.status(400).send({
+            errors: errorsARR.map(el => el.error)
+        })
+        return errorsARR = []
     }
 
     next();
