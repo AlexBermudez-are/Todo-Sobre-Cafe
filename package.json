@@ -27,13 +27,11 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider; gatsby build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 3005",
-    "nodemon": "nodemon ./db/index.js",
-    "dev": "node ./db/index.js"
+    "nodemon": "nodemon ./db/index.js"
   },
   "imports": {
     "#Config/*": "./db/config/*",
