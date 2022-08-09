@@ -14,10 +14,10 @@ export const typesSchemaId = Type.String({
 export const typesSchemaName = Type.String({
 
     minLength: 5,
-    maxLength: 20,
+    maxLength: 35,
     errorMessage: {
         minLength: 'The name must have a minimum of 5 characters.',
-        maxLength: 'The name must have a maximum of 20 characters.',
+        maxLength: 'The name must have a maximum of 35 characters.',
         type: "Error, the name is wrong, it must be a 'String'",
         format: "Error, the name is incorrect, it must not have a number or another character"
     },
@@ -27,10 +27,10 @@ export const typesSchemaName = Type.String({
 export const typesSchemaSurname = Type.String({
 
     minLength: 5,
-    maxLength: 20,
+    maxLength: 35,
     errorMessage: {
         minLength: 'The surname must have a minimum of 5 characters',
-        maxLength: 'The surname must have a maximum of 20 characters',
+        maxLength: 'The surname must have a maximum of 35 characters',
         type: "Error, the surname is wrong, it must be a 'String'",
         format: "Error, the surname is incorrect, it must not have a number or another character"
     },
@@ -41,10 +41,10 @@ export const typesSchemaEmail = Type.String({
 
     format: "email",
     minLength: 5,
-    maxLength: 25,
+    maxLength: 35,
     errorMessage: {
         minLength: 'The email must have a minimum of 5 characters',
-        maxLength: 'The email must have a maximum of 25 characters',
+        maxLength: 'The email must have a maximum of 35 characters',
         type: "Error, the email is wrong, it must be a 'String'",
         format: 'Error, the email format is not valid, it must comply with RFC 5322',
     },
@@ -63,8 +63,8 @@ export const typesSchemaPassword = Type.String({
 })
 
 export const typesSchemaCP = Type.String({
-    minLength: 5,
-    maxLength: 5,
+    minLength: 4,
+    maxLength: 4,
     errorMessage: {
         minLength: 'Error, the zip code must have a minimum of 5 characters',
         maxLength: 'Error, the zip code must have a maximum of 5 characters',

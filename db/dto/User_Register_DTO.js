@@ -4,8 +4,7 @@ import {
     typesSchemaCP,
     typesSchemaName,
     typesSchemaSurname,
-    typesSchemaTel,
-    typesSchemaId
+    typesSchemaTel
 } from "../schemas/Typebox.Schemas.js";
 import { Type } from "@sinclair/typebox";
 import addFormats from 'ajv-formats'
@@ -21,7 +20,6 @@ const SchemaRegisterAJV = Type.Object(
         email: typesSchemaEmail,
         name: typesSchemaName,
         tel: typesSchemaTel,
-        _id: typesSchemaId,
         cp: typesSchemaCP,
     },
     {
@@ -37,9 +35,9 @@ const ajv = new Ajv({ allErrors: true })
     .addKeyword('modifier');
 
 addErrors(ajv)
-addFormats(ajv, ['email', 'uuid'])
+addFormats(ajv, ['email'])
 
-ajv.addFormat('password', /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/);
+ajv.addFormat('password', /(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/);
 ajv.addFormat('cp', /[0-9]{5}/)
 ajv.addFormat('tel', /[0-9]{10}/)
 ajv.addFormat('name', /^(?=.*[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s])*$/)
@@ -62,6 +60,8 @@ const User_Register_DTO = (req, res, next) => {
     function filterNameSurname() {
 
         var regex = /(\d+)/g;
+
+        if(!name || !surname) res.status(401).send('Error, the name or surname is undefined')
 
         nameParsed = name.match(regex)
         surnameParsed = surname.match(regex);
@@ -103,7 +103,7 @@ const User_Register_DTO = (req, res, next) => {
     if (!compiler_Ajv_Data_Register) {
         return res.status(400).send({
             errors: compilerRegisterAJV.errors.map((error) => error.message),
-        })
+        });
     }
 
     if (errorsARR.length) {

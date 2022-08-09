@@ -21,7 +21,7 @@ const ajv = new Ajv({ allErrors: true })
     .addKeyword('kind')
     .addKeyword('modifier');
 
-ajv.addFormat('password', /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).*$/); // validacion personalizada
+ajv.addFormat('password', /(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/); // validacion personalizada
 addFormats(ajv, ['email']); // Validaciones por defecto
 addErrors(ajv);
 
