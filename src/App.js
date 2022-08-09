@@ -3,13 +3,13 @@ import { CarritoProvider } from './Context/CarritoContext';
 import { SesionProvider } from './Context/SesionContext';
 import Privacidad from './Components/Privacidad';
 import Contactanos from './Pages/Contactanos';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Infusiones from './Pages/Infusiones';
 import MenuDelDia from './Pages/MenuDelDia';
 import Postres from './Pages/Postres';
 import Carrito from './Pages/Carrito'
 import Home from './Pages/Home'
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Infusiones from './Pages/Infusiones';
 
 // Aqui van las rutas a las paginas Principales
 
@@ -20,20 +20,28 @@ function App() {
         <Switch>
           <CarritoProvider>
             <SesionProvider>
+              
               <Route exact path="/" component={Home} />
-              {/* Esta va a home */}
+              <Route exact path="/user/:id" component={Home} />
+
               <Route exact path="/menu" component={MenuDelDia} />
-              {/* Esta va al menú del día */}
+              <Route exact path="/menu/:id" component={MenuDelDia} />
+
               <Route exact path="/privacidad" component={Privacidad} />
-              {/* Esta lleva a la pagina de privacidad */}
+              <Route exact path="/privacidad/:id" component={Privacidad} />
+
               <Route exact path="/postres" component={Postres} />
-              {/* Esta lleva a la carta */}
-              <Route exact path="/infusiones" component={Infusiones}/>
-              {/* Esta lleva a las Infusiones */}
+              <Route exact path="/postres/:id" component={Postres} />
+
+              <Route exact path="/infusiones" component={Infusiones} />
+              <Route exact path="/infusiones/:id" component={Infusiones} />
+
               <Route exact path="/carrito" component={Carrito} />
-              {/* Esta al carrito principal */}
+              <Route exact path="/carrito/:id" component={Carrito} />
+
               <Route exact path="/contacto" component={Contactanos} />
-              {/* Al menú de contacto */}
+              <Route exact path="/contacto/:id" component={Contactanos} />
+
             </SesionProvider>
           </CarritoProvider>
         </Switch>
