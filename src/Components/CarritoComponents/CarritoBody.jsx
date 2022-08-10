@@ -5,6 +5,8 @@ import CarritoContext from '../../Context/CarritoContext'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import './CarritoBody.css'
+import InicioDeSesionHome from '../HomeComponents/InicioDeSesionHome';
+import SesionContext from '../../Context/SesionContext';
 
 
 const CarritoBody = () => {
@@ -18,6 +20,8 @@ const CarritoBody = () => {
         añadirUnidad
     } = useContext(CarritoContext);
 
+    const { loginUsuario, setloginUsuario } = useContext(SesionContext)
+    const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
     const [arregloV, setArregloV] = useState([])
     const listaProductos = arregloUnico;
 
@@ -27,10 +31,24 @@ const CarritoBody = () => {
             arr.push(listaProductos[index])
         }
         setArregloV(arr)
+        console.log(loginUsuario)
     }, [precioFinal, arregloUnico])
+
+    const controlPedidoFinal = () => {
+        if (!SesionIniciadaLocalStorage) {
+            setloginUsuario(true)
+        }else {
+            console.log("logueado papi");
+        }
+    }
 
     return (
         <div style={{ paddingBottom: "5%" }}>
+            {
+                loginUsuario
+                    ? <InicioDeSesionHome />
+                    : false
+            }
             <div className='borde-Carrito-Top'></div>
             <section className='cabecera-Carrito'>
                 <div className='pedido-Carrito'>Pedido</div>
@@ -73,7 +91,7 @@ const CarritoBody = () => {
                     </section>
                 </div>
                 <div className="boton-Finalizar-Compra">
-                    <button className="button-Carrito-F">Finalizar Compra</button>
+                    <button onClick={controlPedidoFinal} className="button-Carrito-F">Finalizar Compra</button>
                 </div>
             </section>
             <div style={{ borderTop: "1px solid red", width: "80%", margin: "auto", marginTop: "5%" }}></div>

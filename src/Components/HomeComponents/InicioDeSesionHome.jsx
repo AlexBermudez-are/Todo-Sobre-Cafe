@@ -1,61 +1,54 @@
-import React, { useRef, useState, useEffect, useContext } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useRef, useState, useContext, useEffect } from 'react'
 import axios from "axios";
 import './InicioDeSesion.css'
 import SesionContext from '../../Context/SesionContext';
+import { useHistory } from 'react-router-dom';
 
 let initialState = {
     email: "",
-    contraseña: "",
+    password: "",
 }
 
-const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlvidada }) => {
+const InicioDeSesionHome = () => {
 
-    const { usuarioLogueado } = useContext(SesionContext)
+    const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
+    const {
+        SesionI,
+        cerrarMenuLoginF,
+        crearCuentaF,
+        contraseñaOlvidadaF,
+        usuarioLogueado,
+    } = useContext(SesionContext)
     const [checked, setchecked] = useState(false)
     const [valueForm, setvalueForm] = useState(initialState)
-    const [validadorUsuario, setvalidadorUsuario] = useState([])
+    const history = useHistory()
 
     const logFail = useRef(),
         failLogueo = useRef()
 
-    let url = 'http://localhost:3005/usuarios'
+    let url = 'http://localhost:3080/user/login';
 
-    useEffect(() => {
-        const Usuarios = async () => {
-            const datosUsuarios = await axios.get(url),
-                usuariosData = await datosUsuarios.data
-            setvalidadorUsuario(usuariosData)
-        }
-        Usuarios()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [url])
 
-    const validarusuario = (e) => {
+    // useEffect(() => {
+
+    //     if (SesionI) history.push(`/user/${SesionI}`)
+
+    // }, [SesionIniciadaLocalStorage, SesionI])
+
+
+    const validarusuario = async (e) => {
         e.preventDefault();
 
-        if (validadorUsuario.length === 0) {
-            logFail.current.className = 'sesion-Fallida-E active'
-            failLogueo.current.className = 'input-Usuario-Contenedor active'
+        try {
+            await axios.post(url, valueForm).then(el => {
+                usuarioLogueado(el.data.jwt)
+            })
             setTimeout(() => {
-                logFail.current.className = 'sesion-Fallida-E'
-                failLogueo.current.className = 'input-Usuario-Contenedor'
-            }, 5000);
-        } else {
-            for (let i = 0; i < validadorUsuario.length; i++) {
-                const element = validadorUsuario[i];
-                if (element.email === valueForm.email && element.contraseña === valueForm.contraseña) {
-                    setloginUsuario(false)
-                    localStorage.setItem('Usuario', true)
-                    return usuarioLogueado(true)
-                } else {
-                    logFail.current.className = 'sesion-Fallida-E active'
-                    failLogueo.current.className = 'input-Usuario-Contenedor active'
-                    setTimeout(() => {
-                        logFail.current.className = 'sesion-Fallida-E'
-                        failLogueo.current.className = 'input-Usuario-Contenedor'
-                    }, 5000);
-                }
-            }
+                cerrarMenuLoginF()
+            }, 1000);
+        } catch (error) {
+            return error
         }
 
     }
@@ -69,21 +62,8 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
             })
     }
 
-    const crearCuenta = () => {
-        setloginUsuario(false)
-        setcrearCuenta(true)
-    }
-    const olvideContraseña = () => {
-        setloginUsuario(false)
-        setcontraseñaOlvidada(true)
-    }
-
-    const cerrar = (e) => {
-        setloginUsuario(false)
-    }
-
     return (
-        <div className="input-Usuario-Padre" onClick={cerrar}>
+        <div className="input-Usuario-Padre" onClick={cerrarMenuLoginF}>
             <form className="input-Usuario-Contenedor"
                 ref={failLogueo}
                 onClick={e => { e.stopPropagation() }}
@@ -92,7 +72,7 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                     <h1 className='inicia-Sesion-Home'>Inicia Sesión</h1>
                     <button
                         className="btn-Usuario-X"
-                        onClick={cerrar}
+                        onClick={cerrarMenuLoginF}
                     >
                         <p className='btn-x-Close'>x</p>
                     </button>
@@ -112,15 +92,15 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                             required
                         />
                     </label>
-                    <label htmlFor="contraseña">
+                    <label htmlFor="password">
                         <p>Contraseña:</p>
                         <input
                             placeholder="contraseña..."
                             type="password"
-                            name="contraseña"
+                            name="password"
                             className="input-Contraseña"
                             onChange={actualizarDatos}
-                            value={valueForm.contraseña}
+                            value={valueForm.password}
                             required
                         />
                     </label>
@@ -138,8 +118,8 @@ const InicioDeSesionHome = ({ setloginUsuario, setcrearCuenta, setcontraseñaOlv
                 </label>
                 <button type="submit" className="ingresar-Login-Usuario">Ingresar</button>
                 <div className="extra-Login">
-                    <button className="btn-Extra" type="button" onClick={crearCuenta}>Crear Cuenta</button>
-                    <button className="btn-Extra" type="button" onClick={olvideContraseña}>¿Olvidaste tu contraseña? </button>
+                    <button className="btn-Extra" type="button" onClick={crearCuentaF}>Crear Cuenta</button>
+                    <button className="btn-Extra" type="button" onClick={contraseñaOlvidadaF}>¿Olvidaste tu contraseña? </button>
                 </div>
             </form>
         </div>

@@ -12,32 +12,19 @@ import { NavLink } from 'react-router-dom'
 import NavLinks from './NavLinks'
 import './Header.css'
 
-const link = [
-    {
-        name: "Menu",
-        path: "/menu",
-    },
-    {
-        name: "Postres",
-        path: "/postres"
-    },
-    {
-        name: "Infusiones",
-        path: "/Infusiones"
-    },
-    {
-        name: "Contacto",
-        path: "/contacto"
-    }
-]
-
 const HeaderYCarrito = () => {
     const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
-    const { SesionI, usuarioLogueado } = useContext(SesionContext)
+    const {
+        contraseñaOlvidada,
+        crearCuenta,
+        loginUsuario,
+        SesionI,
+        setcontraseñaOlvidada,
+        usuarioLogueado,
+        setloginUsuario,
+        setcrearCuenta
+    } = useContext(SesionContext)
     const { contadorProductos } = useContext(CarritoContext)
-    const [contraseñaOlvidada, setcontraseñaOlvidada] = useState(false)
-    const [crearCuenta, setcrearCuenta] = useState(false)
-    const [loginUsuario, setloginUsuario] = useState(false)
     const [menuControll, setmenuControll] = useState(false)
     const refHamburguesa = useRef()
     const navUsuario = useRef()
@@ -47,11 +34,41 @@ const HeaderYCarrito = () => {
     const navLinks = useRef()
     const Carrito = useRef()
 
+    const link = [
+        {
+            name: "Menu",
+            path:
+                !SesionIniciadaLocalStorage
+                    ? "/menu"
+                    : `/menu/${SesionIniciadaLocalStorage}`
+        },
+        {
+            name: "Postres",
+            path:
+                !SesionIniciadaLocalStorage
+                    ? "/postres"
+                    : `/postres/${SesionIniciadaLocalStorage}`
+        },
+        {
+            name: "Infusiones",
+            path:
+                !SesionIniciadaLocalStorage
+                    ? "/Infusiones"
+                    : `/Infusiones/${SesionIniciadaLocalStorage}`
+        },
+        {
+            name: "Contacto",
+            path:
+                !SesionIniciadaLocalStorage
+                    ? "/contacto"
+                    : `/contacto/${SesionIniciadaLocalStorage}`
+        }
+    ]
+
     useEffect(() => {
         if (SesionI || SesionIniciadaLocalStorage) {
             refInicioSesion.current.className = 'sesion-Iniciada-Header active'
             bandera.current.className = 'contenedor-Bandera-Header active'
-            usuarioLogueado(true)
         }
     }, [SesionI, SesionIniciadaLocalStorage])
 
@@ -84,7 +101,11 @@ const HeaderYCarrito = () => {
     return (
         <>
             <div className="Header-Home">
-                <NavLink to='/' className="logo-Home" style={{ paddingTop: "2%" }}>
+                <NavLink to={
+                    !SesionIniciadaLocalStorage
+                        ? '/'
+                        : `/user/${SesionIniciadaLocalStorage}`
+                } className="logo-Home" style={{ paddingTop: "2%" }}>
                     <img src={Logo} alt="todo-sobre-café" className="imagen-Logo-Home" />
                 </NavLink>
                 <button
@@ -97,7 +118,7 @@ const HeaderYCarrito = () => {
                 </button>
                 <div className="contenedor-Hamburguesa-2" ref={refHamburguesa}>
                     <div className="carrito-De-Compras" ref={Carrito}>
-                        <NavLink exact to="/carrito" className="navLink-Carrito">
+                        <NavLink exact to={!SesionIniciadaLocalStorage ? '/carrito' : `/carrito/${SesionIniciadaLocalStorage}`} className="navLink-Carrito">
                             <div className="btn-Carrito-Header">
                                 <p>{contadorProductos}</p>
                             </div>

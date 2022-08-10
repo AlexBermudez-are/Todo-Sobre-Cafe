@@ -1,83 +1,54 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import { helpHttp } from '../../Helpers/helpHttp'
+import SesionContext from '../../Context/SesionContext'
 import FormEnviado from '../ContactoComponents/FormEnviado'
 import './CrearCuenta.css'
 
 
-const CrearCuenta = ({ setcrearCuenta }) => {
+const CrearCuenta = () => {
+
     let initialState = {
-        nombre: "",
-        contraseña: "",
+        name: "",
+        password: "",
         email: "",
-        telefono: "",
-        apellido: "",
-        direccion: "",
-        id: ""
+        tel: "",
+        surname: "",
+        cp: "",
     }
-
-    const [formOK, setformOK] = useState(false);
-    const [checked, setchecked] = useState(false)
+    const { crearCuentaF } = useContext(SesionContext)
     const [valueForm, setvalueForm] = useState(initialState)
-    const [datos, setdatos] = useState([])
-    const ref = useRef()
+    const [checked, setchecked] = useState(false)
+    const [formOK, setformOK] = useState(false);
     const refFormWrong = useRef();
+    const ref = useRef()
 
-    const url = 'http://localhost:3005/usuarios'
-    const help = helpHttp()
+    const url = 'http://localhost:3080/user/register';
 
     useEffect(() => {
         let contador
         if (formOK === true) {
             contador = setTimeout(() => {
                 setformOK(!formOK)
-                setcrearCuenta(false)
+                crearCuentaF()
             }, 4000);
         }
-
-        const datos = async () => {
-            const datos = await axios.get(url),
-                datosResultados = await datos.data
-            setdatos(datosResultados)
-        }
-        datos()
 
         return () => {
             clearTimeout(contador)
         }
-    }, [formOK, setcrearCuenta])
+    }, [formOK])
 
     const validarusuario = async (e) => {
         e.preventDefault();
-        if (datos.length === 0) {
-            help.post(url, {
-                body: valueForm,
-                headers: { "content-type": "application/json" },
-            })
-            setTimeout(() => {
-                setformOK(true)
-            }, 1000)
-        } else {
-            for (let i = 0; i < datos.length; i++) {
-                const element = datos[i];
-                if (element.email === valueForm.email) {
-                    refFormWrong.current.className = 'input-C-Usuario-Contenedor active'
-                    return ref.current.className = 'span-Error-Crear-C active'
-                } else {
-                    help.post(url, {
-                        body: valueForm,
-                        headers: { "content-type": "application/json" },
-                    }).then(res => {
-                        setTimeout(() => {
-                            setformOK(true)
-                        }, 1000)
-                    }
-                    )
-                }
-            }
+        try {
+            await axios.post(url, valueForm)
+            return setformOK(true)
+        } catch (res) {
+            return console.log(res);
         }
-
     }
 
     const actualizarDatos = (e) => {
@@ -90,7 +61,7 @@ const CrearCuenta = ({ setcrearCuenta }) => {
     }
 
     return (
-        <div className="input-C-Usuario-Padre" onClick={e => { setcrearCuenta(false) }}>
+        <div className="input-C-Usuario-Padre" onClick={crearCuentaF}>
             <form className="input-C-Usuario-Contenedor"
                 onClick={e => { e.stopPropagation() }}
                 onSubmit={validarusuario}
@@ -105,22 +76,22 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                     <h1 className='crear-Cuenta-Home'>Crear Cuenta</h1>
                     <button
                         className="btn-C-Usuario-X"
-                        onClick={e => { setcrearCuenta(false) }}
+                        onClick={crearCuentaF}
                     >x</button>
                 </div>
                 <section className="crear-C-Inputs">
                     <div className="inputs-C-Sesion">
-                        <label htmlFor="nombre">
+                        <label htmlFor="name">
                             <p style={{ margin: "0", color: "#495057" }}>Nombre:</p>
                             <input
                                 placeholder="Nombre..."
                                 type="text"
-                                name="nombre"
-                                className="input-C-nombre"
+                                name="name"
+                                className="input-C-name"
                                 onChange={actualizarDatos}
-                                value={valueForm.nombre}
-                                pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]{10,20}$"
-                                title="El nombre no puede contener menos de 10 y mas de 20 caracteres"
+                                value={valueForm.name}
+                                pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]{5,20}$"
+                                title="El name no puede contener menos de 10 y mas de 20 caracteres"
                                 required
                             />
                         </label>
@@ -132,19 +103,19 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                                 name="email"
                                 className="input-C-email"
                                 onChange={actualizarDatos}
-                                pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+                                pattern='[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}'
                                 required
                             />
                         </label>
-                        <label htmlFor="telefono">
-                            <p className='input-Telefono' style={{ margin: "0", color: "#495057" }}>Teléfono:</p>
+                        <label htmlFor="tel">
+                            <p className='input-tel' style={{ margin: "0", color: "#495057" }}>Teléfono:</p>
                             <input
                                 placeholder="Teléfono..."
                                 type="tel"
-                                name="telefono"
-                                className="input-C-telefono"
+                                name="tel"
+                                className="input-C-tel"
                                 onChange={actualizarDatos}
-                                value={valueForm.telefono}
+                                value={valueForm.tel}
                                 pattern="[0-9]{3}[0-9]{4}[0-9]{3}"
                                 title="El numero no puede exceder los 10 digitos"
                                 required
@@ -152,45 +123,45 @@ const CrearCuenta = ({ setcrearCuenta }) => {
                         </label>
                     </div>
                     <div className="inputs-C-Sesion">
-                        <label htmlFor="apellido">
+                        <label htmlFor="surname">
                             <p style={{ margin: "0", color: "#495057" }}>Apellido:</p>
                             <input
                                 placeholder="Apellido..."
                                 type="text"
-                                name="apellido"
-                                className="input-C-apellido"
+                                name="surname"
+                                className="input-C-surname"
                                 onChange={actualizarDatos}
-                                value={valueForm.apellido}
-                                pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]{10,20}$"
-                                title="El apellido no puede contener menos de 10 y mas de 20 caracteres"
+                                value={valueForm.surname}
+                                pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]{5,20}$"
+                                title="El surname no puede contener menos de 10 y mas de 20 caracteres"
                                 required
                             />
                         </label>
-                        <label htmlFor="contraseña">
+                        <label htmlFor="password">
                             <p style={{ margin: "0", color: "#495057" }}>Contraseña:</p>
                             <input
                                 placeholder="Contraseña..."
                                 type="password"
-                                name="contraseña"
-                                className="input-C-Contraseña"
+                                name="password"
+                                className="input-C-password"
                                 onChange={actualizarDatos}
-                                value={valueForm.contraseña}
+                                value={valueForm.password}
                                 pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
-                                title="La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula."
+                                title="La password debe tener al entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula."
                                 required
                             />
                         </label>
-                        <label htmlFor="direccion">
-                            <p style={{ margin: "0", color: "#495057" }}>Código Postal/Dirección:</p>
+                        <label htmlFor="cp">
+                            <p style={{ margin: "0", color: "#495057" }}>Código Postal</p>
                             <input
-                                placeholder="Direccion..."
+                                placeholder="código postal..."
                                 type="text"
-                                name="direccion"
-                                className="input-direccion"
+                                name="cp"
+                                className="input-cp"
                                 onChange={actualizarDatos}
-                                value={valueForm.direccion}
-                                pattern="^[A-Za-z0-9ÑñÁáÉéÍíÓóÚúÜü\s]{10,25}$"
-                                title="La direccion no puede contener menos de 10 y mas de 25 caracteres"
+                                value={valueForm.cp}
+                                pattern="^[0-9]{4}$"
+                                title="El codigo postal debe tener 4 numeros y no puede contener letras"
                                 required
                             />
                         </label>

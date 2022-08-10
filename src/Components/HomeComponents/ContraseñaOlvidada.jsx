@@ -1,14 +1,15 @@
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import './ContraseñaOlvidada.css'
-
+import SesionContext from '../../Context/SesionContext'
+import { useContext } from 'react'
 
 const initialState = {
     email: ''
 }
 
-const ContraseñaOlvidada = ({ setcontraseñaOlvidada }) => {
-
+const ContraseñaOlvidada = () => {
+    const { contraseñaOlvidadaF } = useContext(SesionContext)
     const [Contraseña, setContraseña] = useState(initialState)
     const [datosUsuarios, setdatosUsuarios] = useState([])
     const contraseña = useRef()
@@ -16,7 +17,7 @@ const ContraseñaOlvidada = ({ setcontraseñaOlvidada }) => {
 
     const cerrarDiv = (e) => {
         e.preventDefault();
-        setcontraseñaOlvidada(false)
+        contraseñaOlvidadaF()
     }
 
     const formContraseña = (e) => {
