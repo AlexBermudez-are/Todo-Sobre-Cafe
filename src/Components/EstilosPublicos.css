@@ -1,7 +1,7 @@
 .carrito-De-Compras {
     padding: 1rem;
-    width: 18%;
-    height: 25%;
+    width: 20%;
+    height: 40%;
     background-color: rgb(255, 188, 62);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -50,7 +50,7 @@
     width: 44px;
     height: 35px;
     position: absolute;
-    left: 27.7%;
+    left: 28.3%;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -66,10 +66,11 @@
 }
 
 .navLink-Carrito h2 {
-    font-size: 2rem;
     padding-bottom: 2%;
     margin: 0;
-    padding-top: 1%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding-top: 3%;
 }
 
 /****** Inicio De Sesión **************************************************/
@@ -229,7 +230,7 @@
     }
 
     .btn-Carrito-Header {
-        left: 23.6%;
+        left: 25.2%;
         height: 40px;
     }
 
@@ -240,6 +241,10 @@
     .navLink-Carrito h2 {
         display: none;
     }
+
+    .carrito-De-Compras {
+        height: 50%;
+    }
 }
 
 @media(max-width:768px) {
@@ -249,12 +254,17 @@
         width: 12%;
     }
 
+    .carrito-De-Compras.active {
+        height: 10%;
+        margin-top: -5%;
+    }
+
     .boton-Nav-Usuario-G {
         font-size: 1.5rem;
     }
 
     .btn-Carrito-Header {
-        left: 23%;
+        left: 20.6%;
         height: 37px;
         width: 36px;
     }
@@ -278,6 +288,17 @@
 
     .sesion-Iniciada.active {
         width: 19.5%;
+    }
+}
+
+@media(max-width:650px){
+    .carrito-De-Compras.active {
+        height: 20%;
+        margin-top: -5%;
+        width: 25%;
+    }
+    .btn-Carrito-Header{
+        left: 47.9%;
     }
 }
 
@@ -328,17 +349,24 @@
 
     .carrito-De-Compras {
         position: absolute;
-        top: 42%;
-        height: 10%;
+        margin: 0;
+        top: 0;
+        margin-top: -19%;
+        height: 20%;
         width: 25%;
         transform: translate(-200%, 0px);
         opacity: 0;
         transition: all .5s ease;
     }
-    .carrito-De-Compras.active{
+
+    .carrito-De-Compras.active {
         transform: translate(0px, 0px);
         opacity: 1;
         transition: all .5s ease;
+        margin: 0;
+        top: 0;
+        margin-top: -19%;
+        height: 20%;
     }
 }
 
@@ -349,6 +377,10 @@
 
     .sesion-Iniciada.active {
         left: 73%;
+    }
+
+    .carrito-De-Compras.active {
+        margin-top: -22%;
     }
 }
 
@@ -377,5 +409,9 @@
 
     .btn-Carrito-Header {
         left: 32%;
+    }
+
+    .carrito-De-Compras.active {
+        margin-top: -25%;
     }
 }

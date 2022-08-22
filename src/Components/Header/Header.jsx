@@ -9,10 +9,9 @@ import CrearCuenta from '../HomeComponents/CrearCuenta'
 import './Header.css'
 import '../HomeComponents/HeaderHome.css'
 import NavLinks from './NavLinks'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 
 const Header = () => {
-
 
     const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
     const {
@@ -30,31 +29,34 @@ const Header = () => {
     const navUsuario = useRef()
     const navLinks = useRef()
     const bandera = useRef()
+    const icono = useRef();
+    const icono1 = useRef()
+    const history = useHistory()
 
     const link = [
         {
-            name: "Menu",
+            name: "menu",
             path:
                 !SesionIniciadaLocalStorage
                     ? "/menu"
                     : `/menu/${SesionIniciadaLocalStorage}`
         },
         {
-            name: "Postres",
+            name: "postres",
             path:
                 !SesionIniciadaLocalStorage
                     ? "/postres"
                     : `/postres/${SesionIniciadaLocalStorage}`
         },
         {
-            name: "Infusiones",
+            name: "infusiones",
             path:
                 !SesionIniciadaLocalStorage
-                    ? "/Infusiones"
-                    : `/Infusiones/${SesionIniciadaLocalStorage}`
+                    ? "/infusiones"
+                    : `/infusiones/${SesionIniciadaLocalStorage}`
         },
         {
-            name: "Contacto",
+            name: "contacto",
             path:
                 !SesionIniciadaLocalStorage
                     ? "/contacto"
@@ -63,17 +65,22 @@ const Header = () => {
     ]
 
     useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
+
+    useEffect(() => { // modifica la visualizacion con animaciones de la bandera al loggearse
         if (SesionI || SesionIniciadaLocalStorage) {
             refInicioSesion.current.className = 'sesion-Iniciada-Header active'
             bandera.current.className = 'contenedor-Bandera-Header active'
         }
     }, [SesionI, SesionIniciadaLocalStorage])
 
-    const cerrarSesion = () => {
+    const cerrarSesion = () => {// elimina el estado que controla el inicio de sesion y su token
         const confirmaCerrarSesion = window.confirm('¿Está seguro de querer cerrar sesión?')
         if (confirmaCerrarSesion) {
             usuarioLogueado(false)
             localStorage.removeItem('Usuario')
+            history.push('/')
         }
     }
 
@@ -83,12 +90,16 @@ const Header = () => {
             refDespegable.current.className = 'hamburger active hamburger--squeeze is-active'
             navUsuario.current.className = 'UsuariosHome active'
             refHamburguesa.current.className = 'contenedor-Hamburguesa active'
+            icono.current.className = 'logo-Home-Hamburguer activate'
+            icono1.current.className='logo-Home activate'
         }
         if (menuControll) {
             navLinks.current.className = 'NavLinks-Home-1'
             refDespegable.current.className = 'hamburger hamburger--squeeze'
             navUsuario.current.className = 'UsuariosHome'
             refHamburguesa.current.className = 'contenedor-Hamburguesa'
+            icono.current.className = 'logo-Home-Hamburguer'
+            icono1.current.className='logo-Home'
         }
         setmenuControll(!menuControll)
     }
@@ -96,11 +107,16 @@ const Header = () => {
     return (
         <>
             <div className="Header-Home">
-                <NavLink to={
-                    !SesionIniciadaLocalStorage
-                        ? '/'
-                        : `/user/${SesionIniciadaLocalStorage}`
-                } className="logo-Home" style={{ paddingTop: "2%" }}>
+                <NavLink
+                    to={
+                        !SesionIniciadaLocalStorage
+                            ? '/'
+                            : `/user/${SesionIniciadaLocalStorage}`
+                    }
+                    className="logo-Home"
+                    style={{ paddingTop: "2%" }}
+                    ref={icono1}
+                >
                     <img src={Logo} alt="todo-sobre-café" className="imagen-Logo-Home" />
                 </NavLink>
                 <button
@@ -112,6 +128,19 @@ const Header = () => {
                     </span>
                 </button>
                 <div className="contenedor-Hamburguesa-2" ref={refHamburguesa}>
+                    <NavLink
+                        to={
+                            !SesionIniciadaLocalStorage
+                                ? '/'
+                                : `/user/${SesionIniciadaLocalStorage}`
+                        }
+                        className="logo-Home-Hamburguer"
+                        style={{ paddingTop: "2%" }}
+                        ref={icono}
+                    >
+                        <span className='logo-Home-cuadro-Hamburguer'></span>
+                        <img src={Logo} alt="todo-sobre-café" className="imagen-Logo-Home-Hamburguer" />
+                    </NavLink>
                     <section className="NavLinks-Home-1" ref={navLinks}>
                         {
                             link.map((el, index) => {
@@ -162,14 +191,14 @@ const Header = () => {
                 {/* loginUsuario puede cambiar la visualización de aquí */}
                 {
                     contraseñaOlvidada
-                        ? <ContraseñaOlvidada/>
+                        ? <ContraseñaOlvidada />
                         : false
 
                 }
                 {/* loginUsuario puede cambiar la visualización de aquí */}
                 {
                     crearCuenta
-                        ? <CrearCuenta/>
+                        ? <CrearCuenta />
                         : false
                 }
             </div>

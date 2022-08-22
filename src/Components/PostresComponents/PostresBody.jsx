@@ -6,7 +6,7 @@ import "./PostresBody.css";
 import { Spinner } from "react-bootstrap";
 
 const PostresBody = () => {
-  const url = "https://democomida.herokuapp.com/",
+  const url = "https://newbackend2.herokuapp.com/",
     w = window;
 
   const [Postres, setPostres] = useState([]);

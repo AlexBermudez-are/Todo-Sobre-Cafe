@@ -110,6 +110,12 @@
     }
 }
 
+@media (max-width: 650px){
+    .platillo-2{
+        width: 55%;
+    }
+}
+
 @media(max-width:425px) {
     .menu-Adulto-2 {
         flex-direction: column;
@@ -125,12 +131,16 @@
     .platillo-2 {
         width: 80%;
     }
+    .compra2{
+        align-items: center;
+    }
 }
 
 @media(max-width:320px) {
     .compra2 {
         flex-direction: column;
         align-items: center;
+        height: inherit;
     }
 
     .btn-Agregar2 {

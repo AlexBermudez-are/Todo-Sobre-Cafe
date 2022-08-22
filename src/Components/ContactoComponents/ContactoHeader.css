@@ -1,14 +1,16 @@
 .img-Contacto-Header {
     object-fit: fill;
     position: relative;
-    height: 700px;
+    height: 550px;
     width: 100%;
+    margin-top: 8%;
     z-index: 997;
 }
 
 
 @media(max-width:425px) {
-    .img-Contacto-Header {
-        display: none;
+    .img-Contacto-Header{
+        height: 400px;
+        margin-top: 30%;
     }
 }

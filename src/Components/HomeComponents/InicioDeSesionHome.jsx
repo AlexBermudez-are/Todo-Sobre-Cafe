@@ -27,14 +27,15 @@ const InicioDeSesionHome = () => {
     const logFail = useRef(),
         failLogueo = useRef()
 
-    let url = 'http://localhost:3080/user/login';
+    let url = 'https://newbackend2.herokuapp.com/login';
 
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     if (SesionI) history.push(`/user/${SesionI}`)
+        console.log(SesionI, SesionIniciadaLocalStorage);
+        if(SesionI) history.push(`/user/${SesionI}`)
 
-    // }, [SesionIniciadaLocalStorage, SesionI])
+    }, [SesionI])
 
 
     const validarusuario = async (e) => {
@@ -43,7 +44,10 @@ const InicioDeSesionHome = () => {
         try {
             await axios.post(url, valueForm).then(el => {
                 usuarioLogueado(el.data.jwt)
-            })
+                console.log(el);
+            }).then(
+                console.log(SesionIniciadaLocalStorage)
+            )
             setTimeout(() => {
                 cerrarMenuLoginF()
             }, 1000);

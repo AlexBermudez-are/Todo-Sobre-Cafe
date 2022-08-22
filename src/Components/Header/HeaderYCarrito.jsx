@@ -8,18 +8,18 @@ import CarritoContext from '../../Context/CarritoContext'
 import CrearCuenta from '../HomeComponents/CrearCuenta'
 import SesionContext from '../../Context/SesionContext'
 import Logo from '../../assets/todo-sobre-café.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
 import NavLinks from './NavLinks'
 import './Header.css'
 
 const HeaderYCarrito = () => {
     const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
     const {
-        contraseñaOlvidada,
+        contraseñaOlvidada,//
+        setcontraseñaOlvidada,// contraseñaOlvidada y setContraseñaOlvidada
         crearCuenta,
         loginUsuario,
         SesionI,
-        setcontraseñaOlvidada,
         usuarioLogueado,
         setloginUsuario,
         setcrearCuenta
@@ -33,6 +33,9 @@ const HeaderYCarrito = () => {
     const refInicioSesion = useRef()
     const navLinks = useRef()
     const Carrito = useRef()
+    const history = useHistory()
+    const icono = useRef();
+    const icono1 = useRef()
 
     const link = [
         {
@@ -53,8 +56,8 @@ const HeaderYCarrito = () => {
             name: "Infusiones",
             path:
                 !SesionIniciadaLocalStorage
-                    ? "/Infusiones"
-                    : `/Infusiones/${SesionIniciadaLocalStorage}`
+                    ? "/infusiones"
+                    : `/infusiones/${SesionIniciadaLocalStorage}`
         },
         {
             name: "Contacto",
@@ -64,6 +67,10 @@ const HeaderYCarrito = () => {
                     : `/contacto/${SesionIniciadaLocalStorage}`
         }
     ]
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [])
 
     useEffect(() => {
         if (SesionI || SesionIniciadaLocalStorage) {
@@ -77,6 +84,7 @@ const HeaderYCarrito = () => {
         if (confirmaCerrarSesion) {
             usuarioLogueado(false)
             localStorage.removeItem('Usuario')
+            history.push('/')
         }
     }
 
@@ -87,6 +95,8 @@ const HeaderYCarrito = () => {
             navUsuario.current.className = 'UsuariosHome active'
             refHamburguesa.current.className = 'contenedor-Hamburguesa active'
             Carrito.current.className = 'carrito-De-Compras active'
+            icono.current.className = 'logo-Home-Hamburguer activate'
+            icono1.current.className = 'logo-Home activate'
         }
         if (menuControll) {
             navLinks.current.className = 'NavLinks-Home-2'
@@ -94,6 +104,8 @@ const HeaderYCarrito = () => {
             navUsuario.current.className = 'UsuariosHome'
             refHamburguesa.current.className = 'contenedor-Hamburguesa'
             Carrito.current.className = 'carrito-De-Compras'
+            icono.current.className = 'logo-Home-Hamburguer'
+            icono1.current.className = 'logo-Home'
         }
         setmenuControll(!menuControll)
     }
@@ -101,11 +113,16 @@ const HeaderYCarrito = () => {
     return (
         <>
             <div className="Header-Home">
-                <NavLink to={
-                    !SesionIniciadaLocalStorage
-                        ? '/'
-                        : `/user/${SesionIniciadaLocalStorage}`
-                } className="logo-Home" style={{ paddingTop: "2%" }}>
+                <NavLink
+                    to={
+                        !SesionIniciadaLocalStorage
+                            ? '/'
+                            : `/user/${SesionIniciadaLocalStorage}`
+                    }
+                    className="logo-Home"
+                    style={{ paddingTop: "2%" }}
+                    ref={icono1}
+                >
                     <img src={Logo} alt="todo-sobre-café" className="imagen-Logo-Home" />
                 </NavLink>
                 <button
@@ -117,16 +134,29 @@ const HeaderYCarrito = () => {
                     </span>
                 </button>
                 <div className="contenedor-Hamburguesa-2" ref={refHamburguesa}>
-                    <div className="carrito-De-Compras" ref={Carrito}>
-                        <NavLink exact to={!SesionIniciadaLocalStorage ? '/carrito' : `/carrito/${SesionIniciadaLocalStorage}`} className="navLink-Carrito">
-                            <div className="btn-Carrito-Header">
-                                <p>{contadorProductos}</p>
-                            </div>
-                            <h2>Carrito: </h2>
-                            <img width="75px" height="60px" src={carritoVector} alt="carrito-de-compras" />
-                        </NavLink>
-                    </div>
+                    <NavLink
+                        to={
+                            !SesionIniciadaLocalStorage
+                                ? '/'
+                                : `/user/${SesionIniciadaLocalStorage}`
+                        }
+                        className="logo-Home-Hamburguer"
+                        style={{ paddingTop: "2%" }}
+                        ref={icono}
+                    >
+                        <span className='logo-Home-cuadro-Hamburguer'></span>
+                        <img src={Logo} alt="todo-sobre-café" className="imagen-Logo-Home-Hamburguer" />
+                    </NavLink>
                     <section className="NavLinks-Home-2" ref={navLinks}>
+                        <div className="carrito-De-Compras" ref={Carrito}>
+                            <NavLink exact to={!SesionIniciadaLocalStorage ? '/carrito' : `/carrito/${SesionIniciadaLocalStorage}`} className="navLink-Carrito">
+                                <div className="btn-Carrito-Header">
+                                    <p>{contadorProductos}</p>
+                                </div>
+                                <h2>Carrito: </h2>
+                                <img width="75px" height="60px" src={carritoVector} alt="carrito-de-compras" />
+                            </NavLink>
+                        </div>
                         {
                             link.map((el, index) => {
 

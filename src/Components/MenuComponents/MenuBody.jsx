@@ -15,7 +15,7 @@ const MenuBody = () => {
   const w = window;
   // const [switchs, setswitchs] = useState(false);
 
-  const url = "https://democomida.herokuapp.com/";
+  const url = "https://newbackend2.herokuapp.com/";
 
   w.addEventListener("scroll", e => {
     const scroll = w.pageYOffset

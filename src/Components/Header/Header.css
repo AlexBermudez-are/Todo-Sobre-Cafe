@@ -2,22 +2,22 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 2%;
 }
 
 .NavLinks-Home-2 {
-    margin-left: 5%;
-    width: 60%;
+    width: 75%;
     display: flex;
     height: 100%;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .btns-Navs {
     background-color: transparent;
-    height: 23%;
-    width: 22%;
+    height: 40%;
+    width: 20%;
     border: none;
     border-radius: 5%;
     box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
@@ -61,7 +61,7 @@
 .sesion-Iniciada-Header.active {
     transform: translate(0px, 0px);
     transition: transform .5s ease-in;
-    width: 13.3%;
+    width: 11%;
     height: 209px;
     z-index: 999;
 }
@@ -73,7 +73,7 @@
 }
 
 .contenedor-Bandera-Header.active {
-    padding-top: 6%;
+    padding-top: 2%;
     display: -webkit-box;
     position: absolute;
     transform: translate(0px, 0px);
@@ -89,60 +89,78 @@
 }
 
 .izquierda-Header {
-    border-left: 100px solid rgb(238, 161, 17);
+    border-left: 82px solid rgb(238, 161, 17);
 }
 
 .derecha-Header {
-    border-right: 90px solid rgb(238, 161, 17);
+    border-right: 75px solid rgb(238, 161, 17);
 }
 
 .vector-Usuario {
-    left: 25%;
+    left: 19.7%;
     width: 100px;
     position: absolute;
-    top: 30%;
+    top: 13%;
 }
 
 .NavLinks-Home-1 {
-    margin-left: 5%;
     width: 60%;
     display: flex;
     height: 100%;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-end;
 }
 
-.btn-Log-Out{
+.btn-Log-Out {
     border: none;
     cursor: pointer;
+    background-color: transparent;
 }
 
 @media(max-width:1024px) {
     .sesion-Iniciada-Header.active {
-        width: 16.5%;
+        width: 13.5%;
+        height: 190px;
     }
 
     .vector-Usuario {
-        left: 22%;
+        left: 15.5%;
+        top: 10%;
     }
 
     .derecha-Header {
-        border-right: 85px solid rgb(238, 161, 17);
+        border-right: 70px solid rgb(238, 161, 17);
     }
 
     .izquierda-Header {
-        border-left: 85px solid rgb(238, 161, 17);
+        border-left: 69px solid rgb(238, 161, 17);
+    }
+
+    .NavLinks-Home-1 {
+        margin-left: 0;
+        width: 70%;
+    }
+
+    .bandera-Login {
+        padding-right: 150px;
+    }
+
+    .NavLinks-Home-2 {
+        margin-left: 0px;
+    }
+
+    .btns-Navs {
+        height: 50%;
     }
 }
 
 @media(max-width:768px) {
     .NavLinks-Home-2 {
-        width: 70%;
+        width: 85%;
         display: flex;
         height: 100%;
         justify-content: space-evenly;
-        align-items: center;
-        margin-left: 0;
+        margin-left: -7%;
     }
 
     .btns-Navs {
@@ -154,32 +172,41 @@
     }
 
     .sesion-Iniciada-Header.active {
-        width: 18%;
-        height: 190px;
+        width: 15%;
+        height: 130px;
+        right: 2%;
     }
 
     .izquierda-Header {
-        border-left: 69px solid rgb(238, 161, 17);
+        border-left: 60px solid rgb(238, 161, 17);
     }
 
     .derecha-Header {
-        border-right: 70px solid rgb(238, 161, 17);
+        border-right: 56px solid rgb(238, 161, 17);
     }
 
     .vector-Usuario {
-        left: 16%;
+        width: 80px;
+        top: 20%;
     }
+
     .NavLinks-Home-1 {
-        width: 70%;
+        width: 75%;
         display: flex;
         height: 100%;
         justify-content: space-evenly;
-        align-items: center;
         margin-left: 0;
+    }
+
+    .contenedor-Bandera-Header.active {
+        right: 5%;
+        padding-top: 0;
+        right: 2%;
+        margin-top: -5%;
     }
 }
 
-@media(max-width:425px) {
+@media(max-width:650px) {
     .contenedor-Hamburguesa-2 {
         visibility: hidden;
     }
@@ -213,8 +240,8 @@
         top: 50%;
         transform: translate(0, 0);
         transition: all .5s ease;
-        height: 40%;
-        top: 55%;
+        height: 45%;
+        top: 50%;
     }
 
     .NavLinks-Home-1 {
@@ -251,6 +278,7 @@
         left: 27%;
         height: 165px;
         top: 45%;
+        background-color: transparent;
     }
 
     .contenedor-Bandera-Header, .contenedor-Bandera-Header.active {
@@ -258,8 +286,19 @@
     }
 
     .sesion-Iniciada-Header.active img {
-        margin-left: 10%;
-        top: 18%;
+        margin-left: 21%;
+        top: 52%;
+    }
+}
+
+@media(max-width:425px) {
+    .sesion-Iniciada-Header.active img {
+        margin-left: 16%;
+    }
+
+    .NavLinks-Home-2.active {
+        justify-content: space-evenly;
+        top: 55%;
     }
 }
 
@@ -269,16 +308,18 @@
     }
 
     .sesion-Iniciada-Header.active img {
-        margin-left: 7%;
+        margin-left: 13%;
+        top: 49%;
     }
 }
 
 @media(max-width:320px) {
     .btns-Navs {
         width: 60%;
+        font-size: 1.3rem;
     }
 
     .sesion-Iniciada-Header.active img {
-        margin-left: 2%;
+        margin-left: 10%;
     }
 }

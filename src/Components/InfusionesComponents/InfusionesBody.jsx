@@ -6,7 +6,7 @@ import CartaInfusiones from './CartaInfusiones';
 
 const InfusionesBody = () => {
 
-    const url = "https://democomida.herokuapp.com/",
+    const url = "https://newbackend2.herokuapp.com/",
         w = window;
 
     const [Infusiones, setInfusiones] = useState([]);

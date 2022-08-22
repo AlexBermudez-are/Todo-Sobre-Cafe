@@ -110,6 +110,15 @@
     }
 }
 
+@media (max-width: 650px){
+    .platillo{
+        width: 55%;
+    }
+    .info-Platillo-I{
+        width: 33%;
+    }
+}
+
 @media(max-width:425px) {
     .menu-Infantil {
         flex-direction: column;
@@ -124,6 +133,10 @@
         width: 80%;
         text-align: center;
         margin-top: 10%;
+    }
+    .compra-Infantil{
+        align-items: center;
+        height: inherit;
     }
 }
 
