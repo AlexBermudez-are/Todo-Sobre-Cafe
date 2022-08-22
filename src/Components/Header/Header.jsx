@@ -35,28 +35,28 @@ const Header = () => {
 
     const link = [
         {
-            name: "menu",
+            name: "Menu",
             path:
                 !SesionIniciadaLocalStorage
                     ? "/menu"
                     : `/menu/${SesionIniciadaLocalStorage}`
         },
         {
-            name: "postres",
+            name: "Postres",
             path:
                 !SesionIniciadaLocalStorage
                     ? "/postres"
                     : `/postres/${SesionIniciadaLocalStorage}`
         },
         {
-            name: "infusiones",
+            name: "Infusiones",
             path:
                 !SesionIniciadaLocalStorage
                     ? "/infusiones"
                     : `/infusiones/${SesionIniciadaLocalStorage}`
         },
         {
-            name: "contacto",
+            name: "Contacto",
             path:
                 !SesionIniciadaLocalStorage
                     ? "/contacto"
