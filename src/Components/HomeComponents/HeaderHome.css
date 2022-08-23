@@ -357,7 +357,7 @@
     }
 
     .boton-Nav-Usuario {
-        width: 75%;
+        width: 100%;
         font-size: 1rem;
     }
 
@@ -382,7 +382,7 @@
     }
 
     .UsuariosHome {
-        width: 15%;
+        width: 20%;
     }
 }
 
@@ -589,6 +589,9 @@
     .circulo-Blanco-Sesion-Home{
         width: 45%;
         left: 30%;
+    }
+    .boton-Nav-Usuario{
+        width: 45%;
     }
 }
 

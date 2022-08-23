@@ -254,6 +254,10 @@
         width: 12%;
     }
 
+    .carrito-De-Compras{
+        margin-left: 5%;
+    }
+
     .carrito-De-Compras.active {
         height: 10%;
         margin-top: -5%;
@@ -264,7 +268,7 @@
     }
 
     .btn-Carrito-Header {
-        left: 20.6%;
+        left: 22%;
         height: 37px;
         width: 36px;
     }

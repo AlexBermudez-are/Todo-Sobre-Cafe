@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { setTimeout } from 'timers'
 import SesionContext from '../../Context/SesionContext'
 import FormEnviado from '../ContactoComponents/FormEnviado'
 import './CrearCuenta.css'
@@ -21,33 +22,29 @@ const CrearCuenta = () => {
     const { crearCuentaF } = useContext(SesionContext)
     const [valueForm, setvalueForm] = useState(initialState)
     const [checked, setchecked] = useState(false)
-    const [formOK, setformOK] = useState(false);
     const refFormWrong = useRef();
+    const refCreateC = useRef()
     const ref = useRef()
-
-    const url = 'http://localhost:3080/user/register';
-
-    useEffect(() => {
-        let contador
-        if (formOK === true) {
-            contador = setTimeout(() => {
-                setformOK(!formOK)
-                crearCuentaF()
-            }, 4000);
-        }
-
-        return () => {
-            clearTimeout(contador)
-        }
-    }, [formOK])
+    const url = 'https://newbackend2.herokuapp.com/register';
 
     const validarusuario = async (e) => {
         e.preventDefault();
         try {
             await axios.post(url, valueForm)
-            return setformOK(true)
+            refCreateC.current.className = 'cuentaCreada active'
+            setTimeout(() => {
+                refCreateC.current.className = 'cuentaCreada'
+                setTimeout(() => {
+                    crearCuentaF()
+                }, 1000);
+            }, 3000);
         } catch (res) {
-            return console.log(res);
+            ref.current.className = 'span-Error-Crear-C active'
+            refFormWrong.current.className = 'input-C-Usuario-Contenedor active'
+            setTimeout(() => {
+                ref.current.className = 'span-Error-Crear-C'
+                refFormWrong.current.className = 'input-C-Usuario-Contenedor'
+            }, 3000);
         }
     }
 
@@ -67,11 +64,9 @@ const CrearCuenta = () => {
                 onSubmit={validarusuario}
                 ref={refFormWrong}
             >
-                {
-                    formOK
-                        ? <FormEnviado />
-                        : false
-                }
+                <div className="cuentaCreada" ref={refCreateC}>
+                    <FormEnviado param={'Cuenta creada con exito :D'} />
+                </div>
                 <div className="titulo-Sesion">
                     <h1 className='crear-Cuenta-Home'>Crear Cuenta</h1>
                     <button

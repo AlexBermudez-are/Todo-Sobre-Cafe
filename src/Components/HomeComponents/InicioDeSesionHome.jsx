@@ -12,7 +12,6 @@ let initialState = {
 
 const InicioDeSesionHome = () => {
 
-    const SesionIniciadaLocalStorage = localStorage.getItem('Usuario')
     const {
         SesionI,
         cerrarMenuLoginF,
@@ -23,7 +22,6 @@ const InicioDeSesionHome = () => {
     const [checked, setchecked] = useState(false)
     const [valueForm, setvalueForm] = useState(initialState)
     const history = useHistory()
-
     const logFail = useRef(),
         failLogueo = useRef()
 
@@ -32,7 +30,6 @@ const InicioDeSesionHome = () => {
 
     useEffect(() => {
 
-        console.log(SesionI, SesionIniciadaLocalStorage);
         if(SesionI) history.push(`/user/${SesionI}`)
 
     }, [SesionI])
@@ -44,15 +41,17 @@ const InicioDeSesionHome = () => {
         try {
             await axios.post(url, valueForm).then(el => {
                 usuarioLogueado(el.data.jwt)
-                console.log(el);
-            }).then(
-                console.log(SesionIniciadaLocalStorage)
-            )
+            })
             setTimeout(() => {
                 cerrarMenuLoginF()
             }, 1000);
         } catch (error) {
-            return error
+            logFail.current.className='sesion-Fallida-E active'
+            failLogueo.current.className='input-Usuario-Contenedor active'
+            setTimeout(() => {
+                logFail.current.className='sesion-Fallida-E'
+                failLogueo.current.className='input-Usuario-Contenedor'
+            }, 3000);
         }
 
     }
@@ -116,7 +115,6 @@ const InicioDeSesionHome = () => {
                         onChange={actualizarDatos}
                         name="autorizar"
                         required
-                        style={{ marginTop: "5%" }}
                     />
                     <p style={{ margin: "14px 5px" }}>Recordarme en este dispositivo</p>
                 </label>

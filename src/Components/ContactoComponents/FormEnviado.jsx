@@ -1,7 +1,8 @@
 import React from "react";
 import form_Enviado from "../../assets/vector-succesful.png";
+import './FormEnviado.css'
 
-const FormEnviado = () => {
+const FormEnviado = ({param}) => {
   return (
     <div
       style={{
@@ -14,6 +15,7 @@ const FormEnviado = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        zIndex:'999',
       }}
     >
       <section
@@ -30,7 +32,7 @@ const FormEnviado = () => {
         }}
       >
         <img src={form_Enviado} width="20%" alt="si" />
-        <h1>El formulario fue enviado</h1>
+        <h1>{param}</h1>
         <p>Nos comunicaremos contigo en breve</p>
       </section>
     </div>

@@ -1,0 +1,10 @@
+@media(max-width:425px) {
+    .succesful h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+    .succesful p{
+        font-size: 15px;
+        text-align: center;
+    }
+}

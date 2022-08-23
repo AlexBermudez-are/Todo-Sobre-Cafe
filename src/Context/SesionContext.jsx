@@ -15,17 +15,14 @@ const SesionProvider = ({ children }) => {
     }
     const cerrarMenuLoginF = () => {
         setloginUsuario(!loginUsuario)
-        console.log("cerrar", loginUsuario);
     }
     const crearCuentaF = () => {
         setloginUsuario(false)
         setcrearCuenta(!crearCuenta)
-        console.log("crearcuenta");
     }
     const contraseñaOlvidadaF = () => {
         setloginUsuario(false)
         setcontraseñaOlvidada(!contraseñaOlvidada)
-        console.log("contraseña");
     }
 
     const data = {

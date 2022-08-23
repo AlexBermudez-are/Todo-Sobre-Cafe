@@ -15,13 +15,15 @@
     flex-direction: column;
     background-color: white;
     width: 60%;
-    height: 66%;
+    height: 62%;
     margin: 10% auto;
     border-radius: 10px;
+    transition: height .3s ease;
 }
 
 .input-C-Usuario-Contenedor.active {
-    height: 70%;
+    height: 66%;
+    transition: height .3s ease;
 }
 
 .btn-C-Usuario-X {
@@ -39,6 +41,7 @@
     width: 95%;
     margin: 0 auto;
     justify-content: space-evenly;
+    z-index: 998;
 }
 
 .inputs-C-Sesion {
@@ -104,15 +107,38 @@
 }
 
 .span-Error-Crear-C {
+    margin-top: -5%;
     color: red;
-    padding-left: 4%;
-    display: none;
+    padding-left: 5%;
     font-size: 1.2rem;
     font-weight: bold;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
 }
 
 .span-Error-Crear-C.active {
-    display: block;
+    margin: 0;
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s ease;
+}
+
+.cuentaCreada {
+    transform: translate(0px, -280px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.cuentaCreada.active {
+    transform: translate(0px, 235px);
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s ease;
+    z-index: 999;
 }
 
 @media(max-width:1024px) {
@@ -120,19 +146,32 @@
         width: 80%;
     }
 
+    .input-C-Usuario-Contenedor.active {
+        height: 70%;
+    }
+
     .inputs-C-Sesion input {
         margin-top: 3%;
+    }
+
+    .inputs-C-Sesion-A {
+        margin-top: 0;
+    }
+
+    .crear-Usuario {
+        margin-left: 4%;
+        margin-top: 1%;
     }
 }
 
 @media(max-width:768px) {
     .input-C-Usuario-Contenedor {
-        height: 62%;
+        height: 60%;
         width: 80%;
     }
 
     .input-C-Usuario-Contenedor.active {
-        height: 66%;
+        height: 62%;
     }
 
     .inputs-C-Sesion input {
@@ -140,19 +179,33 @@
         margin-left: 1%;
     }
 
-    .inputs-C-Sesion-A{
-        margin-left: 5%;
+    .inputs-C-Sesion-A {
+        margin-left: 4%;
+        width: 92%;
     }
-    .span-Error-Crear-C.active{
+
+    .span-Error-Crear-C.active {
         padding-left: 5%;
+    }
+
+    .cuentaCreada {
+        width: 90%;
+        margin-left: 4%;
+    }
+
+    .cuentaCreada.active {
+        width: 90%;
+        margin-left: 4%;
+        transform: translate(0px, 225px);
     }
 }
 
 @media (max-width: 425px) {
     .input-C-Usuario-Contenedor {
-        height: 695px;
+        height: 615px;
         margin: 5% auto;
         width: 90%;
+        transition: all .3s ease;
     }
 
     .inputs-C-Sesion input {
@@ -171,29 +224,57 @@
 
     .inputs-C-Sesion-A {
         width: 90%;
-        padding-bottom: 2%;
+        padding: 0;
         margin-left: 7%;
+        height: 10%;
     }
 
     .crear-C-Inputs {
         flex-direction: column;
+        z-index: 998;
     }
 
     .inputs-C-Sesion {
         width: 95%;
         margin-left: 5%;
+        padding-top: 0;
     }
 
     .crear-Usuario {
         margin-left: 8%;
+        width: 30%;
     }
 
     .input-C-Usuario-Contenedor.active {
-        height: 95%;
+        height: 92%;
+        transition: all .3s ease;
     }
 
     .span-Error-Crear-C {
-        padding-left: 7%;
+        font-size: 1rem;
+        padding-left: 8%;
+        margin-top: -8%;
+        z-index: 998;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s ease;
+        display: block;
+    }
+
+    .span-Error-Crear-C.active {
+        font-size: 1rem;
+        padding-left: 8%;
+        margin: 0;
+        visibility: visible;
+        opacity: 1;
+        transition: all .3s ease;
+        display: block;
+    }
+
+    .cuentaCreada.active {
+        width: 100%;
+        margin-left: 0;
+        transform: translate(0px, 290px);
     }
 }
 
@@ -208,7 +289,12 @@
     }
 
     .input-C-Usuario-Contenedor {
-        height: 660px;
+        height: 620px;
+    }
+
+    .input-C-Usuario-Contenedor.active {
+        height: 90%;
+        transition: all .3s ease;
     }
 }
 
@@ -228,8 +314,13 @@
         margin-top: 3%;
     }
 
+    .input-C-Usuario-Contenedor.active {
+        height: 670px;
+    }
+
     .span-Error-Crear-C {
         font-size: 1rem;
+        margin-top: -17%;
     }
 
 }
