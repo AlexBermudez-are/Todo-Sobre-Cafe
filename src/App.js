@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import { CarritoProvider } from './Context/CarritoContext';
 import { SesionProvider } from './Context/SesionContext';
+import PerfilPersonal from './Pages/PerfilPersonal';
 import Privacidad from './Components/Privacidad';
 import Contactanos from './Pages/Contactanos';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,25 +23,27 @@ function App() {
             <SesionProvider>
               
               <Route exact path="/" component={Home} />
-              <Route exact path="/user/:id" component={Home} />
+              <Route path="/user/:id" component={Home} />
 
               <Route exact path="/menu" component={MenuDelDia} />
-              <Route exact path="/menu/:id" component={MenuDelDia} />
+              <Route path="/menu/:id" component={MenuDelDia} />
 
               <Route exact path="/privacidad" component={Privacidad} />
-              <Route exact path="/privacidad/:id" component={Privacidad} />
+              <Route path="/privacidad/:id" component={Privacidad} />
 
               <Route exact path="/postres" component={Postres} />
-              <Route exact path="/postres/:id" component={Postres} />
+              <Route path="/postres/:id" component={Postres} />
 
               <Route exact path="/infusiones" component={Infusiones} />
-              <Route exact path="/infusiones/:id" component={Infusiones} />
+              <Route path="/infusiones/:id" component={Infusiones} />
 
               <Route exact path="/carrito" component={Carrito} />
-              <Route exact path="/carrito/:id" component={Carrito} />
+              <Route path="/carrito/:id" component={Carrito} />
+
+              <Route exact path="/perfil/user/:id" component={PerfilPersonal} />
 
               <Route exact path="/contacto" component={Contactanos} />
-              <Route exact path="/contacto/:id" component={Contactanos} />
+              <Route path="/contacto/:id" component={Contactanos} />
 
             </SesionProvider>
           </CarritoProvider>

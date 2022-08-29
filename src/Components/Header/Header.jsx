@@ -9,7 +9,7 @@ import CrearCuenta from '../HomeComponents/CrearCuenta'
 import './Header.css'
 import '../HomeComponents/HeaderHome.css'
 import NavLinks from './NavLinks'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
 
@@ -19,7 +19,6 @@ const Header = () => {
         crearCuenta,
         loginUsuario,
         SesionI,
-        usuarioLogueado,
         setloginUsuario,
     } = useContext(SesionContext)
     const [menuControll, setmenuControll] = useState(false)
@@ -31,7 +30,6 @@ const Header = () => {
     const bandera = useRef()
     const icono = useRef();
     const icono1 = useRef()
-    const history = useHistory()
 
     const link = [
         {
@@ -65,7 +63,7 @@ const Header = () => {
     ]
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
     }, [])
 
     useEffect(() => { // modifica la visualizacion con animaciones de la bandera al loggearse
@@ -75,15 +73,6 @@ const Header = () => {
         }
     }, [SesionI, SesionIniciadaLocalStorage])
 
-    const cerrarSesion = () => {// elimina el estado que controla el inicio de sesion y su token
-        const confirmaCerrarSesion = window.confirm('¿Está seguro de querer cerrar sesión?')
-        if (confirmaCerrarSesion) {
-            usuarioLogueado(false)
-            localStorage.removeItem('Usuario')
-            history.push('/')
-        }
-    }
-
     const menuDespegable = () => { // Menu hamburguesa
         if (!menuControll) {
             navLinks.current.className = 'NavLinks-Home-1 active'
@@ -91,7 +80,7 @@ const Header = () => {
             navUsuario.current.className = 'UsuariosHome active'
             refHamburguesa.current.className = 'contenedor-Hamburguesa active'
             icono.current.className = 'logo-Home-Hamburguer activate'
-            icono1.current.className='logo-Home activate'
+            icono1.current.className = 'logo-Home activate'
         }
         if (menuControll) {
             navLinks.current.className = 'NavLinks-Home-1'
@@ -99,7 +88,7 @@ const Header = () => {
             navUsuario.current.className = 'UsuariosHome'
             refHamburguesa.current.className = 'contenedor-Hamburguesa'
             icono.current.className = 'logo-Home-Hamburguer'
-            icono1.current.className='logo-Home'
+            icono1.current.className = 'logo-Home'
         }
         setmenuControll(!menuControll)
     }
@@ -160,13 +149,12 @@ const Header = () => {
                             //*********** Aqui siempre se va a validar el boton hasta que te loguees
 
                             (SesionIniciadaLocalStorage || SesionI)
-                                ?
-                                <section className='bandera-Login'>
+                                ? <section className='bandera-Login'>
                                     <div className="sesion-Iniciada-Header" ref={refInicioSesion}>
-                                        <button onClick={cerrarSesion} className='btn-Log-Out'>
+                                        <NavLink to={`/perfil/user/${SesionIniciadaLocalStorage}`} className='btn-Log-Out'>
                                             <div className="circulo-Blanco-Sesion-Home"></div>
                                             <img src={SesionIniciada} className='vector-Usuario' alt="icono-inicio-sesion" />
-                                        </button>
+                                        </NavLink>
                                     </div>
                                     <div className="contenedor-Bandera-Header" ref={bandera}>
                                         <div className="izquierda-Header"></div>

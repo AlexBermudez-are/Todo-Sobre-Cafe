@@ -1,0 +1,246 @@
+.Icon-User-Loggin {
+    width: 130px;
+}
+
+.Icono-Nombre-Apellido-Perfil {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 440px;
+    padding-top: 5%;
+}
+
+.tel-Email-Cp {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-evenly;
+    margin-top: 5%;
+}
+
+.contenedor-Menu-Borrar-Cuenta {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-Usuario-Delete {
+    border: none;
+    background-color: red;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    outline: none;
+    top: 10px;
+    right: 25px;
+}
+
+.container-Menu-Padre {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000029;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.container-Menu-Padre.active {
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s ease;
+}
+
+.container-Padre {
+    width: 95%;
+    margin: auto;
+    background-color: #ebd488;
+    height: 740px;
+    margin-top: 2%;
+}
+
+.confirmar-Eliminar-Perfil {
+    transform: translate(0px, -200%);
+    visibility: hidden;
+    width: 60%;
+    background-color: red;
+    height: 250px;
+    position: fixed;
+    left: 20%;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
+    opacity: 0;
+    transition: all .3s ease;
+    position: relative;
+}
+
+.confirmar-Eliminar-Perfil.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+    transition: all .3s ease;
+}
+
+.text-Info-Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Nombre-Usuario-Logueado {
+    font-family: 'Rubik', sans-serif;
+}
+
+.btns-Usuarios {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+
+.eliminar-Cuenta-Text {
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.contenedor-Input-Password {
+    width: 50%;
+}
+
+.input-Borrar-Cuenta {
+    outline: none;
+    border: none;
+    width: 100%;
+}
+
+.contenedor-Mostrar-Contraseña {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.mostrar-Contraseña {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: white;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+    -transform: scale(1.5);
+    -webtransform: scale(1.5);
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.header-Perfil-Data {
+    display: flex;
+    justify-content: left;
+    position: absolute;
+}
+
+@media screen and (max-width:1024px) and (min-width:769px) {
+    .container-Padre {
+        height: 655px;
+    }
+}
+
+@media screen and (max-width:768px) and (min-width:426px) {
+    .container-Padre {
+        height: 665px;
+        margin-top: 3%;
+    }
+}
+
+@media screen and (max-width:425px) {
+    .Icono-Nombre-Apellido-Perfil {
+        height: 375px;
+    }
+
+    .Nombre-Usuario-Logueado {
+        text-align: center;
+    }
+
+    .tel-Email-Cp {
+        margin: auto;
+        flex-direction: column;
+    }
+
+    .container-Padre {
+        height: 680px;
+        margin-top: 4%;
+    }
+
+    .container-Cerrar-Actualizar {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .btns-Perfil-Crud {
+        width: 100%;
+        height: 45%;
+    }
+
+
+    .logoC {
+        margin-top: -9%;
+        margin-left: -13%;
+    }
+
+    .Icon-User-Loggin {
+        width: 100px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .logoC {
+        margin-top: -7%;
+        margin-left: -7%;
+    }
+
+    .container-Cerrar-Actualizar {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .Icono-Nombre-Apellido-Perfil {
+        padding-top: 30%;
+    }
+
+    .container-Eliminar-Cuenta {
+        width: 45%;
+    }
+
+    .btn-Perfil-Eliminar {
+        padding: 10px 1px;
+    }
+
+    .container-Padre {
+        height: 750px;
+        margin-bottom: 4%;
+    }
+
+    .btns-Usuarios {
+        height: 140px;
+        margin-top: 12%;
+    }
+}

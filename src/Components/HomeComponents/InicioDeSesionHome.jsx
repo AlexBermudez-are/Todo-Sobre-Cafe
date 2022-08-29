@@ -4,6 +4,7 @@ import axios from "axios";
 import './InicioDeSesion.css'
 import SesionContext from '../../Context/SesionContext';
 import { useHistory } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
 let initialState = {
     email: "",
@@ -23,14 +24,15 @@ const InicioDeSesionHome = () => {
     const [valueForm, setvalueForm] = useState(initialState)
     const history = useHistory()
     const logFail = useRef(),
-        failLogueo = useRef()
+        failLogueo = useRef(),
+        spinner = useRef();
 
     let url = 'https://newbackend2.herokuapp.com/login';
 
 
     useEffect(() => {
 
-        if(SesionI) history.push(`/user/${SesionI}`)
+        if (SesionI) history.push(`/user/${SesionI}`)
 
     }, [SesionI])
 
@@ -39,18 +41,23 @@ const InicioDeSesionHome = () => {
         e.preventDefault();
 
         try {
+            
+            spinner.current.className = 'spinner-Login active'
             await axios.post(url, valueForm).then(el => {
                 usuarioLogueado(el.data.jwt)
+                localStorage.setItem("email", valueForm.email)
+                spinner.current.className = 'spinner-Login'
+                setTimeout(() => {
+                    cerrarMenuLoginF()
+                }, 300);
             })
-            setTimeout(() => {
-                cerrarMenuLoginF()
-            }, 1000);
+
         } catch (error) {
-            logFail.current.className='sesion-Fallida-E active'
-            failLogueo.current.className='input-Usuario-Contenedor active'
+            logFail.current.className = 'sesion-Fallida-E active'
+            failLogueo.current.className = 'input-Usuario-Contenedor active'
             setTimeout(() => {
-                logFail.current.className='sesion-Fallida-E'
-                failLogueo.current.className='input-Usuario-Contenedor'
+                logFail.current.className = 'sesion-Fallida-E'
+                failLogueo.current.className = 'input-Usuario-Contenedor'
             }, 3000);
         }
 
@@ -124,6 +131,9 @@ const InicioDeSesionHome = () => {
                     <button className="btn-Extra" type="button" onClick={contraseñaOlvidadaF}>¿Olvidaste tu contraseña? </button>
                 </div>
             </form>
+            <div ref={spinner} className='spinner-Login'>
+                <Spinner style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} animation="grow" variant="danger" />
+            </div>
         </div>
     )
 }

@@ -8,7 +8,7 @@ import CarritoContext from '../../Context/CarritoContext'
 import CrearCuenta from '../HomeComponents/CrearCuenta'
 import SesionContext from '../../Context/SesionContext'
 import Logo from '../../assets/todo-sobre-café.png'
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import NavLinks from './NavLinks'
 import './Header.css'
 
@@ -20,7 +20,6 @@ const HeaderYCarrito = () => {
         crearCuenta,
         loginUsuario,
         SesionI,
-        usuarioLogueado,
         setloginUsuario,
         setcrearCuenta
     } = useContext(SesionContext)
@@ -33,7 +32,6 @@ const HeaderYCarrito = () => {
     const refInicioSesion = useRef()
     const navLinks = useRef()
     const Carrito = useRef()
-    const history = useHistory()
     const icono = useRef();
     const icono1 = useRef()
 
@@ -69,7 +67,7 @@ const HeaderYCarrito = () => {
     ]
 
     useEffect(() => {
-        window.scrollTo(0,0)
+        window.scrollTo(0, 0)
     }, [])
 
     useEffect(() => {
@@ -78,15 +76,6 @@ const HeaderYCarrito = () => {
             bandera.current.className = 'contenedor-Bandera-Header active'
         }
     }, [SesionI, SesionIniciadaLocalStorage])
-
-    const cerrarSesion = () => {
-        const confirmaCerrarSesion = window.confirm('¿Está seguro de querer cerrar sesión?')
-        if (confirmaCerrarSesion) {
-            usuarioLogueado(false)
-            localStorage.removeItem('Usuario')
-            history.push('/')
-        }
-    }
 
     const menuDespegable = () => {
         if (!menuControll) {
@@ -178,10 +167,10 @@ const HeaderYCarrito = () => {
                                 ?
                                 <section className='bandera-Login'>
                                     <div className="sesion-Iniciada-Header" ref={refInicioSesion}>
-                                        <button onClick={cerrarSesion} className='btn-Log-Out'>
+                                        <NavLink to={`/perfil/user/${SesionIniciadaLocalStorage}`} className='btn-Log-Out'>
                                             <div className="circulo-Blanco-Sesion-Home"></div>
                                             <img src={SesionIniciada} className='vector-Usuario' alt="icono-inicio-sesion" />
-                                        </button>
+                                        </NavLink>
                                     </div>
                                     <div className="contenedor-Bandera-Header" ref={bandera}>
                                         <div className="izquierda-Header"></div>

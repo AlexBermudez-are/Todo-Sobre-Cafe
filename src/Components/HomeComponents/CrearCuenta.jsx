@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import axios from 'axios'
-import React, { useRef, useState } from 'react'
-import { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
-import { setTimeout } from 'timers'
-import SesionContext from '../../Context/SesionContext'
 import FormEnviado from '../ContactoComponents/FormEnviado'
+import SesionContext from '../../Context/SesionContext'
+import React, { useRef, useState } from 'react'
+import { Spinner } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { setTimeout } from 'timers'
 import './CrearCuenta.css'
+import axios from 'axios'
 
 
 const CrearCuenta = () => {
@@ -25,20 +26,26 @@ const CrearCuenta = () => {
     const refFormWrong = useRef();
     const refCreateC = useRef()
     const ref = useRef()
+    const spinner = useRef()
     const url = 'https://newbackend2.herokuapp.com/register';
 
     const validarusuario = async (e) => {
         e.preventDefault();
         try {
+            spinner.current.className = 'spinner-Login active'
             await axios.post(url, valueForm)
-            refCreateC.current.className = 'cuentaCreada active'
-            setTimeout(() => {
-                refCreateC.current.className = 'cuentaCreada'
-                setTimeout(() => {
-                    crearCuentaF()
-                }, 1000);
-            }, 3000);
+                .then(el => {
+                    spinner.current.className = 'spinner-Login'
+                    refCreateC.current.className = 'cuentaCreada active'
+                    setTimeout(() => {
+                        refCreateC.current.className = 'cuentaCreada'
+                        setTimeout(() => {
+                            crearCuentaF()
+                        }, 1000);
+                    }, 3000);
+                })
         } catch (res) {
+            spinner.current.className = 'spinner-Login'
             ref.current.className = 'span-Error-Crear-C active'
             refFormWrong.current.className = 'input-C-Usuario-Contenedor active'
             setTimeout(() => {
@@ -174,6 +181,9 @@ const CrearCuenta = () => {
                     <NavLink exact to="/privacidad" style={{ color: "blue" }}>Terminos y Condiciones de uso y las Politicas de Privacidad.</NavLink>
                 </label>
                 <button type="submit" className="crear-Usuario">Ingresar</button>
+                <div ref={spinner} className='spinner-Login'>
+                    <Spinner style={{ width: "5rem", height: "5rem", marginTop: "10%", marginBottom: "10%" }} animation="grow" variant="danger" />
+                </div>
             </form>
         </div>
     )
