@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap';
 import BtnScrollUp from '../BtnScrollUp';
 import CartaInfusiones from './CartaInfusiones';
+import json from '../../db.json'
 
 const InfusionesBody = () => {
 
-    const url = "https://newbackend2.herokuapp.com/",
+    const url = json,
         w = window;
 
     const [Infusiones, setInfusiones] = useState([]);
@@ -16,8 +17,8 @@ const InfusionesBody = () => {
 
     useEffect(() => {
         const obtenerDatos = async () => {
-            const datos = await axios.get(url),
-                res = await datos.data.carta,
+            const datos = await url, //axios.get(url),
+                res = await datos.carta,
                 { infusiones } = await res;
                 setInfusiones(infusiones);
         };

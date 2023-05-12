@@ -5,6 +5,7 @@ import MenuAdulto2 from "./MenuAdulto2";
 import MenuInfantil from "./MenuInfantil";
 import "./MenuBody.css";
 import { Spinner } from "react-bootstrap";
+import json from '../../db.json'
 
 const MenuBody = () => {
   const [Menu_Infantil, setMenu_Infantil] = useState();
@@ -15,7 +16,7 @@ const MenuBody = () => {
   const w = window;
   // const [switchs, setswitchs] = useState(false);
 
-  const url = "https://newbackend2.herokuapp.com/";
+  const url = json;
 
   w.addEventListener("scroll", e => {
     const scroll = w.pageYOffset
@@ -29,8 +30,8 @@ const MenuBody = () => {
 
   useEffect(() => {
     const obtenerDatos = async () => {
-      const datos = await axios.get(url),
-        res = await datos.data.menu_Del_Dia,
+      const datos = await url, //axios.get(url),
+        res = await datos.menu_Del_Dia,
         { menu_adulto } = await res,
         { menu_infantil } = await res,
         { menu_1, menu_2 } = await menu_adulto;

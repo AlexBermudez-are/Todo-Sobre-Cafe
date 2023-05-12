@@ -4,9 +4,10 @@ import BtnScrollUp from "../BtnScrollUp";
 import axios from "axios";
 import "./PostresBody.css";
 import { Spinner } from "react-bootstrap";
+import json from '../../db.json'
 
 const PostresBody = () => {
-  const url = "https://newbackend2.herokuapp.com/",
+  const url = json,
     w = window;
 
   const [Postres, setPostres] = useState([]);
@@ -16,8 +17,8 @@ const PostresBody = () => {
 
   useEffect(() => {
     const obtenerDatos = async () => {
-      const datos = await axios.get(url),
-        res = await datos.data.carta,
+      const datos = await url,//axios.get(url),
+        res = await datos.carta,
           { postres } = await res;
         setPostres(postres);
     };
